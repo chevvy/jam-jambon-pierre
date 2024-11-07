@@ -12,7 +12,7 @@ public enum InputAction
 }
 public partial class PlayerInput
 {
-  private static readonly Dictionary<PlayerID, string> PlayerTagById = new(){
+  public static Dictionary<PlayerID, string> PlayerTagByID = new(){
     {PlayerID.P1, "p1"},
     {PlayerID.P2, "p2"},
     {PlayerID.P3, "p3"},
@@ -35,18 +35,15 @@ public partial class PlayerInput
   public PlayerInput(PlayerID id)
   {
     _id = id;
-    var playerName = PlayerTagById[id];
+    var playerName = PlayerTagByID[id];
+    (InputAction action, string actionName) getInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
 
     _inputs = new();
     foreach (var inputWithName in InputByName.ToList())
     {
-      var (action, actionName) = GetInputInfo(inputWithName.Key);
+      var (action, actionName) = getInputInfo(inputWithName.Key);
       _inputs[action] = actionName;
     }
-
-    return;
-
-    (InputAction action, string actionName) GetInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
   }
 
   public string GetInputKey(InputAction action) => _inputs[action];

@@ -23,6 +23,10 @@ public partial class Character : CharacterBody2D
 		if (!_canCharacterMove || _playerInput == null) return;
 
 		Vector2 velocity = Velocity;
+		GD.Print(velocity);
+
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector(
 			_playerInput.GetInputKey(InputAction.MoveLeft),
 			_playerInput.GetInputKey(InputAction.MoveRight),
