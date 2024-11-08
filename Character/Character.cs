@@ -1,3 +1,4 @@
+using System.Collections;
 using Godot;
 
 
@@ -6,17 +7,18 @@ public partial class Character : CharacterBody2D
     [Export]
     public AnimationPlayer animator;
 
-    public const float Speed = 25.0f;
-    public const float Desceleration = 15f;
-
-    // Direction currently being moved towards
-    private InputAction? actionDirection = null;
+    [Export]
+    private float MoveSpeed = 75.0f;
+    [Export]
+    private float Desceleration = 30f;
+    [Export]
+    private float ChargeSpeed = 40f;
 
     // Direction of the currently selected action
     public Vector2 currentDirection = Vector2.Zero;
 
-    // Strength vector of the slingshot
-    private Vector2 chargeVector = Vector2.Zero;
+    // Multipler on the charged sling
+    private float chargeStrength = 1;
 
     public enum State
     {
@@ -45,35 +47,31 @@ public partial class Character : CharacterBody2D
             return;
         }
 
-        ChooseActiveInput();
-
-        if (actionDirection.HasValue)
+        // Charging your shot
+        if (HasActiveInput())
         {
-            if (Input.IsActionPressed(_playerInput.GetInputKey(actionDirection.Value)))
+            SelectActiveInput();
+            if (slingState == State.Moving)
             {
-                if (slingState == State.Moving)
-                {
-                    slingState = State.Charging;
-                    DisplayCharging();
-                }
-                else if (slingState == State.Charging)
-                {
-                    GainChargeStrength();
-                }
+                slingState = State.Charging;
+                DisplayCharging();
             }
-
-            if (Input.IsActionJustReleased(_playerInput.GetInputKey(actionDirection.Value)))
+            else if (slingState == State.Charging)
             {
-                if (slingState == State.Charging)
-                {
-                    slingState = State.Moving;
-                    StopCharging();
-                    ReleaseShot();
-                }
+                GainChargeStrength((float)delta);
             }
         }
+
+        // Shot has been released
         else
         {
+            if (slingState == State.Charging)
+            {
+                slingState = State.Moving;
+                StopCharging();
+                ReleaseShot();
+            }
+
             Vector2 velocity = Velocity;
             velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
             velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
@@ -81,48 +79,33 @@ public partial class Character : CharacterBody2D
         }
     }
 
-    private void ChooseActiveInput()
+    private void SelectActiveInput()
     {
-        if (!actionDirection.HasValue)
+        Vector2 inputVector = GetActiveInputVector();
+        if (inputVector != Vector2.Zero)
         {
-            if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.MoveDown)))
-            {
-                actionDirection = InputAction.MoveDown;
-            }
-            if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.MoveUp)))
-            {
-                actionDirection = InputAction.MoveUp;
-            }
-            if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.MoveLeft)))
-            {
-                actionDirection = InputAction.MoveLeft;
-            }
-            if (Input.IsActionJustPressed(_playerInput.GetInputKey(InputAction.MoveRight)))
-            {
-                actionDirection = InputAction.MoveRight;
-            }
+            currentDirection = inputVector;
         }
     }
 
-    private void GainChargeStrength()
+    private Vector2 GetActiveInputVector()
     {
-        if (actionDirection == InputAction.MoveDown)
-        {
-            currentDirection = Vector2.Down;
-        }
-        if (actionDirection == InputAction.MoveUp)
-        {
-            currentDirection = Vector2.Up;
-        }
-        if (actionDirection == InputAction.MoveLeft)
-        {
-            currentDirection = Vector2.Left;
-        }
-        if (actionDirection == InputAction.MoveRight)
-        {
-            currentDirection = Vector2.Right;
-        }
-        chargeVector += currentDirection * Speed;
+        return Input.GetVector(
+            _playerInput.GetInputKey(InputAction.MoveLeft),
+            _playerInput.GetInputKey(InputAction.MoveRight),
+            _playerInput.GetInputKey(InputAction.MoveUp),
+            _playerInput.GetInputKey(InputAction.MoveDown)
+        ).Normalized();
+    }
+
+    private bool HasActiveInput()
+    {
+        return GetActiveInputVector() != Vector2.Zero;
+    }
+
+    private void GainChargeStrength(float delta)
+    {
+        chargeStrength += delta * ChargeSpeed;
     }
 
     private void DisplayCharging()
@@ -137,9 +120,8 @@ public partial class Character : CharacterBody2D
 
     private void ReleaseShot()
     {
-        Velocity = chargeVector;
-        chargeVector = Vector2.Zero;
-        actionDirection = null;
+        Velocity = currentDirection * MoveSpeed * chargeStrength;
+        chargeStrength = 1;
     }
 
     public override void _PhysicsProcess(double delta)
