@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=6 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Player/PlayerManager.cs" id="2_fklmb"]
-[ext_resource type="PackedScene" uid="uid://bwsny8wxh0ku2" path="res://Character/Character.tscn" id="2_pfok1"]
+[ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_pfok1"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/Pellet.tscn" id="3_g4cok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
-size = Vector2(51.5, 323.813)
+size = Vector2(45.7507, 715.906)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1js0j"]
 radius = 52.1536
@@ -20,23 +20,24 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "GameScene
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
 
 [node name="Rectangle Wall" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(271, 3)
+position = Vector2(467.047, 0.124642)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_no3xi")
 debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall"]
-position = Vector2(-106, -221)
+position = Vector2(-80.3967, -469.423)
 rotation = -3.14159
-scale = Vector2(1.01143, 1.42424)
+scale = Vector2(0.764386, 3.01711)
 color = Color(0.145098, 1, 0.227451, 0.768627)
-polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -78.1073, -37.9149, -128.531, -37.9149)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
 [node name="Circle Wall" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
 position = Vector2(357, 216)
@@ -57,18 +58,73 @@ scale = Vector2(1.01143, 1.42424)
 color = Color(0.517647, 1, 0.0901961, 1)
 polygon = PackedVector2Array(-121.147, -132.277, -45.017, -128.064, 37.0452, -121.043, 38.0339, -39.5957, -130.045, -38.1915)
 
-[node name="Rectangle Wall2" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(281.094, -224)
-rotation = 1.5708
+[node name="Rectangle Wall3" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(381, -563)
 shape = SubResource("RectangleShape2D_no3xi")
 debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall2"]
-position = Vector2(-103, -17.9063)
-rotation = 3.14159
-scale = Vector2(1.01143, 1.42424)
-color = Color(0.658824, 1, 0.533333, 1)
-polygon = PackedVector2Array(-127.542, -127.085, -104.802, -127.085, -78.1073, -126.383, -77.1187, 101.106, -106.78, 101.106, -130.509, 101.808)
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall3"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall4" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(642, -611)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall4"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Circle Wall2" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-269, -677)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall2"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall3" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(22, -521)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall3"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall4" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-320, -477)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall4"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall5" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(33, -829)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall5"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="SpawnPointP1" type="Marker2D" parent="."]
 position = Vector2(-440, 4)
@@ -81,8 +137,6 @@ position = Vector2(134, 2)
 
 [node name="SpawnPointP4" type="Marker2D" parent="."]
 position = Vector2(347, -1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Pellet" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(58, 53)
