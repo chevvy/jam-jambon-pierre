@@ -14,13 +14,14 @@ zoom = Vector2(0.3, 0.3)
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1918.0
+offset_top = -1083.0
+offset_right = 1913.0
+offset_bottom = 1075.0
 
 [node name="Label" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = -573.0
-offset_top = -321.0
-offset_right = -390.0
-offset_bottom = -298.0
+layout_mode = 2
+offset_right = 138.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
 script = ExtResource("2_a5rqi")
