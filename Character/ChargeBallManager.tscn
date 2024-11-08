@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3eap5sgllmcn"]
+
+[ext_resource type="Script" path="res://Character/ChargeBall.cs" id="1_eebwc"]
+
+[sub_resource type="Gradient" id="Gradient_whqno"]
+offsets = PackedFloat32Array(0, 0.660714, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.654762, 0.654762, 0.654762, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4nrtn"]
+gradient = SubResource("Gradient_whqno")
+width = 100
+height = 100
+
+[node name="ChargeBall" type="Node2D"]
+script = ExtResource("1_eebwc")
+
+[node name="1" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="1"]
+visibility_layer = 1023
+texture = SubResource("GradientTexture2D_4nrtn")
+
+[node name="2" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="2"]
+
+[node name="3" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="3"]
+
+[node name="4" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="4"]
