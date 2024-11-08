@@ -4,7 +4,7 @@ using Godot;
 
 public enum PlayerID
 {
-  P1, P2, P3, P4, P5
+  P1 = 1, P2 = 2, P3 = 3, P4 = 4, P5 = 5
 }
 public enum InputAction
 {
@@ -30,11 +30,11 @@ public partial class PlayerInput
   };
   private Dictionary<InputAction, string> _inputs;
 
-  private readonly PlayerID _id;
+  public readonly PlayerID Id;
 
   public PlayerInput(PlayerID id)
   {
-    _id = id;
+    Id = id;
     var playerName = PlayerTagByID[id];
     (InputAction action, string actionName) getInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
 
