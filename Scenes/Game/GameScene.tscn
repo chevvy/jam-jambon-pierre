@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=6 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/Pellet.tscn" id="3_g4cok"]
-[ext_resource type="PackedScene" uid="uid://bf16gp7dg465j" path="res://UI/MainUI.tscn" id="4_3ey31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)

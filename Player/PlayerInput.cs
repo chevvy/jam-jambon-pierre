@@ -21,11 +21,11 @@ public partial class PlayerInput
   };
   
   public static Dictionary<string, PlayerID> IDbyPlayerTag = new(){
-    {"p1", PlayerID.P1 },
-    {"p2", PlayerID.P2},
-    {"p3", PlayerID.P3 },
-    {"p4", PlayerID.P4 },
-    {"p5", PlayerID.P5 }
+	{"p1", PlayerID.P1 },
+	{"p2", PlayerID.P2},
+	{"p3", PlayerID.P3 },
+	{"p4", PlayerID.P4 },
+	{"p5", PlayerID.P5 }
   };
 
   private static readonly Dictionary<InputAction, string> InputByName = new() {
@@ -42,9 +42,9 @@ public partial class PlayerInput
 
   public PlayerInput(PlayerID id)
   {
-    Id = id;
-    var playerName = PlayerTagByID[id];
-    (InputAction action, string actionName) getInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
+	Id = id;
+	var playerName = PlayerTagByID[id];
+	(InputAction action, string actionName) getInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
 
 	_inputs = new();
 	foreach (var inputWithName in InputByName.ToList())
