@@ -456,7 +456,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-3" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(64.5859, 71.134)
 rotation = -1.70945
-scale = Vector2(1, 1)
 rest = Transform2D(-0.138209, -0.990403, 0.990403, -0.138209, 64.5859, 71.134)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -540,7 +539,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-9" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(109.766, 115.935)
 rotation = 1.51565
-scale = Vector2(1, 1)
 rest = Transform2D(0.0551147, 0.99848, -0.99848, 0.0551147, 109.766, 115.935)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -568,7 +566,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-11" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(110.367, 194.83)
 rotation = 1.62589
-scale = Vector2(1, 1)
 rest = Transform2D(-0.055062, 0.998483, -0.998483, -0.055062, 110.367, 194.83)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -582,7 +579,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-12" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(148.835, 40.2112)
 rotation = 1.56212
-scale = Vector2(1, 1)
 rest = Transform2D(0.00867948, 0.999962, -0.999962, 0.00867948, 148.835, 40.2112)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -722,7 +718,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-22" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(67.3287, 239.155)
 rotation = -0.0400341
-scale = Vector2(1, 1)
 rest = Transform2D(0.999199, -0.0400233, 0.0400233, 0.999199, 67.3287, 239.155)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -833,7 +828,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-30" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(233.337, 38.9476)
 rotation = 1.28626
-scale = Vector2(1, 1)
 rest = Transform2D(0.280714, 0.959791, -0.959791, 0.280714, 233.337, 38.9476)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -847,7 +841,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-31" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(242.877, 71.5669)
 rotation = 3.10499
-scale = Vector2(1, 1)
 rest = Transform2D(-0.99933, 0.0365978, -0.0365978, -0.99933, 242.877, 71.5669)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -875,7 +868,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-33" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(229.018, 155.576)
 rotation = 2.40996
-scale = Vector2(1, 1)
 rest = Transform2D(-0.744086, 0.668084, -0.668084, -0.744086, 229.018, 155.576)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -889,7 +881,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-34" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(229.992, 195.893)
 rotation = 1.52555
-scale = Vector2(1, 1)
 rest = Transform2D(0.0452339, 0.998976, -0.998976, 0.0452339, 229.992, 195.893)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -917,7 +908,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-36" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(273.445, 155.367)
 rotation = 2.39104
-scale = Vector2(1, 1)
 rest = Transform2D(-0.731312, 0.682043, -0.682043, -0.731312, 273.445, 155.367)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -931,7 +921,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-37" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(275.186, 197.232)
 rotation = -1.61237
-scale = Vector2(1, 1)
 rest = Transform2D(-0.0415562, -0.999136, 0.999136, -0.0415562, 275.186, 197.232)
 auto_calculate_length_and_angle = false
 length = 45.0
@@ -945,7 +934,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-38" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(231.915, 238.369)
 rotation = 1.53676
-scale = Vector2(1, 1)
 rest = Transform2D(0.0340323, 0.999421, -0.999421, 0.0340323, 231.915, 238.369)
 auto_calculate_length_and_angle = false
 length = 45.0
