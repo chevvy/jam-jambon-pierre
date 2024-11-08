@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu32u5q4gabvp"]
+[gd_scene load_steps=3 format=3 uid="uid://bu32u5q4gabvp"]
 
 [ext_resource type="Script" path="res://Scenes/MainScene.cs" id="1_r044q"]
+[ext_resource type="Script" path="res://Scenes/MainScenePartyUi.cs" id="2_a5rqi"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r044q")
@@ -8,3 +9,17 @@ script = ExtResource("1_r044q")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="SceneAnchor" type="Node" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -573.0
+offset_top = -321.0
+offset_right = -390.0
+offset_bottom = -298.0
+script = ExtResource("2_a5rqi")
