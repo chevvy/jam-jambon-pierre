@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Dynamic;
 using Godot;
 
 public enum State
@@ -109,6 +106,7 @@ public partial class Character : CharacterBody2D
 
     private Vector2 GetActiveInputVector(PlayerChargeState player)
     {
+        
         return Input.GetVector(
             player.Input.GetInputKey(InputAction.MoveRight),
             player.Input.GetInputKey(InputAction.MoveLeft),
@@ -151,6 +149,9 @@ public partial class Character : CharacterBody2D
     {
         MoveAndSlide();
     }
+    
+    // TODO use the correct playerID
+    public PlayerID GetPlayerId() => PlayerID.P1;
 }
 
 public class PlayerChargeState

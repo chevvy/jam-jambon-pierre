@@ -4,7 +4,7 @@ using Godot;
 
 public enum PlayerID
 {
-  P1, P2, P3, P4, P5
+  P1 = 1, P2 = 2, P3 = 3, P4 = 4, P5 = 5
 }
 public enum InputAction
 {
@@ -19,6 +19,14 @@ public partial class PlayerInput
 	{PlayerID.P4, "p4"},
 	{PlayerID.P5, "p5"}
   };
+  
+  public static Dictionary<string, PlayerID> IDbyPlayerTag = new(){
+    {"p1", PlayerID.P1 },
+    {"p2", PlayerID.P2},
+    {"p3", PlayerID.P3 },
+    {"p4", PlayerID.P4 },
+    {"p5", PlayerID.P5 }
+  };
 
   private static readonly Dictionary<InputAction, string> InputByName = new() {
 	{ InputAction.MoveLeft, "_move_left" },
@@ -30,13 +38,13 @@ public partial class PlayerInput
   };
   private Dictionary<InputAction, string> _inputs;
 
-  private readonly PlayerID _id;
+  public readonly PlayerID Id;
 
   public PlayerInput(PlayerID id)
   {
-	_id = id;
-	var playerName = PlayerTagByID[id];
-	(InputAction action, string actionName) getInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
+    Id = id;
+    var playerName = PlayerTagByID[id];
+    (InputAction action, string actionName) getInputInfo(InputAction action) => (action, actionName: playerName + InputByName[action]);
 
 	_inputs = new();
 	foreach (var inputWithName in InputByName.ToList())
@@ -47,4 +55,5 @@ public partial class PlayerInput
   }
 
   public string GetInputKey(InputAction action) => _inputs[action];
+  public PlayerID GetPlayerID() => PlayerID.P1;
 }

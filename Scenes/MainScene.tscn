@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu32u5q4gabvp"]
+[gd_scene load_steps=3 format=3 uid="uid://bu32u5q4gabvp"]
 
 [ext_resource type="Script" path="res://Scenes/MainScene.cs" id="1_r044q"]
+[ext_resource type="Script" path="res://Scenes/MainScenePartyUi.cs" id="2_a5rqi"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r044q")
@@ -9,3 +10,18 @@ script = ExtResource("1_r044q")
 zoom = Vector2(0.2, 0.2)
 
 [node name="SceneAnchor" type="Node" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1918.0
+offset_top = -1083.0
+offset_right = 1913.0
+offset_bottom = 1075.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 2
+offset_right = 138.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+script = ExtResource("2_a5rqi")
