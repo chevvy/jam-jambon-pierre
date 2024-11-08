@@ -108,10 +108,10 @@ public partial class Character : CharacterBody2D
     private Vector2 GetActiveInputVector()
     {
         return Input.GetVector(
-            _players[0].Input.GetInputKey(InputAction.MoveLeft),
             _players[0].Input.GetInputKey(InputAction.MoveRight),
-            _players[0].Input.GetInputKey(InputAction.MoveUp),
-            _players[0].Input.GetInputKey(InputAction.MoveDown)
+            _players[0].Input.GetInputKey(InputAction.MoveLeft),
+            _players[0].Input.GetInputKey(InputAction.MoveDown),
+            _players[0].Input.GetInputKey(InputAction.MoveUp)
         ).Normalized();
     }
 
