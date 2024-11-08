@@ -23,6 +23,10 @@ public partial class Character : CharacterBody2D
     private float MaxCharge = 45f;
     [Export]
     private float ChargeInertiaRatio = 2f;
+    [Export]
+    private float SpeedGainPerPill = 10f;
+    [Export]
+    private float ChargeGainPerPill = 10f;
 
     [Export] ChargeBall chargeball;
 
@@ -152,7 +156,19 @@ public partial class Character : CharacterBody2D
     {
         MoveAndSlide();
     }
-    
+
+    public void HandlePelletAcquired(PelletType color)
+    {
+        if (color == PelletType.RED)
+        {
+            ChargeSpeed += ChargeGainPerPill;
+        }
+        else if (color == PelletType.BLUE)
+        {
+            MoveSpeed += SpeedGainPerPill;
+        }
+    }
+
     // TODO use the correct playerID
     public PlayerID GetPlayerId() => PlayerID.P1;
 }
