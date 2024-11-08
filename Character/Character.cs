@@ -24,6 +24,8 @@ public partial class Character : CharacterBody2D
     [Export]
     private float ChargeInertiaRatio = 2f;
 
+    [Export] ChargeBall chargeball;
+
     private List<PlayerChargeState> _players = new List<PlayerChargeState>();
 
     public void SetupPlayer(PlayerID id)
@@ -56,7 +58,6 @@ public partial class Character : CharacterBody2D
         if (_players.Count == 0)
         {
             SetupPlayer(new List<PlayerID> { PlayerID.P5 });
-            GD.PrintErr("No player input, default to computer");
             return;
         }
 
@@ -73,6 +74,7 @@ public partial class Character : CharacterBody2D
                 }
                 else if (player.SlingState == State.Charging)
                 {
+
                     GainChargeStrength(player, (float)delta);
                 }
             }
@@ -86,6 +88,11 @@ public partial class Character : CharacterBody2D
                     StopCharging(player);
                     ReleaseShot(player);
                 }
+
+                Vector2 velocity = Velocity;
+                velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
+                velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
+                Velocity = velocity;
             }
         }
     }
@@ -101,7 +108,7 @@ public partial class Character : CharacterBody2D
 
     private Vector2 GetActiveInputVector(PlayerChargeState player)
     {
-        
+
         return Input.GetVector(
             player.Input.GetInputKey(InputAction.MoveRight),
             player.Input.GetInputKey(InputAction.MoveLeft),
@@ -119,17 +126,18 @@ public partial class Character : CharacterBody2D
     {
         player.ChargeStrength += delta * ChargeSpeed;
         player.ChargeStrength = Math.Clamp(player.ChargeStrength, 1, MaxCharge);
+        chargeball.SetChargeDirection(player.CurrentDirection, Math.Clamp(player.ChargeStrength/MaxCharge,0,1),(int)player.Input.Id);
     }
 
     private void DisplayCharging(PlayerChargeState player)
     {
-        // TODO Send message to the "ball" for the correct player
         animator.Play("grow");
     }
 
     private void StopCharging(PlayerChargeState player)
     {
-        // TODO Send message to the "ball" for the correct player
+        
+        chargeball.ResetPosition((int)player.Input.Id);
         animator.Play("RESET");
     }
 
@@ -142,10 +150,6 @@ public partial class Character : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        Vector2 velocity = Velocity;
-        velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
-        velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
-        Velocity = velocity;
         MoveAndSlide();
     }
     
