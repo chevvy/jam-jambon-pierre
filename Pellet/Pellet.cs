@@ -42,8 +42,8 @@ public partial class Pellet : Node2D
 			character.HandlePelletAcquired(_pelletType);
 
 			EmitSignal(SignalName.PelletCollectedByCharacter, characterId, pelletId);
-			GameManager.Instance.PlayerGainsPoint(character.GetPlayerId());
-
+			
+			GameManager.Instance.OnGainedPoint(character.GetPlayerTeam().ToString(), pelletId);
 			QueueFree();
 		}
 	}

@@ -55,5 +55,5 @@ public partial class PlayerInput
   }
 
   public string GetInputKey(InputAction action) => _inputs[action];
-  public PlayerID GetPlayerID() => PlayerID.P1;
+  
 }
