@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Godot;
 
@@ -8,11 +9,13 @@ public partial class Character : CharacterBody2D
     public AnimationPlayer animator;
 
     [Export]
-    private float MoveSpeed = 75.0f;
+    private float MoveSpeed = 60.0f;
     [Export]
-    private float Desceleration = 30f;
+    private float Desceleration = 45f;
     [Export]
-    private float ChargeSpeed = 40f;
+    private float ChargeSpeed = 20f;
+    [Export]
+    private float MaxCharge = 20f;
 
     // Direction of the currently selected action
     public Vector2 currentDirection = Vector2.Zero;
@@ -105,7 +108,7 @@ public partial class Character : CharacterBody2D
 
     private void GainChargeStrength(float delta)
     {
-        chargeStrength += delta * ChargeSpeed;
+        chargeStrength += Math.Clamp(delta * ChargeSpeed, 1f, MaxCharge);
     }
 
     private void DisplayCharging()
