@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Signals="*res://Signals.cs"
 PartyManager="*res://PartyManager.cs"
+GameManager="*res://System/GameManager.cs"
 
 [dotnet]
 
