@@ -21,12 +21,12 @@ public partial class MainScene : Node
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Menu.SceneId);
 	}
 
-    public override void _Input(InputEvent @event)
-    {
+	public override void _Input(InputEvent @event)
+	{
 		if 		(Input.IsActionJustPressed("load_scene_0")) Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Menu.SceneId);
 		else if (Input.IsActionJustPressed("load_scene_1")) Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
 		else if (Input.IsActionJustPressed("load_scene_2")) Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Credit.SceneId);
-    }
+	}
 
 	public void LoadScene(int sceneId)
 	{
