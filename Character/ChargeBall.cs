@@ -32,21 +32,30 @@ public partial class ChargeBall : Node2D
 
         Vector2 inverseDirection = direction * -1;
 
+
         if(Id == 0){
             ball1.Position = inverseDirection  * chargeStrength * 100;
             ball1.Visible = true;
+                                GD.Print("NEVER HIT EVER OF ALL TIME");
+
         }
         else if(Id == 1){
             ball2.Position = inverseDirection  * chargeStrength * 100;
             ball2.Visible = true;
+                                GD.Print("NEVER HIT EVER OF ALL TIME");
+
             }
         else if(Id == 2){
             ball3.Position = inverseDirection * chargeStrength * 100;
-            ball3.Visible = true;      
+            ball3.Visible = true;    
+                    GD.Print("NEVER HIT EVER OF ALL TIME");
+  
             }
-        else if(Id == 3){
+        else if(Id == 3 || Id == 5){
+                                GD.Print("HIT AND NOW CHANGE AND SHOWED");
+
             ball4.Position = inverseDirection  * chargeStrength * 100;
-            ball4.Visible = true;     
+            ball4.Visible = true;       
             }
     }
     public override void _Process(double delta)
@@ -66,8 +75,8 @@ public partial class ChargeBall : Node2D
         else if(Id == 2){
             ball3.Visible = false;        
             }
-        else if(Id == 3){
-            ball4.Visible = false;        
+        else if(Id == 3 || Id == 5){
+            ball4.Visible = false;
             }
     }
 
@@ -82,7 +91,7 @@ public partial class ChargeBall : Node2D
         else if(Id == 2){
             ball3.Visible = setVisible;
         }
-        else if(Id == 3){
+        else if(Id == 3 || Id == 5){
             ball4.Visible = setVisible;
         }
     }

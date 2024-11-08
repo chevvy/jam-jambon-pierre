@@ -74,6 +74,7 @@ public partial class Character : CharacterBody2D
                 }
                 else if (player.SlingState == State.Charging)
                 {
+
                     GainChargeStrength(player, (float)delta);
                 }
             }
@@ -87,9 +88,6 @@ public partial class Character : CharacterBody2D
                     StopCharging(player);
                     ReleaseShot(player);
                 }
-                else{
-                    player.CurrentDirection = Vector2.Zero;
-                }
 
                 Vector2 velocity = Velocity;
                 velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
@@ -102,8 +100,10 @@ public partial class Character : CharacterBody2D
     private void SelectActiveInput(PlayerChargeState player)
     {
         Vector2 inputVector = GetActiveInputVector(player);
-        player.CurrentDirection = inputVector;
-
+        if (inputVector != Vector2.Zero)
+        {
+            player.CurrentDirection = inputVector;
+        }
     }
 
     private Vector2 GetActiveInputVector(PlayerChargeState player)
@@ -144,6 +144,7 @@ public partial class Character : CharacterBody2D
     {
         float adjustedChargeRatio = Math.Clamp(ChargeInertiaRatio * player.ChargeStrength / MaxCharge, 0, 1);
         Velocity = player.CurrentDirection * MoveSpeed * player.ChargeStrength * adjustedChargeRatio;
+        chargeball.ResetPosition((int)player.Input.Id);
         player.ChargeStrength = 1;
     }
 
