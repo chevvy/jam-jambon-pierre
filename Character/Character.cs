@@ -21,9 +21,11 @@ public partial class Character : CharacterBody2D
     [Export]
     private float Desceleration = 45f;
     [Export]
-    private float ChargeSpeed = 10f;
+    private float ChargeSpeed = 30f;
     [Export]
-    private float MaxCharge = 15f;
+    private float MaxCharge = 45f;
+    [Export]
+    private float ChargeInertiaRatio = 2f;
 
     private List<PlayerChargeState> _players = new List<PlayerChargeState>();
 
@@ -122,7 +124,8 @@ public partial class Character : CharacterBody2D
 
     private void GainChargeStrength(PlayerChargeState player, float delta)
     {
-        player.ChargeStrength += Math.Clamp(delta * ChargeSpeed, 1f, MaxCharge);
+        player.ChargeStrength += delta * ChargeSpeed;
+        player.ChargeStrength = Math.Clamp(player.ChargeStrength, 1, MaxCharge);
     }
 
     private void DisplayCharging(PlayerChargeState player)
@@ -139,7 +142,8 @@ public partial class Character : CharacterBody2D
 
     private void ReleaseShot(PlayerChargeState player)
     {
-        Velocity = player.CurrentDirection * MoveSpeed * player.ChargeStrength;
+        float adjustedChargeRatio = Math.Clamp(ChargeInertiaRatio * player.ChargeStrength / MaxCharge, 0, 1);
+        Velocity = player.CurrentDirection * MoveSpeed * player.ChargeStrength * adjustedChargeRatio;
         player.ChargeStrength = 1;
     }
 
