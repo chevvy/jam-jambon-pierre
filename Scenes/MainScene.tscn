@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu32u5q4gabvp"]
+
+[ext_resource type="Script" path="res://Scenes/MainScene.cs" id="1_r044q"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r044q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SceneAnchor" type="Node" parent="."]
