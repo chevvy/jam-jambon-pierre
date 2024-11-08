@@ -40,13 +40,17 @@ public partial class PlayerManager : Node2D
         {
             if (!Input.IsActionJustPressed(item.Key)) continue;
 
-            var character = Character.Instantiate() as Character;
-            character.GlobalTransform = item.Value == PlayerID.P5
-                ? PlayerSpawnPoint[(int)PlayerID.P1].GlobalTransform
-                : PlayerSpawnPoint[(int)item.Value].GlobalTransform;
+            var characterRoot = Character.Instantiate() as CharacterRoot;
+            if (characterRoot != null)
+            {
+                var character = characterRoot.Character;
+                characterRoot.GlobalTransform = item.Value == PlayerID.P5
+                    ? PlayerSpawnPoint[(int)PlayerID.P1].GlobalTransform
+                    : PlayerSpawnPoint[(int)item.Value].GlobalTransform;
 
-            character.SetupPlayer(item.Value);
-            AddChild(character);
+                character.SetupPlayer(item.Value);
+                AddChild(characterRoot);
+            }
         }
     }
 }

@@ -23,6 +23,10 @@ Signals="*res://Signals.cs"
 
 project/assembly_name="GameJamAuChalet2024"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
+
 [input]
 
 p1_move_left={
