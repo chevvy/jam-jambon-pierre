@@ -83,7 +83,7 @@ color = Color(0.145098, 1, 0.227451, 0.768627)
 polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
 [node name="Circle Wall2" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-269, -677)
+position = Vector2(-229, -647)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -94,7 +94,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall3" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(22, -521)
+position = Vector2(22, -510)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -116,7 +116,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall5" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(33, -829)
+position = Vector2(30, -753)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -125,6 +125,71 @@ position = Vector2(109, 128)
 scale = Vector2(1.02299, 2.02847)
 color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall6" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-191, -841)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall6"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Rectangle Wall2" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(105, 1418)
+rotation = -1.5708
+scale = Vector2(-1.06589, 7.42036)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall2"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall5" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(112, -1475)
+rotation = -1.5708
+scale = Vector2(1.6217, 7.44529)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall5"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall6" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-2539, -89)
+scale = Vector2(1, 4.44)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall6"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall7" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(2681, -197)
+scale = Vector2(1, 4.69782)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall7"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
 [node name="SpawnPointP1" type="Marker2D" parent="."]
 position = Vector2(-440, 4)
@@ -139,4 +204,29 @@ position = Vector2(134, 2)
 position = Vector2(347, -1)
 
 [node name="Pellet" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(58, 53)
+position = Vector2(-18, 144)
+
+[node name="Pellet2" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(513, -361)
+
+[node name="Pellet3" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-103, -688)
+
+[node name="Pellet4" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(651, -108)
+
+[node name="Pellet5" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(905, -146)
+
+[node name="Pellet6" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(505, -1061)
+
+[node name="Pellet7" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-30, -943)
+
+[node name="Pellet8" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-167, -337)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
