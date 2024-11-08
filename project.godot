@@ -21,6 +21,12 @@ Signals="*res://Signals.cs"
 PartyManager="*res://PartyManager.cs"
 GameManager="*res://System/GameManager.cs"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="GameJamAuChalet2024"
