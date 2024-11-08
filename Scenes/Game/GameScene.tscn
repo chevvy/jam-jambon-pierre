@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=5 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/Pellet.tscn" id="3_g4cok"]
+[ext_resource type="PackedScene" uid="uid://bf16gp7dg465j" path="res://UI/MainUI.tscn" id="4_3ey31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
@@ -128,3 +129,7 @@ position = Vector2(347, -1)
 
 [node name="Pellet" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(58, 53)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUI" parent="CanvasLayer" instance=ExtResource("4_3ey31")]

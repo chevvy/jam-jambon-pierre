@@ -22,6 +22,7 @@ public partial class Pellet : Node2D
 			var characterId = 1;
 			var pelletId = 1;
 			EmitSignal(SignalName.PelletCollectedByCharacter, characterId, pelletId);
+			GameManager.Instance.PlayerGainsPoint(character.GetPlayerId());
 
 			QueueFree();
 		}

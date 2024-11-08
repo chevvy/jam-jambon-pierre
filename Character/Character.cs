@@ -151,6 +151,9 @@ public partial class Character : CharacterBody2D
     {
         MoveAndSlide();
     }
+    
+    // TODO use the correct playerID
+    public PlayerID GetPlayerId() => PlayerID.P1;
 }
 
 public class PlayerChargeState
