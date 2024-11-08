@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://chee75rc3xkxq"]
+[gd_scene load_steps=72 format=3 uid="uid://bwsny8wxh0ku2"]
 
 [ext_resource type="Script" path="res://Character/CharacterRoot.cs" id="1_d0aun"]
 [ext_resource type="Script" path="res://Character/Character.cs" id="1_q02ar"]
@@ -548,7 +548,7 @@ script = ExtResource("1_d0aun")
 Character = NodePath("Character")
 
 [node name="Character" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animator")]
-collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_q02ar")
 animator = NodePath("../AnimationPlayer")
 
