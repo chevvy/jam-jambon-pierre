@@ -36,24 +36,19 @@ public partial class ChargeBall : Node2D
         if(Id == 0){
             ball1.Position = inverseDirection  * chargeStrength * 100;
             ball1.Visible = true;
-                                GD.Print("NEVER HIT EVER OF ALL TIME");
 
         }
         else if(Id == 1){
             ball2.Position = inverseDirection  * chargeStrength * 100;
             ball2.Visible = true;
-                                GD.Print("NEVER HIT EVER OF ALL TIME");
 
             }
         else if(Id == 2){
             ball3.Position = inverseDirection * chargeStrength * 100;
             ball3.Visible = true;    
-                    GD.Print("NEVER HIT EVER OF ALL TIME");
   
             }
         else if(Id == 3 || Id == 5){
-                                GD.Print("HIT AND NOW CHANGE AND SHOWED");
-
             ball4.Position = inverseDirection  * chargeStrength * 100;
             ball4.Visible = true;       
             }
