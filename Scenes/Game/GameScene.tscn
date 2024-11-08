@@ -396,18 +396,22 @@ position = Vector2(513, -361)
 
 [node name="Pellet3" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(-103, -688)
+_pelletType = 1
 
 [node name="Pellet4" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(651, -108)
 
 [node name="Pellet5" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(905, -146)
+_pelletType = 1
 
 [node name="Pellet6" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(505, -1061)
+_pelletType = 1
 
 [node name="Pellet7" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(-30, -943)
+_pelletType = 1
 
 [node name="Pellet8" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(-167, -337)
