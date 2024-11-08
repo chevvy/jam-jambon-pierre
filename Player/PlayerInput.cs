@@ -19,6 +19,14 @@ public partial class PlayerInput
     {PlayerID.P4, "p4"},
     {PlayerID.P5, "p5"}
   };
+  
+  public static Dictionary<string, PlayerID> IDbyPlayerTag = new(){
+    {"p1", PlayerID.P1 },
+    {"p2", PlayerID.P2},
+    {"p3", PlayerID.P3 },
+    {"p4", PlayerID.P4 },
+    {"p5", PlayerID.P5 }
+  };
 
   private static readonly Dictionary<InputAction, string> InputByName = new() {
     { InputAction.MoveLeft, "_move_left" },
@@ -47,4 +55,5 @@ public partial class PlayerInput
   }
 
   public string GetInputKey(InputAction action) => _inputs[action];
+  public PlayerID GetPlayerID() => PlayerID.P1;
 }

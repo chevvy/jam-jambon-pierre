@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=7 format=3 uid="uid://ddn6x08fr8cja"]
 
+[ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
+[ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/Pellet.tscn" id="3_g4cok"]
+[ext_resource type="PackedScene" uid="uid://bf16gp7dg465j" path="res://UI/MainUI.tscn" id="4_3ey31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
@@ -8,7 +11,10 @@ size = Vector2(45.7507, 715.906)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1js0j"]
 radius = 52.1536
 
-[node name="GameScene" type="Node2D"]
+[node name="GameScene" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
+script = ExtResource("1_5j8y5")
+Character = ExtResource("2_cx38r")
+PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2")]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -118,7 +124,7 @@ polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -
 position = Vector2(-440, 4)
 
 [node name="SpawnPointP2" type="Marker2D" parent="."]
-position = Vector2(-228, 2)
+position = Vector2(1184, 2)
 
 [node name="SpawnPointP3" type="Marker2D" parent="."]
 position = Vector2(134, 2)
@@ -128,3 +134,7 @@ position = Vector2(347, -1)
 
 [node name="Pellet" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(58, 53)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUI" parent="CanvasLayer" instance=ExtResource("4_3ey31")]
