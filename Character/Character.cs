@@ -121,6 +121,7 @@ public partial class Character : CharacterBody2D
     private void ReleaseShot()
     {
         Velocity = currentDirection * MoveSpeed * chargeStrength;
+        chargeStrength = 1;
     }
 
     public override void _PhysicsProcess(double delta)
