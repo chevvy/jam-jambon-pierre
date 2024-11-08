@@ -5,6 +5,11 @@ using System.Data.Common;
 using System.Dynamic;
 using Godot;
 
+public enum State
+{
+    Moving,
+    Charging
+}
 
 public partial class Character : CharacterBody2D
 {
@@ -19,14 +24,6 @@ public partial class Character : CharacterBody2D
     private float ChargeSpeed = 10f;
     [Export]
     private float MaxCharge = 15f;
-
-    public enum State
-    {
-        Charging,
-        Moving
-    }
-
-    private State slingState = State.Moving;
 
     private List<PlayerChargeState> _players = new List<PlayerChargeState>();
 
@@ -59,86 +56,91 @@ public partial class Character : CharacterBody2D
     {
         if (_players.Count == 0)
         {
-            SetupPlayer(PlayerID.P5);
+            SetupPlayer(new List<PlayerID> { PlayerID.P5 });
             GD.PrintErr("No player input, default to computer");
             return;
         }
 
-        // Charging your shot
-        if (HasActiveInput())
+        foreach (PlayerChargeState player in _players)
         {
-            SelectActiveInput();
-            if (slingState == State.Moving)
+            // Charging your shot
+            if (HasActiveInput(player))
             {
-                slingState = State.Charging;
-                DisplayCharging();
-            }
-            else if (slingState == State.Charging)
-            {
-                GainChargeStrength((float)delta);
-            }
-        }
-
-        // Shot has been released
-        else
-        {
-            if (slingState == State.Charging)
-            {
-                slingState = State.Moving;
-                StopCharging();
-                ReleaseShot();
+                SelectActiveInput(player);
+                if (player.SlingState == State.Moving)
+                {
+                    player.SlingState = State.Charging;
+                    DisplayCharging(player);
+                }
+                else if (player.SlingState == State.Charging)
+                {
+                    GainChargeStrength(player, (float)delta);
+                }
             }
 
-            Vector2 velocity = Velocity;
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
-            velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
-            Velocity = velocity;
+            // Shot has been released
+            else
+            {
+                if (player.SlingState == State.Charging)
+                {
+                    player.SlingState = State.Moving;
+                    StopCharging(player);
+                    ReleaseShot(player);
+                }
+
+                Vector2 velocity = Velocity;
+                velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
+                velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
+                Velocity = velocity;
+            }
         }
     }
 
-    private void SelectActiveInput()
+    private void SelectActiveInput(PlayerChargeState player)
     {
-        Vector2 inputVector = GetActiveInputVector();
+        Vector2 inputVector = GetActiveInputVector(player);
         if (inputVector != Vector2.Zero)
         {
-            _players[0].CurrentDirection = inputVector;
+            player.CurrentDirection = inputVector;
         }
     }
 
-    private Vector2 GetActiveInputVector()
+    private Vector2 GetActiveInputVector(PlayerChargeState player)
     {
         return Input.GetVector(
-            _players[0].Input.GetInputKey(InputAction.MoveRight),
-            _players[0].Input.GetInputKey(InputAction.MoveLeft),
-            _players[0].Input.GetInputKey(InputAction.MoveDown),
-            _players[0].Input.GetInputKey(InputAction.MoveUp)
+            player.Input.GetInputKey(InputAction.MoveRight),
+            player.Input.GetInputKey(InputAction.MoveLeft),
+            player.Input.GetInputKey(InputAction.MoveDown),
+            player.Input.GetInputKey(InputAction.MoveUp)
         ).Normalized();
     }
 
-    private bool HasActiveInput()
+    private bool HasActiveInput(PlayerChargeState player)
     {
-        return GetActiveInputVector() != Vector2.Zero;
+        return GetActiveInputVector(player) != Vector2.Zero;
     }
 
-    private void GainChargeStrength(float delta)
+    private void GainChargeStrength(PlayerChargeState player, float delta)
     {
-        _players[0].ChargeStrength += Math.Clamp(delta * ChargeSpeed, 1f, MaxCharge);
+        player.ChargeStrength += Math.Clamp(delta * ChargeSpeed, 1f, MaxCharge);
     }
 
-    private void DisplayCharging()
+    private void DisplayCharging(PlayerChargeState player)
     {
+        // TODO Send message to the "ball" for the correct player
         animator.Play("grow");
     }
 
-    private void StopCharging()
+    private void StopCharging(PlayerChargeState player)
     {
+        // TODO Send message to the "ball" for the correct player
         animator.Play("RESET");
     }
 
-    private void ReleaseShot()
+    private void ReleaseShot(PlayerChargeState player)
     {
-        Velocity = _players[0].CurrentDirection * MoveSpeed * _players[0].ChargeStrength;
-        _players[0].ChargeStrength = 1;
+        Velocity = player.CurrentDirection * MoveSpeed * player.ChargeStrength;
+        player.ChargeStrength = 1;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -154,6 +156,8 @@ public class PlayerChargeState
 
     // Multipler on the charged sling
     public float ChargeStrength { get; set; } = 1f;
+
+    public State SlingState { get; set; } = State.Moving;
 
     public readonly PlayerInput Input;
 
