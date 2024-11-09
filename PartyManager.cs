@@ -57,7 +57,7 @@ public partial class PartyManager: Node
 		};
 
 		GD.Print($"Player {playerId} joined with team {Party[partySlotId].TeamNumber}");
-		Signals.Instance.EmitSignal(Signals.SignalName.PlayerJoinedParty, partySlotId, (int)playerId);
+		Signals.Instance.EmitSignal(Signals.SignalName.PlayerJoinedParty, Party[partySlotId].TeamNumber, (int)playerId);
 	}
 
 	public static PartyManager Instance {get; private set;}
