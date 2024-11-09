@@ -9,6 +9,8 @@ public partial class GameScene : Node2D
 	[Export] public Marker2D[] PlayerSpawnPoint;
 
 	private SlimeTrailsManager SlimeTrailsManager;
+	
+	public static int MaxCharacterCount = 4;
 
 	public override void _Ready()
 	{
