@@ -258,14 +258,6 @@ public partial class Character : CharacterBody2D
 
 		PelletsEaten++;
 	}
-
-	// TODO use the correct playerID
-	public PlayerID GetPlayerId() => PlayerID.P1;
-	public int GetPlayerTeam()
-	{
-		var playerNumber = (int)_players[0].Input.Id;
-		return playerNumber >= 2 ? 1 : 2;
-	}
 }
 
 public class PlayerChargeState

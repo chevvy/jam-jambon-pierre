@@ -6,10 +6,12 @@ public partial class ScoreManager : Node
 	[Export] Label LabelTeam1;
 
 	[Export] Label LabelTeam2;
-	private int ScoreTeam1 = 0;
-	private int ScoreTeam2 = 0;
+    public int ScoreTeam1 = 0;
+    public int ScoreTeam2 = 0;
+    public int ScoreTeam3 = 0;
+    public int ScoreTeam4 = 0;
 
-	[Export] public int ScoreLimit = 10;
+    [Export] public int ScoreLimit = 10;
 
     public override void _Ready()
     {
