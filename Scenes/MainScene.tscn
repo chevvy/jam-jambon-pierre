@@ -4,10 +4,11 @@
 [ext_resource type="Script" path="res://Scenes/MainScenePartyUi.cs" id="2_a5rqi"]
 [ext_resource type="Script" path="res://System/ScoreManager.cs" id="2_jd5ek"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("SceneAnchorNode", "camera")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("SceneAnchorNode", "camera", "scoreManager")]
 script = ExtResource("1_r044q")
 SceneAnchorNode = NodePath("SceneAnchor")
 camera = NodePath("Camera2D")
+scoreManager = NodePath("CanvasLayer/ScoreManager")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

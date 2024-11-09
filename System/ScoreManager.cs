@@ -54,7 +54,7 @@ public partial class ScoreManager : Node
         }
     }
 
-    private void ResetScores()
+    public void ResetScores()
     {
         ScoreTeam1 = ScoreTeam2 = 0;
         UpdateLabels();
