@@ -16,10 +16,12 @@ scoreManager = NodePath("CanvasLayer/ScoreManager")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScoreManager" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("LabelTeam1", "LabelTeam2")]
+[node name="ScoreManager" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("LabelTeam1", "LabelTeam2", "LabelTeam3", "LabelTeam4")]
 script = ExtResource("2_jd5ek")
 LabelTeam1 = NodePath("../UI/VBoxContainer/ScoreContainer/Team1Points")
 LabelTeam2 = NodePath("../UI/VBoxContainer/ScoreContainer2/Team2Points")
+LabelTeam3 = NodePath("../UI/VBoxContainer/ScoreContainer3/Team3Points")
+LabelTeam4 = NodePath("../UI/VBoxContainer/ScoreContainer4/Team4Points")
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -53,6 +55,28 @@ layout_mode = 2
 text = "Team 2 : "
 
 [node name="Team2Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="ScoreContainer3" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Team3Score" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer3"]
+layout_mode = 2
+text = "Team 3 : "
+
+[node name="Team3Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer3"]
+layout_mode = 2
+text = "0"
+
+[node name="ScoreContainer4" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Team4Score" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer4"]
+layout_mode = 2
+text = "Team 4 : "
+
+[node name="Team4Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer4"]
 layout_mode = 2
 text = "0"
 
