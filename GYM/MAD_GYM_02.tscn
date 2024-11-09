@@ -51,7 +51,7 @@ properties = SubResource("Resource_fthqa")
 
 [sub_resource type="Resource" id="Resource_mljb0"]
 script = ExtResource("6_ya11m")
-texture_idx = 0
+texture_idx = 2
 flip = false
 width = 1.0
 
@@ -83,7 +83,7 @@ width = 1.0
 
 [sub_resource type="Resource" id="Resource_so7be"]
 script = ExtResource("7_wwdx0")
-position = Vector2(-2366.65, 835.16)
+position = Vector2(-2641.76, 1227)
 point_in = Vector2(960, 848)
 point_out = Vector2(-960, -848)
 properties = SubResource("Resource_14mmd")
@@ -96,7 +96,7 @@ width = 1.0
 
 [sub_resource type="Resource" id="Resource_2g3g6"]
 script = ExtResource("7_wwdx0")
-position = Vector2(-2366.65, 835.16)
+position = Vector2(-2641.76, 1227)
 point_in = Vector2(960, 848)
 point_out = Vector2(-960, -848)
 properties = SubResource("Resource_k5kd5")
