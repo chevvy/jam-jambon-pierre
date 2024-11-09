@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://Scenes/MainScenePartyUi.cs" id="2_a5rqi"]
 [ext_resource type="Script" path="res://System/ScoreManager.cs" id="2_jd5ek"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("SceneAnchorNode")]
 script = ExtResource("1_r044q")
+SceneAnchorNode = NodePath("SceneAnchor")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
