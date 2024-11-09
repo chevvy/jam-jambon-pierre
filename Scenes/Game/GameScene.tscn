@@ -42,6 +42,7 @@ point_count = 33
 [node name="GameScene" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("1_5j8y5")
 CharacterBlueprint = ExtResource("2_cx38r")
+CharacterBlueprint = ExtResource("2_cx38r")
 PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2")]
 
 [node name="Walls" type="Node" parent="."]
