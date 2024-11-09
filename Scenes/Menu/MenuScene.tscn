@@ -2,20 +2,30 @@
 
 [ext_resource type="Script" path="res://Scenes/Menu/MenuScene.cs" id="1_cochw"]
 
-[node name="MenuScene" type="Node2D" node_paths=PackedStringArray("playerControl", "playerContro2", "playerContro3", "playerContro4", "playerContro5")]
-script = ExtResource("1_cochw")
-playerControl = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB1")
-playerContro2 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB2")
-playerContro3 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB3")
-playerContro4 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB4")
-playerContro5 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB5")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MenuScene" type="Control" node_paths=PackedStringArray("playerControl1", "playerControl2", "playerControl3", "playerControl4", "playerControl5")]
+layout_direction = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1200.0
+offset_right = -1920.0
+offset_bottom = -1200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cochw")
+playerControl1 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB1")
+playerControl2 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB2")
+playerControl3 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB3")
+playerControl4 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB4")
+playerControl5 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 25
@@ -265,3 +275,5 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 8
 text = "PRESS A TO START"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="StartGame"]
