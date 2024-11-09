@@ -9,4 +9,16 @@ public partial class ResultScreen : Node2D
 	{
 		WinText.Text = "Équipe " + GameManager.Instance.WinningTeamId;
 	}
+
+	public override void _Process(double delta)
+	{
+		// Has any player pressed start
+		foreach (var playerId in PlayerInput.PlayerTagByID.Values)
+		{
+			if (Input.IsActionPressed($"{playerId}{PlayerInput.InputByName[InputAction.Start]}"))
+			{
+				Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
+			}
+		}
+	}
 }

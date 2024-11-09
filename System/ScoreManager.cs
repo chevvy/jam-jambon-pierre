@@ -9,7 +9,7 @@ public partial class ScoreManager : Node
     private int ScoreTeam1 = 0;
     private int ScoreTeam2 = 0;
 
-    [Export] public int ScoreLimit = 1;
+    [Export] public int ScoreLimit = 4;
 
     public override void _Ready()
     {

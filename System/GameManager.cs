@@ -4,7 +4,12 @@ using System;
 public partial class GameManager : Node
 {
 	public static GameManager Instance;
-	public int WinningTeamId;
+	public int WinningTeamId = 0;
+
+	public bool IsGameFinished()
+	{
+		return WinningTeamId != 0;
+	}
 
 	// playerid should be used with PlayerInput classes to convert it to enum
 	// Godot doesnt allow enum for signal props

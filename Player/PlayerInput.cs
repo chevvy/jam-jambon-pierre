@@ -28,7 +28,7 @@ public partial class PlayerInput
 	{"p5", PlayerID.P5 }
   };
 
-  private static readonly Dictionary<InputAction, string> InputByName = new() {
+  public static readonly Dictionary<InputAction, string> InputByName = new() {
 	{ InputAction.MoveLeft, "_move_left" },
 	{ InputAction.MoveRight, "_move_right" },
 	{ InputAction.MoveUp, "_move_up"},
