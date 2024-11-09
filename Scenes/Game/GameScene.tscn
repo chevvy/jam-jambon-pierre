@@ -1,13 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=29 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/PelletA.tscn" id="3_g4cok"]
 [ext_resource type="Texture2D" uid="uid://b7ju55p3tol42" path="res://Asset/Obstacle_Medium_01.png" id="4_m0oud"]
+[ext_resource type="Material" uid="uid://bh2pg1gdvuqkd" path="res://Shader/LineMaterial.tres" id="5_3c226"]
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kkjux"]
 [ext_resource type="Texture2D" uid="uid://ba25xyko7h3kg" path="res://Asset/Obstacle_Large_01.png" id="6_eq1un"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_m5y7r"]
 [ext_resource type="Script" path="res://Scenes/Game/RotateDeezNutz.cs" id="6_qxwgx"]
+[ext_resource type="Gradient" uid="uid://cnfhmbcu62hyq" path="res://Shader/Gradient.tres" id="6_sfl5a"]
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ruwda"]
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
@@ -242,6 +244,8 @@ position = Vector2(579, 610)
 
 [node name="SlimeTrailsManager" type="Node2D" parent="."]
 script = ExtResource("8_p12la")
+shaderMaterial = ExtResource("5_3c226")
+gradient = ExtResource("6_sfl5a")
 
 [node name="Node" type="Node" parent="."]
 

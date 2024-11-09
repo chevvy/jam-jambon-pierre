@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 public partial class SlimeTrailsManager : Node
 {
+	[Export]
+	public Material shaderMaterial;
+	[Export]
+	public Gradient gradient;
+
 	public List<Line2D> SlimeTrailsList { get; private set; }
 
 	public override void _Ready()
@@ -17,8 +22,11 @@ public partial class SlimeTrailsManager : Node
                 Width = 75f,
                 Name = $"SlimeTrail{i}"
             };
+			slimeTrail.Material = shaderMaterial;
+			slimeTrail.Gradient = gradient;
+			slimeTrail.Modulate = CharacterColor.CharColor[i];
 
-            SlimeTrailsList.Add(slimeTrail);
+			SlimeTrailsList.Add(slimeTrail);
 
 			AddChild(slimeTrail);
 		}
