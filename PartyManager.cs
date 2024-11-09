@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public struct PartyMember
 {
@@ -15,7 +16,7 @@ public partial class PartyManager: Node
 {
 	public int MaxPartySize = 5;
 	public int MaxPlayerIdCount = 5;
-	public PartyMember?[] Party;
+	private PartyMember?[] Party;
 
     public override void _EnterTree()
     {
@@ -41,6 +42,8 @@ public partial class PartyManager: Node
 	}
 
 	public int GetPartyCount() => Array.FindAll(Party, p => p != null).Length;
+
+	public PartyMember[] GetParty() => Array.FindAll(Party, p => p != null).Cast<PartyMember>().ToArray();
 
 	public void AddPlayerToParty(PlayerID playerId)
 	{

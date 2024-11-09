@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
-[ext_resource type="PackedScene" path="res://Pellet/PelletA.tscn" id="3_g4cok"]
+[ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/PelletA.tscn" id="3_g4cok"]
 [ext_resource type="Texture2D" uid="uid://b7ju55p3tol42" path="res://Asset/Obstacle_Medium_01.png" id="4_m0oud"]
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kkjux"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_m5y7r"]
@@ -41,7 +41,6 @@ point_count = 33
 
 [node name="GameScene" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("1_5j8y5")
-CharacterBlueprint = ExtResource("2_cx38r")
 CharacterBlueprint = ExtResource("2_cx38r")
 PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2")]
 

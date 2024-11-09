@@ -8,17 +8,24 @@ public partial class GameScene : Node2D
 	[Export] public PackedScene CharacterBlueprint;
 	[Export] public Marker2D[] PlayerSpawnPoint;
 
-	private SlimeTrailsManager SlimeTrails;
+	private SlimeTrailsManager SlimeTrailsManager;
 
 	public override void _Ready()
 	{
-		var party = PartyManager.Instance.Party;
-		var teams = party.Select((value, index) => new { value, index }).GroupBy(x => x.index / 2, x => x.value);
+		SlimeTrailsManager = GetNode<SlimeTrailsManager>("SlimeTrailsManager");
+
+		if (PartyManager.Instance.GetParty().Count() == 0)
+		{
+			SpawnDefaultCharacter();
+		}
+
+		var party = PartyManager.Instance.GetParty();
+		var teams = party.GroupBy(x => x.TeamNumber);
 
 		foreach (var team in teams)
 		{
 			var teamId = team.Key;
-			var members = team.Where(x => x != null).Cast<PartyMember>();
+			var members = team;
 
 			SpawnCharacter(teamId, members);
 		}
@@ -32,9 +39,14 @@ public partial class GameScene : Node2D
 
 		character.GlobalTransform = spawn.GlobalTransform;
 		character.SetupPlayer(members.Select(x => x.PlayerInput).ToList(), characterId);
-		character.CharacterPositionChanged += SlimeTrails.UpdateCharacterSlimeTrail;
+		character.CharacterPositionChanged += SlimeTrailsManager.UpdateCharacterSlimeTrail;
 		character.Name = $"Character{characterId}";
 
 		AddChild(characterRoot);
+	}
+
+	public void SpawnDefaultCharacter()
+	{
+		SpawnCharacter(1, new List<PartyMember>());
 	}
 }
