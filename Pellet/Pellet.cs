@@ -47,7 +47,7 @@ public partial class Pellet : Node2D
 
 			EmitSignal(SignalName.PelletCollectedByCharacter, characterId, pelletId);
 			
-			GameManager.Instance.OnGainedPoint(character.GetPlayerTeam().ToString(), pelletId);
+			GameManager.Instance.OnGainedPoint(character.characterId, pelletId);
 			MangeSfx.PlayAndDelete();
 			_spriteToHide.Hide();
 		}
