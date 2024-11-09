@@ -4,9 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://wdnv8wgu1s4r" path="res://Asset/Food_A.png" id="2_vt8hm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_057ja"]
+radius = 51.51
 
 [node name="Pellet" type="Node2D"]
 script = ExtResource("1_ido84")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vt8hm")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -14,8 +20,3 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_057ja")
 debug_color = Color(0.455227, 0.484883, 0.898078, 0.42)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
-position = Vector2(1, 4)
-scale = Vector2(0.113826, 0.113826)
-texture = ExtResource("2_vt8hm")

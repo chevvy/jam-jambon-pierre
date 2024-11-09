@@ -19,15 +19,16 @@ public partial class Pellet : Node2D
 	{
 		Area = GetNode<Area2D>("Area2D");
 		Area.BodyEntered += OnBodyEntered;
-
-		if (_pelletType == PelletType.RED)
-		{
-			Modulate = Colors.Red;
-		}
-		else if (_pelletType == PelletType.BLUE)
-		{
-			Modulate = Colors.Yellow;
-		}
+		
+		// TODO we now have assets, see what we do with this
+		// if (_pelletType == PelletType.RED)
+		// {
+		// 	Modulate = Colors.Red;
+		// }
+		// else if (_pelletType == PelletType.BLUE)
+		// {
+		// 	Modulate = Colors.Yellow;
+		// }
 	}
 
 	public void OnBodyEntered(Node body)
