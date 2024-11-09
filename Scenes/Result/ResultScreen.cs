@@ -15,9 +15,10 @@ public partial class ResultScreen : Node2D
 		// Has any player pressed start
 		foreach (var playerId in PlayerInput.PlayerTagByID.Values)
 		{
-			if (Input.IsActionPressed($"{playerId}{PlayerInput.InputByName[InputAction.Start]}"))
+			if (Input.IsActionJustPressed($"{playerId}{PlayerInput.InputByName[InputAction.Start]}"))
 			{
-				Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
+				// Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
+				Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Credit.SceneId);
 			}
 		}
 	}
