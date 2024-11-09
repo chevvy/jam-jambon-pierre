@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu32u5q4gabvp"]
+[gd_scene load_steps=9 format=3 uid="uid://bu32u5q4gabvp"]
 
 [ext_resource type="Script" path="res://Scenes/MainScene.cs" id="1_r044q"]
 [ext_resource type="Script" path="res://Scenes/MainScenePartyUi.cs" id="2_a5rqi"]
 [ext_resource type="Script" path="res://System/ScoreManager.cs" id="2_jd5ek"]
+[ext_resource type="LabelSettings" uid="uid://dep7ug4yj1r5v" path="res://ui-font.tres" id="3_1e7ss"]
 [ext_resource type="Script" path="res://Scenes/AudioManager.cs" id="4_1hxwn"]
 [ext_resource type="AudioStream" uid="uid://bxpfcvk0np8u3" path="res://SFX/puck_ui.wav" id="5_1u6om"]
 [ext_resource type="AudioStream" uid="uid://b6rdq71ambpd0" path="res://SFX/end.wav" id="6_0c3di"]
@@ -18,10 +19,10 @@ scoreManager = NodePath("CanvasLayer/ScoreManager")
 
 [node name="ScoreManager" type="Node" parent="CanvasLayer" node_paths=PackedStringArray("LabelTeam1", "LabelTeam2", "LabelTeam3", "LabelTeam4")]
 script = ExtResource("2_jd5ek")
-LabelTeam1 = NodePath("../UI/VBoxContainer/ScoreContainer/Team1Points")
-LabelTeam2 = NodePath("../UI/VBoxContainer/ScoreContainer2/Team2Points")
-LabelTeam3 = NodePath("../UI/VBoxContainer/ScoreContainer3/Team3Points")
-LabelTeam4 = NodePath("../UI/VBoxContainer/ScoreContainer4/Team4Points")
+LabelTeam1 = NodePath("../UI/MarginContainer/VBoxContainer/ScoreContainer/Team1Points")
+LabelTeam2 = NodePath("../UI/MarginContainer/VBoxContainer/ScoreContainer2/Team2Points")
+LabelTeam3 = NodePath("../UI/MarginContainer/VBoxContainer/ScoreContainer3/Team3Points")
+LabelTeam4 = NodePath("../UI/MarginContainer/VBoxContainer/ScoreContainer4/Team4Points")
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -31,62 +32,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 20
 
-[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer"]
 layout_mode = 2
 
-[node name="Team1Score" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer"]
-layout_mode = 2
-text = "Team 1 : "
-
-[node name="Team1Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer"]
-layout_mode = 2
-text = "0"
-
-[node name="ScoreContainer2" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Team2Score" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer2"]
+[node name="Team1Score" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer"]
 layout_mode = 2
-text = "Team 2 : "
+text = "Joueur 1 : "
+label_settings = ExtResource("3_1e7ss")
 
-[node name="Team2Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer2"]
+[node name="Team1Points" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer"]
 layout_mode = 2
 text = "0"
+label_settings = ExtResource("3_1e7ss")
 
-[node name="ScoreContainer3" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="ScoreContainer2" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Team3Score" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer3"]
+[node name="Team2Score" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer2"]
 layout_mode = 2
-text = "Team 3 : "
+text = "Joueur 2 : "
+label_settings = ExtResource("3_1e7ss")
 
-[node name="Team3Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer3"]
-layout_mode = 2
-text = "0"
-
-[node name="ScoreContainer4" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
-layout_mode = 2
-
-[node name="Team4Score" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer4"]
-layout_mode = 2
-text = "Team 4 : "
-
-[node name="Team4Points" type="Label" parent="CanvasLayer/UI/VBoxContainer/ScoreContainer4"]
+[node name="Team2Points" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer2"]
 layout_mode = 2
 text = "0"
+label_settings = ExtResource("3_1e7ss")
 
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="ScoreContainer3" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="PlayerSelectContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="Team2Score" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer3"]
+layout_mode = 2
+text = "Joueur 3 : "
+label_settings = ExtResource("3_1e7ss")
+
+[node name="Team3Points" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer3"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_1e7ss")
+
+[node name="ScoreContainer4" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="PlayerSelect" type="Label" parent="CanvasLayer/UI/VBoxContainer/PlayerSelectContainer"]
+[node name="Team2Score" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer4"]
+layout_mode = 2
+text = "Joueur 4 : "
+label_settings = ExtResource("3_1e7ss")
+
+[node name="Team4Points" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/ScoreContainer4"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_1e7ss")
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerSelectContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerSelect" type="Label" parent="CanvasLayer/UI/MarginContainer/VBoxContainer/PlayerSelectContainer"]
 layout_mode = 2
 script = ExtResource("2_a5rqi")
 
