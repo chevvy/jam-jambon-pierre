@@ -23,27 +23,40 @@ public partial class ScoreManager : Node
         if (playerId <= 1)
         {
             ScoreTeam1 += 1;
-            LabelTeam1.Text = ScoreTeam1.ToString();
         }
         else
         {
             ScoreTeam2 += 1;
-            LabelTeam2.Text = ScoreTeam2.ToString();
         }
 
+        UpdateLabels();
         OnScoreUpdate();
+    }
+
+    private void UpdateLabels()
+    {
+        LabelTeam1.Text = ScoreTeam1.ToString();
+        LabelTeam2.Text = ScoreTeam2.ToString();
     }
 
     private void OnScoreUpdate()
     {
         if (ScoreTeam2 >= ScoreLimit)
         {
+            ResetScores();
             GameManager.Instance.OnGameEnded(2);
         }
 
         if (ScoreTeam1 >= ScoreLimit)
         {
+            ResetScores();
             GameManager.Instance.OnGameEnded(1);
         }
+    }
+
+    private void ResetScores()
+    {
+        ScoreTeam1 = ScoreTeam2 = 0;
+        UpdateLabels();
     }
 }
