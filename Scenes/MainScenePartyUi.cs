@@ -14,10 +14,7 @@ public partial class MainScenePartyUi : Label
 
 	public void OnPlayerJoinedParty(int partySlot, int playerId)
 	{
-		GD.Print($"heheheheh");
-
 		PartyEntries[partySlot] = $"Player {playerId} ({partySlot})";
-
 		Redraw();
 	}
 

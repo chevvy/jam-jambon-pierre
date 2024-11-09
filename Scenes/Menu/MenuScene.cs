@@ -23,9 +23,6 @@ public partial class MenuScene : Control
 
 	private Dictionary<int, int> playerIdToTeam = new Dictionary<int, int>();
 
-	private const int teamId1 = 1;
-	private const int teamId2 = 2;
-
 	public override void _Ready()
 	{
 		controls = new List<Control>{
@@ -55,11 +52,11 @@ public partial class MenuScene : Control
 		{
 			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveLeft]}"))
 			{
-				SelectTeam((int)player.Key, teamId1);
+				SelectTeam((int)player.Key, (int)player.Key);
 			}
 			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveRight]}"))
 			{
-				SelectTeam((int)player.Key, teamId2);
+				SelectTeam((int)player.Key, (int)player.Key);
 			}
 
 			// Jump means start :)
@@ -80,8 +77,16 @@ public partial class MenuScene : Control
 		int idInArray = playerId - 1;
 		controls[idInArray].Visible = true;
 
-		// Default team is 1
-		SelectTeam(playerId, 1);
+		if (playerId <= GameScene.MaxCharacterCount)
+		{
+			// Default team is 1
+			SelectTeam(playerId, playerId);
+		}
+		else
+		{
+			GD.Print("Keyboard defaulting to team 2");
+			SelectTeam(playerId, 2);
+		}
 	}
 
 	public void SelectTeam(int playerId, int teamId)
