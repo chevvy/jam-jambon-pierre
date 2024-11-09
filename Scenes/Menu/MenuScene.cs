@@ -54,15 +54,16 @@ public partial class MenuScene : Control
 			{
 				SelectTeam((int)player.Key, (int)player.Key);
 			}
-			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveRight]}"))
+			if (Input.IsActionJustPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveRight]}"))
 			{
 				SelectTeam((int)player.Key, (int)player.Key);
 			}
 
 			// Jump means start :)
-			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.Jump]}"))
+			if (Input.IsActionJustPressed($"{player.Value}{PlayerInput.InputByName[InputAction.Jump]}"))
 			{
 				StartGame();
+				AudioManager.Instance.PlayStart();
 			}
 		}
 	}
