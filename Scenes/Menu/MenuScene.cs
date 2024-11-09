@@ -41,7 +41,6 @@ public partial class MenuScene : Control
 		foreach (var player in PlayerInput.PlayerTagByID)
 		{
 			PlayerEntered((int)player.Key);
-			PartyManager.Instance.AddPlayerToParty(player.Key);
 		}
 	}
 
@@ -109,7 +108,6 @@ public partial class MenuScene : Control
 			int playerId = (int)each.PlayerId;
 			int teamId = playerIdToTeam[playerId];
 			each.TeamNumber = teamId;
-			GD.Print(each.TeamNumber);
 		}
 
 

@@ -35,7 +35,7 @@ public partial class Character : CharacterBody2D
 
 	private List<PlayerChargeState> _players = new List<PlayerChargeState>();
 
-	[Export] public int characterId;
+	[Export] public int characterId = -1;
 	[Export] public AudioStreamPlayer BuildUpSfx;
 	[Export] public AudioStreamPlayer ReleaseBuildUpSfx;
 

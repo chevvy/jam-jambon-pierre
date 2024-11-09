@@ -25,12 +25,11 @@ public partial class PartyManager: Node
 
     public override void _Input(InputEvent @event)
 	{
-		if (Party.Length >= MaxPartySize) return;
-
 		for (int pid = 1; pid <= MaxPlayerIdCount; pid++)
 		{
 			if (@event.IsActionReleased($"p{pid}_start")) 
 			{
+				GD.Print($"Starting for player {pid}");
 				AddPlayerToParty((PlayerID)pid);
 			}
 		}
@@ -49,20 +48,16 @@ public partial class PartyManager: Node
 	{
 		if (Array.Exists(Party, p => p != null && p?.PlayerId == playerId)) return;
 
-		var partySlotIndex = Array.FindIndex(Party, p => p == null);
-
-		if (partySlotIndex < 0) return;
-
-		Party[partySlotIndex] = new PartyMember {
+		int partySlotId = (int)playerId - 1;
+		Party[partySlotId] = new PartyMember
+		{
 			PlayerInput = new PlayerInput(playerId),
 			PlayerId = playerId,
-			PartySlot = partySlotIndex,
-			TeamNumber = PartyMember.UndecidedTeamNumber
+			TeamNumber = (int)playerId == 5 ? 2 : (int)playerId
 		};
 
-		Signals.Instance.EmitSignal(Signals.SignalName.PlayerJoinedParty, partySlotIndex, (int)playerId);
-
-		GD.Print($"Player {playerId} joined at party slot {partySlotIndex}");
+		GD.Print($"Player {playerId} joined with team {Party[partySlotId].TeamNumber}");
+		Signals.Instance.EmitSignal(Signals.SignalName.PlayerJoinedParty, partySlotId, (int)playerId);
 	}
 
 	public static PartyManager Instance {get; private set;}
