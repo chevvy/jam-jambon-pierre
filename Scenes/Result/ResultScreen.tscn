@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://clmfurchgiw7t"]
+
+[ext_resource type="Script" path="res://Scenes/Result/ResultScreen.cs" id="1_2g51i"]
+
+[sub_resource type="Gradient" id="Gradient_0spwn"]
+colors = PackedColorArray(0.655429, 0.230725, 0.356227, 1, 0.760784, 0.180392, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y7cut"]
+gradient = SubResource("Gradient_0spwn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_430a5"]
+font_size = 32
+outline_size = 1
+shadow_size = 6
+
+[node name="ResultScreen" type="Node2D" node_paths=PackedStringArray("WinText")]
+script = ExtResource("1_2g51i")
+WinText = NodePath("CanvasLayer/Control/BoxContainer/Wins")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_y7cut")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -11.5
+offset_right = 87.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wins" type="Label" parent="CanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+text = "Équipe 0
+"
+label_settings = SubResource("LabelSettings_430a5")
+
+[node name="Wins2" type="Label" parent="CanvasLayer/Control/BoxContainer"]
+layout_mode = 2
+text = " est gagnante!"
+label_settings = SubResource("LabelSettings_430a5")

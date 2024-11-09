@@ -22,6 +22,8 @@ public partial class Signals : Node
 {
 	[Signal] public delegate void SceneRequestedEventHandler(int sceneId);
 
+	[Signal] public delegate void PlayerJoinedPartyEventHandler(int partySlot, int playerId);
+
 	public static Signals Instance { get; private set; }
 	public override void _EnterTree() => Instance = this;
 }
