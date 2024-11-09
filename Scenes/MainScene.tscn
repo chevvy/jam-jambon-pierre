@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://System/ScoreManager.cs" id="2_jd5ek"]
 [ext_resource type="Script" path="res://Scenes/AudioManager.cs" id="4_1hxwn"]
 [ext_resource type="AudioStream" uid="uid://bxpfcvk0np8u3" path="res://SFX/puck_ui.wav" id="5_1u6om"]
-[ext_resource type="AudioStream" uid="uid://cgvdtxk81uram" path="res://SFX/start.wav" id="5_b71cw"]
 [ext_resource type="AudioStream" uid="uid://b6rdq71ambpd0" path="res://SFX/end.wav" id="6_0c3di"]
+[ext_resource type="AudioStream" uid="uid://baarca1ohjwfs" path="res://SFX/yop.wav" id="6_pgj2n"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("SceneAnchorNode", "camera", "scoreManager")]
 script = ExtResource("1_r044q")
@@ -80,7 +80,7 @@ _end = NodePath("End")
 stream = ExtResource("5_1u6om")
 
 [node name="Start" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource("5_b71cw")
+stream = ExtResource("6_pgj2n")
 
 [node name="End" type="AudioStreamPlayer" parent="AudioManager"]
 stream = ExtResource("6_0c3di")
