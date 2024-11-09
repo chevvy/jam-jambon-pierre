@@ -1,24 +1,27 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-public partial class MenuScene : Node2D
+public partial class MenuScene : Control
 {
 
 	// I apologize for this janky code
 
 	[Export]
-	private Control playerControl;
+	private Control playerControl1;
 	[Export]
-	private Control playerContro2;
+	private Control playerControl2;
 	[Export]
-	private Control playerContro3;
+	private Control playerControl3;
 	[Export]
-	private Control playerContro4;
+	private Control playerControl4;
 	[Export]
-	private Control playerContro5;
+	private Control playerControl5;
 
 	private List<Control> controls;
+
+	private Dictionary<int, int> playerIdToTeam = new Dictionary<int, int>();
 
 	private const int teamId1 = 1;
 	private const int teamId2 = 2;
@@ -26,19 +29,22 @@ public partial class MenuScene : Node2D
 	public override void _Ready()
 	{
 		controls = new List<Control>{
-			playerControl,
-			playerContro2,
-			playerContro3,
-			playerContro4,
-			playerContro5,
+			playerControl1,
+			playerControl2,
+			playerControl3,
+			playerControl4,
+			playerControl5,
 		};
 
 		foreach (Control each in controls)
 		{
-			each.Visible = false;
+			each.Visible = true;
 		}
 
-		PlayerEntered(5);
+		foreach (var player in PlayerInput.PlayerTagByID)
+		{
+			PlayerEntered((int)player.Key);
+		}
 	}
 
 	public override void _Process(double delta)
@@ -46,13 +52,6 @@ public partial class MenuScene : Node2D
 		// Has any player pressed start
 		foreach (var player in PlayerInput.PlayerTagByID)
 		{
-			// TODO Remove
-			if ((int)player.Key != 5)
-			{
-				continue;
-			}
-
-
 			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveLeft]}"))
 			{
 				SelectTeam((int)player.Key, teamId1);
@@ -61,7 +60,18 @@ public partial class MenuScene : Node2D
 			{
 				SelectTeam((int)player.Key, teamId2);
 			}
+
+			// Jump means start :)
+			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.Jump]}"))
+			{
+				StartGame();
+			}
 		}
+	}
+
+	public List<int> GetPlayersWithTeam(int teamId)
+	{
+		return playerIdToTeam.Where(each => each.Value == teamId).Select(each => each.Key).ToList();
 	}
 
 	public void PlayerEntered(int playerId)
@@ -77,7 +87,16 @@ public partial class MenuScene : Node2D
 	{
 		int idInArray = playerId - 1;
 
+		playerIdToTeam.Remove(playerId);
+		playerIdToTeam.Add(playerId, teamId);
+
 		controls[idInArray].GetNode<Label>("1/Label").Visible = teamId == 1;
 		controls[idInArray].GetNode<Label>("2/Label").Visible = teamId == 2;
+	}
+
+	private void StartGame()
+	{
+		GD.Print("Game start requested");
+		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
 	}
 }
