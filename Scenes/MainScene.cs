@@ -39,6 +39,6 @@ public partial class MainScene : Node
 	
 	public void OnSceneRequested(int sceneId)
 	{
-		LoadScene(sceneId);
+		CallDeferred("LoadScene", sceneId);
 	}
 }
