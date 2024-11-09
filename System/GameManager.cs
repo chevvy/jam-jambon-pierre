@@ -7,29 +7,19 @@ public partial class GameManager : Node
 
 	// playerid should be used with PlayerInput classes to convert it to enum
 	// Godot doesnt allow enum for signal props
-	[Signal] public delegate void OnPlayerGainedPointEventHandler(string playerId);
-	public override void _EnterTree()
-	{
-		GD.Print("GameManager entering tree");
-		base._EnterTree();
-		if (Instance != null)
-			QueueFree();
-		else
-			Instance = this;
-	}
+	[Signal]
+	public delegate void PlayerGainedPelletEventHandler(string id, int qty);
 
 	public override void _Ready()
 	{
-		OnPlayerGainedPoint += OnGainedPoint;
+		Instance = this;
+		PlayerGainedPellet += (id,qty) => GD.Print("biscuits du capitaine" + id + qty);
+		EmitSignal(SignalName.PlayerGainedPellet, "p1", 1);
 	}
 
-	private void OnGainedPoint(string id)
+	public void OnGainedPoint(string id, int qty)
 	{
-		GD.Print("player gained point : " + id);
-	}
-
-	public void PlayerGainsPoint(PlayerID id)
-	{	
-		EmitSignal(SignalName.OnPlayerGainedPoint, PlayerInput.PlayerTagByID[id]);
+		EmitSignal(SignalName.PlayerGainedPellet, id, qty);
+		GD.Print("player gained point : ");
 	}
 }
