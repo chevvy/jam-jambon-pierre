@@ -175,6 +175,7 @@ curve = SubResource("Curve2D_gnyqy")
 [node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D"]
 position = Vector2(-1557, 453)
 rotation = 0.541919
+rotates = false
 script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D/PathFollow2D"]
@@ -217,6 +218,7 @@ curve = SubResource("Curve2D_oj6u2")
 [node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D3"]
 position = Vector2(1583, 1154)
 rotation = -3.13729
+rotates = false
 script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D3/PathFollow2D"]
@@ -239,6 +241,7 @@ curve = SubResource("Curve2D_5at2o")
 [node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D4"]
 position = Vector2(724, -253)
 rotation = -3.04004
+rotates = false
 script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D4/PathFollow2D"]
