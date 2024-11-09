@@ -39,6 +39,12 @@ public partial class Character : CharacterBody2D
 	[Export] public AudioStreamPlayer BuildUpSfx;
 	[Export] public AudioStreamPlayer ReleaseBuildUpSfx;
 
+	[Export] public float BounceDamping = 0.30f;
+
+	[Export] public float MinimumBounceSpeed = 100.0f;
+
+
+
     public override void _Ready()
     {
         EmitPositionTimer = GetNode<Timer>("EmitPositionTimer");
@@ -117,6 +123,7 @@ public partial class Character : CharacterBody2D
 				
 			}
 		}
+	
 	}
 
 	private void SelectActiveInput(PlayerChargeState player)
@@ -183,7 +190,23 @@ public partial class Character : CharacterBody2D
 		velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
 		Velocity = velocity;
 		
-		MoveAndSlide();
+	
+
+		var collision = MoveAndCollide(Velocity * (float)delta);
+
+        if (collision != null)
+        {
+            Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDamping;
+
+
+			GD.Print("This is the speed before minimum" + Velocity);
+            if (Velocity.Length() < MinimumBounceSpeed)
+            {
+                Velocity = Velocity.Normalized() * MinimumBounceSpeed;
+				GD.Print("This is the after speed before minimum" + Velocity);
+
+            }
+        }
 	}
 
 	public void HandlePelletAcquired(PelletType color)
