@@ -17,6 +17,7 @@ public partial class GameScene : Node2D
 		if (PartyManager.Instance.GetParty().Count() == 0)
 		{
 			SpawnDefaultCharacter();
+			return;
 		}
 
 		var party = PartyManager.Instance.GetParty();
@@ -37,7 +38,7 @@ public partial class GameScene : Node2D
 		var character = characterRoot.Character;
 		var spawn = PlayerSpawnPoint[new Random().Next(0, PlayerSpawnPoint.Length)];
 
-		character.GlobalTransform = spawn.GlobalTransform;
+		characterRoot.GlobalTransform = spawn.GlobalTransform;
 		character.SetupPlayer(members.Select(x => x.PlayerInput).ToList(), characterId);
 		character.CharacterPositionChanged += SlimeTrailsManager.UpdateCharacterSlimeTrail;
 		character.Name = $"Character{characterId}";
