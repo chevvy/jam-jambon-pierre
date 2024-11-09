@@ -430,10 +430,10 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Pellet3" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
-position = Vector2(-1032, -152)
+position = Vector2(-1064, -53)
 
 [node name="Pellet7" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
-position = Vector2(-959, -407)
+position = Vector2(-888, -352)
 
 [node name="Pellet8" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
 position = Vector2(-1096, 199)
@@ -550,13 +550,13 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Pellet4" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
-position = Vector2(-1190, -937)
+position = Vector2(-1069, -930)
 
 [node name="Pellet9" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
-position = Vector2(-1117, -1192)
+position = Vector2(-1058, -1136)
 
 [node name="Pellet10" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
-position = Vector2(-1254, -586)
+position = Vector2(-1248, -656)
 
 [node name="ObstacleMedium" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
 position = Vector2(-2192, 1)
@@ -607,11 +607,11 @@ position = Vector2(134, 2)
 position = Vector2(347, -1)
 
 [node name="PelletA" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(-1215, -332)
+position = Vector2(-1792, -440)
 scale = Vector2(1.47475, 1.47475)
 
 [node name="PelletB" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(-1058, -565)
+position = Vector2(-744, -1224)
 scale = Vector2(1.47665, 1.47665)
 
 [node name="Pellet3" parent="." instance=ExtResource("3_g4cok")]
