@@ -5,47 +5,49 @@ using System.Linq;
 
 public partial class GameScene : Node2D
 {
-	[Export] public PackedScene Character;
+	[Export] public PackedScene CharacterBlueprint;
 	[Export] public Marker2D[] PlayerSpawnPoint;
 
-	private SlimeTrails SlimeTrails;
+	private SlimeTrailsManager SlimeTrailsManager;
 
 	public override void _Ready()
 	{
-		SpawnCharacters();
+		SlimeTrailsManager = GetNode<SlimeTrailsManager>("SlimeTrailsManager");
 
-		SlimeTrails = GetNode<SlimeTrails>("SlimeTrails");
-		var characters = GetChildren().OfType<CharacterRoot>().Select(x => x.Character);
-		characters.ToList().ForEach(character => character.CharacterPositionChanged += SlimeTrails.UpdateCharacterSlimeTrail);
-	}
-
-	public void SpawnCharacters()
-	{
-		if (Character.Instantiate() is CharacterRoot characterRootTeam1)
+		if (PartyManager.Instance.GetParty().Count() == 0)
 		{
-			var character = characterRootTeam1.Character;
-			character.Name = "Character1";
-			// setup creature 1
-			characterRootTeam1.GlobalTransform = PlayerSpawnPoint[0].GlobalTransform;
-			var creature1List = new ArraySegment<PlayerInput>(PartyManager.Instance.Party, 0, 2).Where(x => x != null);
-			character.SetupPlayer(creature1List.ToList());
-			AddChild(characterRootTeam1);
-		}
-
-		// if we dont have a second player
-		if (PartyManager.Instance.Party[2] == null)
-		{
+			SpawnDefaultCharacter();
 			return;
 		}
-		if (Character.Instantiate() is CharacterRoot characterRootTeam2)
+
+		var party = PartyManager.Instance.GetParty();
+		var teams = party.GroupBy(x => x.TeamNumber);
+
+		foreach (var team in teams)
 		{
-			var character = characterRootTeam2.Character;
-			character.Name = "Character2";
-			// setup creature 2
-			characterRootTeam2.GlobalTransform = PlayerSpawnPoint[1].GlobalTransform;
-			var creature2List = new ArraySegment<PlayerInput>(PartyManager.Instance.Party, 2, 2).Where(x => x != null);
-			character.SetupPlayer(creature2List.ToList());
-			AddChild(characterRootTeam2);
+			var teamId = team.Key;
+			var members = team;
+
+			SpawnCharacter(teamId, members);
 		}
+	}
+
+	public void SpawnCharacter(int characterId, IEnumerable<PartyMember> members)
+	{
+		var characterRoot = CharacterBlueprint.Instantiate<CharacterRoot>();
+		var character = characterRoot.Character;
+		var spawn = PlayerSpawnPoint[new Random().Next(0, PlayerSpawnPoint.Length)];
+
+		characterRoot.GlobalTransform = spawn.GlobalTransform;
+		character.SetupPlayer(members.Select(x => x.PlayerInput).ToList(), characterId);
+		character.CharacterPositionChanged += SlimeTrailsManager.UpdateCharacterSlimeTrail;
+		character.Name = $"Character{characterId}";
+
+		AddChild(characterRoot);
+	}
+
+	public void SpawnDefaultCharacter()
+	{
+		SpawnCharacter(1, new List<PartyMember>());
 	}
 }
