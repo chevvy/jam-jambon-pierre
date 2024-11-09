@@ -182,8 +182,29 @@ public partial class Character : CharacterBody2D
 		velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
 		velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
 		Velocity = velocity;
-		
-		MoveAndSlide();
+
+		HandleCollisions(MoveAndCollide(Velocity * (float)delta));
+	}
+
+	// Must be called after move&slide
+	public void HandleCollisions(KinematicCollision2D collision)
+	{
+		if (collision == null) return;
+
+		var other = collision.GetCollider();
+
+		if 		(other is Character) HandleCollision((Character)other, collision);
+		else if (other is RotateDeezNutz) HandleCollision((RotateDeezNutz)other, collision);
+	}
+
+	public void HandleCollision(Character other, KinematicCollision2D collision)
+	{
+		Velocity = Velocity.Bounce(collision.GetNormal());
+	}	
+
+	public void HandleCollision(RotateDeezNutz deezNutz, KinematicCollision2D collision)
+	{
+		GD.Print($"Collided with RotateDeezNutz {deezNutz.Name}");
 	}
 
 	public void HandlePelletAcquired(PelletType color)
