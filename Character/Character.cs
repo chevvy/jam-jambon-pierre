@@ -10,24 +10,25 @@ public enum State
 
 public partial class Character : CharacterBody2D
 {
-	[Signal] public delegate void CharacterPositionChangedEventHandler(int characterId, Vector2 position);
+    [Signal] public delegate void CharacterPositionChangedEventHandler(int characterId, Vector2 position);
+	[Signal] public delegate void CharacterWasEatenEventHandler(int characterId);
 
 	private Timer EmitPositionTimer;
 
 	[Export] public AnimationPlayer animator;
 
 	[Export]
-	private float MoveSpeed = 60.0f;
+	private float MoveSpeed = 40.0f;
 	[Export]
-	private float Desceleration = 45f;
+	private float Desceleration = 60f;
 	[Export]
-	private float ChargeSpeed = 30f;
+	private float ChargeSpeed = 25f;
 	[Export]
-	private float MaxCharge = 45f;
+	private float MaxCharge = 25f;
 	[Export]
 	private float ChargeInertiaRatio = 2f;
 	[Export]
-	private float SpeedGainPerPill = 10f;
+	private float SpeedGainPerPill = 2.5f;
 	[Export]
 	private float ChargeGainPerPill = 10f;
 
@@ -39,10 +40,12 @@ public partial class Character : CharacterBody2D
 	[Export] public AudioStreamPlayer BuildUpSfx;
 	[Export] public AudioStreamPlayer ReleaseBuildUpSfx;
 
-	[Export] public float BounceDamping = 0.30f;
+	[Export] public float BounceDampening = 0.30f;
 
 	[Export] public float MinimumBounceSpeed = 100.0f;
 
+	[Export] public int PelletsEaten = 0;
+	[Export] public int PelletsToBigBoy = 2;
 
 
 	public override void _Ready()
@@ -206,25 +209,39 @@ public partial class Character : CharacterBody2D
 
 	public void HandleCollision(Character other, KinematicCollision2D collision)
 	{
-		Velocity = Velocity.Bounce(collision.GetNormal());
+		if (IsBigBoy() && !other.IsBigBoy())
+		{
+			other.GetEatenBy(this);
+		}
+		else
+		{
+			Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDampening;
+		}
 	}	
+
+	public bool IsBigBoy() {
+		return PelletsEaten >= PelletsToBigBoy;
+	}
+
+	public void GetEatenBy(Character other)
+	{
+		GD.Print($"Emitting character was eaten signal: {characterId}");
+
+		EmitSignal(SignalName.CharacterWasEaten, characterId);
+	}
 
 	public void HandleCollision(RotateDeezNutz deezNutz, KinematicCollision2D collision)
 	{
-		GD.Print($"Collided with RotateDeezNutz {deezNutz.Name}");
+		Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDampening;
 	}
 
 	public void HandleCollision(StaticBody2D staticBody, KinematicCollision2D collision)
 	{
-		Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDamping;
+		Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDampening;
 
-
-		GD.Print("This is the speed before minimum" + Velocity);
 		if (Velocity.Length() < MinimumBounceSpeed)
 		{
 			Velocity = Velocity.Normalized() * MinimumBounceSpeed;
-			GD.Print("This is the after speed before minimum" + Velocity);
-
 		}
 	}
 
@@ -238,6 +255,8 @@ public partial class Character : CharacterBody2D
 		{
 			MoveSpeed += SpeedGainPerPill;
 		}
+
+		PelletsEaten++;
 	}
 
 	// TODO use the correct playerID

@@ -36,21 +36,29 @@ public partial class ChargeBall : Node2D
         if(Id == 0){
             ball1.Position = inverseDirection  * chargeStrength * 100;
             ball1.Visible = true;
+            ball1.Rotation = direction.Angle(); // Angle in radians
+
 
         }
         else if(Id == 1){
             ball2.Position = inverseDirection  * chargeStrength * 100;
             ball2.Visible = true;
+            ball2.Rotation = direction.Angle(); // Angle in radians
+
 
             }
         else if(Id == 2){
             ball3.Position = inverseDirection * chargeStrength * 100;
             ball3.Visible = true;    
+            ball3.Rotation = direction.Angle(); // Angle in radians
+
   
             }
         else if(Id == 3 || Id == 5){
             ball4.Position = inverseDirection  * chargeStrength * 100;
             ball4.Visible = true;       
+            ball4.Rotation = direction.Angle(); // Angle in radians
+
             }
     }
     public override void _Process(double delta)

@@ -11,23 +11,24 @@ public partial class ScoreManager : Node
 
 	[Export] public int ScoreLimit = 10;
 
-	public override void _Ready()
-	{
-		GameManager.Instance.PlayerGainedPellet += OnTeamGainPoint;
-	}
+    public override void _Ready()
+    {
+        GameManager.Instance.PlayerGainedPellet += OnTeamGainPoint;
 
-	
-	public void OnTeamGainPoint(string id, int qty)
-	{
-		var playerId = (int)PlayerInput.IDbyPlayerTag["p" + id];
-		if (playerId <= 1)
-		{
-			ScoreTeam1 += 1;
-		}
-		else
-		{
-			ScoreTeam2 += 1;
-		}
+        Signals.Instance.LastCharacterStandingInGame += OnLastCharacterStanding;
+    }
+
+    
+    public void OnTeamGainPoint(int teamId, int qty)
+    {
+        if (teamId <= 1)
+        {
+            ScoreTeam1 += qty;
+        }
+        else
+        {
+            ScoreTeam2 += qty;
+        }
 
 		UpdateLabels();
 		OnScoreUpdate();
@@ -47,12 +48,18 @@ public partial class ScoreManager : Node
 			GameManager.Instance.OnGameEnded(2);
 		}
 
-		if (ScoreTeam1 >= ScoreLimit)
-		{
-			ResetScores();
-			GameManager.Instance.OnGameEnded(1);
-		}
-	}
+        if (ScoreTeam1 >= ScoreLimit)
+        {
+            ResetScores();
+            GameManager.Instance.OnGameEnded(1);
+        }
+    }
+
+    private void OnLastCharacterStanding(int teamId)
+    {
+        ResetScores();
+        GameManager.Instance.OnGameEnded(teamId);
+    }
 
 	public void ResetScores()
 	{
@@ -60,3 +67,4 @@ public partial class ScoreManager : Node
 		UpdateLabels();
 	}
 }
+
