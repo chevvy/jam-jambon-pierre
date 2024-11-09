@@ -1,53 +1,64 @@
-[gd_scene load_steps=7 format=3 uid="uid://in8asrulsxy0"]
+[gd_scene load_steps=10 format=3 uid="uid://in8asrulsxy0"]
 
 [ext_resource type="Script" path="res://Character/ChargeBall.cs" id="1_eebwc"]
+[ext_resource type="Material" uid="uid://dpec5hjpflmri" path="res://examples/edge_shader/material_edge_shader.tres" id="1_nc7al"]
+[ext_resource type="Texture2D" uid="uid://bp0uppvkrsyk7" path="res://Asset/UI/UI_Arrow.png" id="2_aea1q"]
+[ext_resource type="Shader" uid="uid://ckwdn5ntu8mv5" path="res://ChargeBallManager.tres" id="3_3qyf1"]
+[ext_resource type="Script" path="res://Character/ArrowSprite.cs" id="5_aa67h"]
 
-[sub_resource type="Gradient" id="Gradient_whqno"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vthss"]
+shader = ExtResource("3_3qyf1")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qvi1c"]
-gradient = SubResource("Gradient_whqno")
-width = 100
-height = 100
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bg3d"]
+shader = ExtResource("3_3qyf1")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_udfqq"]
-gradient = SubResource("Gradient_whqno")
-width = 100
-height = 100
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yaddp"]
+shader = ExtResource("3_3qyf1")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lp7r7"]
-gradient = SubResource("Gradient_whqno")
-width = 100
-height = 100
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vigqn"]
-gradient = SubResource("Gradient_whqno")
-width = 100
-height = 100
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_boust"]
+shader = ExtResource("3_3qyf1")
 
 [node name="ChargeBall" type="Node2D"]
+material = ExtResource("1_nc7al")
 script = ExtResource("1_eebwc")
 
 [node name="1" type="Node2D" parent="."]
+material = ExtResource("1_nc7al")
 
-[node name="Sprite2D" type="Sprite2D" parent="1"]
+[node name="ArrowSprite" type="Sprite2D" parent="1"]
 visibility_layer = 1023
-texture = SubResource("GradientTexture2D_qvi1c")
+material = SubResource("ShaderMaterial_vthss")
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aea1q")
+script = ExtResource("5_aa67h")
 
 [node name="2" type="Node2D" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="2"]
+[node name="ArrowSprite" type="Sprite2D" parent="2"]
 visibility_layer = 1023
-texture = SubResource("GradientTexture2D_udfqq")
+material = SubResource("ShaderMaterial_1bg3d")
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aea1q")
+script = ExtResource("5_aa67h")
 
 [node name="3" type="Node2D" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="3"]
+[node name="ArrowSprite" type="Sprite2D" parent="3"]
 visibility_layer = 1023
-texture = SubResource("GradientTexture2D_lp7r7")
+material = SubResource("ShaderMaterial_yaddp")
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aea1q")
+script = ExtResource("5_aa67h")
 
 [node name="4" type="Node2D" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="4"]
+[node name="ArrowSprite" type="Sprite2D" parent="4"]
 visibility_layer = 1023
-texture = SubResource("GradientTexture2D_vigqn")
+material = SubResource("ShaderMaterial_boust")
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aea1q")
+script = ExtResource("5_aa67h")
