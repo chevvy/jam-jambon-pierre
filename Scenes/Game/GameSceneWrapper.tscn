@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmnf1vovds1cn"]
+[gd_scene load_steps=5 format=3 uid="uid://dmnf1vovds1cn"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameSceneWrapper.cs" id="1_p0jty"]
 [ext_resource type="PackedScene" uid="uid://ddn6x08fr8cja" path="res://Scenes/Game/GameScene.tscn" id="2_smh5q"]
+
+[sub_resource type="Gradient" id="Gradient_5oogk"]
+offsets = PackedFloat32Array(0.54)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1ww1a"]
+gradient = SubResource("Gradient_5oogk")
 
 [node name="GameSceneWrapper" type="Node2D" node_paths=PackedStringArray("viewPort1", "viewport2", "viewport3", "viewport4", "camera1", "camera2", "camera3", "camera4", "viewportContainer2", "viewportContainer3", "viewportContainer4")]
 script = ExtResource("1_p0jty")
@@ -17,6 +24,12 @@ viewportContainer2 = NodePath("VB/HB/VPC2")
 viewportContainer3 = NodePath("VB/HB2/VPC")
 viewportContainer4 = NodePath("VB/HB2/VPC2")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1200)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture1D_1ww1a")
+
 [node name="VB" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1200)
 anchors_preset = 15
@@ -26,10 +39,12 @@ offset_right = 1920.0
 offset_bottom = 1200.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="HB" type="HBoxContainer" parent="VB"]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="VPC" type="SubViewportContainer" parent="VB/HB"]
@@ -39,7 +54,7 @@ stretch = true
 
 [node name="VC" type="SubViewport" parent="VB/HB/VPC"]
 handle_input_locally = false
-size = Vector2i(958, 600)
+size = Vector2i(950, 600)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VB/HB/VPC/VC"]
@@ -56,7 +71,7 @@ stretch = true
 
 [node name="VC2" type="SubViewport" parent="VB/HB/VPC2"]
 handle_input_locally = false
-size = Vector2i(958, 600)
+size = Vector2i(950, 600)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VB/HB/VPC2/VC2"]
@@ -65,6 +80,7 @@ zoom = Vector2(0.75, 0.75)
 [node name="HB2" type="HBoxContainer" parent="VB"]
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="VPC" type="SubViewportContainer" parent="VB/HB2"]
@@ -74,7 +90,7 @@ stretch = true
 
 [node name="VC" type="SubViewport" parent="VB/HB2/VPC"]
 handle_input_locally = false
-size = Vector2i(958, 600)
+size = Vector2i(950, 600)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VB/HB2/VPC/VC"]
@@ -89,7 +105,7 @@ stretch = true
 
 [node name="VC2" type="SubViewport" parent="VB/HB2/VPC2"]
 handle_input_locally = false
-size = Vector2i(958, 600)
+size = Vector2i(950, 600)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="VB/HB2/VPC2/VC2"]
