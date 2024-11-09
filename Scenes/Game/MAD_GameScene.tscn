@@ -1,25 +1,13 @@
-[gd_scene load_steps=43 format=3 uid="uid://b3v7c16w7k0ld"]
+[gd_scene load_steps=14 format=3 uid="uid://b3v7c16w7k0ld"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_6vhnr"]
-[ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_2ades"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/PelletA.tscn" id="3_p37pj"]
 [ext_resource type="Texture2D" uid="uid://b7ju55p3tol42" path="res://Asset/Obstacle_Medium_01.png" id="4_8jlj1"]
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kipkn"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_mxix6"]
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ayass"]
-[ext_resource type="Script" path="res://Scenes/Game/SlimeTrails.cs" id="8_gf3ni"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_open.gd" id="9_wc2wk"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="10_jfr4r"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="11_paoaj"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="12_0o233"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="13_36a62"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="14_esekc"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="14_j58at"]
-[ext_resource type="Texture2D" uid="uid://d1ungdsuod3ka" path="res://Asset/Env_Wall_01_512.png" id="15_hxakj"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="16_w3gms"]
-[ext_resource type="Texture2D" uid="uid://qadm0qnebd0t" path="res://Asset/BG_01.png" id="17_pblib"]
-[ext_resource type="Texture2D" uid="uid://bi4725wxxp7yc" path="res://Asset/Particles/Particles_S_01_Blur.png" id="19_37wjk"]
-[ext_resource type="Texture2D" uid="uid://c4jkerm0djxiw" path="res://Asset/Particles/Noise_01.png" id="20_8oxxf"]
+[ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_gf3ni"]
+[ext_resource type="PackedScene" uid="uid://dh41ker7j2h41" path="res://Levels/visual.tscn" id="8_q7ttk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1js0j"]
 radius = 52.1536
@@ -32,152 +20,8 @@ radius = 52.1536
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y5o7o"]
 
-[sub_resource type="Resource" id="Resource_p6kn4"]
-script = ExtResource("10_jfr4r")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_70uuq"]
-script = ExtResource("11_paoaj")
-position = Vector2(2907.65, -52.3123)
-point_in = Vector2(32, -1544)
-point_out = Vector2(-32, 1544)
-properties = SubResource("Resource_p6kn4")
-
-[sub_resource type="Resource" id="Resource_6o5d6"]
-script = ExtResource("10_jfr4r")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_q1gkt"]
-script = ExtResource("11_paoaj")
-position = Vector2(-3.70459, 2089.09)
-point_in = Vector2(1132.13, 0)
-point_out = Vector2(-1132.13, 0)
-properties = SubResource("Resource_6o5d6")
-
-[sub_resource type="Resource" id="Resource_px8sy"]
-script = ExtResource("10_jfr4r")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_ufe2n"]
-script = ExtResource("11_paoaj")
-position = Vector2(-2793.8, -62.656)
-point_in = Vector2(-24, 1640)
-point_out = Vector2(24, -1640)
-properties = SubResource("Resource_px8sy")
-
-[sub_resource type="Resource" id="Resource_x6po5"]
-script = ExtResource("10_jfr4r")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_ntyql"]
-script = ExtResource("11_paoaj")
-position = Vector2(2907.65, -52.3123)
-point_in = Vector2(32, -1544)
-point_out = Vector2(-32, 1544)
-properties = SubResource("Resource_x6po5")
-
-[sub_resource type="Resource" id="Resource_38qd3"]
-script = ExtResource("10_jfr4r")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_g0scx"]
-script = ExtResource("11_paoaj")
-position = Vector2(-14.7261, -2123.01)
-point_in = Vector2(-1322.4, 57.0818)
-point_out = Vector2(1322.4, -57.0818)
-properties = SubResource("Resource_38qd3")
-
-[sub_resource type="Resource" id="Resource_1asje"]
-script = ExtResource("10_jfr4r")
-texture_idx = 0
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id="Resource_kvn1u"]
-script = ExtResource("11_paoaj")
-position = Vector2(1989.29, 1545.5)
-point_in = Vector2(0, 0)
-point_out = Vector2(0, 0)
-properties = SubResource("Resource_1asje")
-
-[sub_resource type="Resource" id="Resource_gqkca"]
-script = ExtResource("12_0o233")
-_points = {
-0: SubResource("Resource_ntyql"),
-4: SubResource("Resource_70uuq"),
-6: SubResource("Resource_q1gkt"),
-8: SubResource("Resource_ufe2n"),
-12: SubResource("Resource_g0scx"),
-13: SubResource("Resource_kvn1u")
-}
-_point_order = PackedInt32Array(4, 13, 6, 8, 12, 0)
-_constraints = {
-Vector2i(4, 0): 15
-}
-_next_key = 19
-_material_overrides = {}
-tessellation_stages = 3
-tessellation_tolerance = 6.0
-curve_bake_interval = 20.0
-
-[sub_resource type="Resource" id="Resource_4wh8a"]
-script = ExtResource("14_j58at")
-textures = Array[Texture2D]([ExtResource("15_hxakj")])
-textures_corner_outer = Array[Texture2D]([])
-textures_corner_inner = Array[Texture2D]([])
-textures_taper_left = Array[Texture2D]([])
-textures_taper_right = Array[Texture2D]([])
-textures_taper_corner_left = Array[Texture2D]([])
-textures_taper_corner_right = Array[Texture2D]([])
-randomize_texture = false
-use_corner_texture = true
-use_taper_texture = true
-fit_mode = 0
-
-[sub_resource type="Resource" id="Resource_2iq5x"]
-script = ExtResource("16_w3gms")
-begin = 0.0
-distance = 360.0
-edgeRendering = Vector2(0, 0)
-
-[sub_resource type="Resource" id="Resource_srwc6"]
-script = ExtResource("13_36a62")
-edge_material = SubResource("Resource_4wh8a")
-normal_range = SubResource("Resource_2iq5x")
-weld = true
-taper_sharp_corners = false
-render = true
-z_index = 0
-z_as_relative = true
-offset = 0.0
-
-[sub_resource type="Resource" id="Resource_bb6sx"]
-script = ExtResource("14_esekc")
-_edge_meta_materials = Array[ExtResource("13_36a62")]([SubResource("Resource_srwc6")])
-fill_textures = Array[Texture2D]([ExtResource("17_pblib")])
-fill_texture_z_index = -10
-fill_texture_show_behind_parent = false
-fill_texture_scale = 4.82
-fill_texture_absolute_position = false
-fill_texture_absolute_rotation = false
-fill_texture_offset = Vector2(5000, 2500)
-fill_texture_angle_offset = 0.0
-fill_mesh_offset = 0.0
-render_offset = 0.0
-
 [node name="GameScene" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("1_6vhnr")
-Character = ExtResource("2_2ades")
 PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2")]
 
 [node name="Walls" type="Node" parent="."]
@@ -733,51 +577,4 @@ position = Vector2(579, 610)
 [node name="SlimeTrails" type="Node2D" parent="."]
 script = ExtResource("8_gf3ni")
 
-[node name="Visual" type="Node" parent="."]
-
-[node name="Cell_Wall" type="Node2D" parent="Visual"]
-texture_repeat = 2
-script = ExtResource("9_wc2wk")
-_points = SubResource("Resource_gqkca")
-flip_edges = true
-shape_material = SubResource("Resource_bb6sx")
-
-[node name="Parallax2D_BG2" type="Parallax2D" parent="Visual"]
-scroll_scale = Vector2(0.2, 0.2)
-
-[node name="ParticlesS01Blur" type="Sprite2D" parent="Visual/Parallax2D_BG2"]
-modulate = Color(1, 1, 1, 0.247059)
-scale = Vector2(2.88965, 2.88965)
-texture = ExtResource("19_37wjk")
-
-[node name="Parallax2D_MG" type="Parallax2D" parent="Visual"]
-scroll_scale = Vector2(0.5, 0.5)
-
-[node name="Noise01" type="Sprite2D" parent="Visual/Parallax2D_MG"]
-modulate = Color(1, 1, 1, 0.32549)
-scale = Vector2(3.11914, 3.11914)
-texture = ExtResource("20_8oxxf")
-
-[node name="Parallax2D_FG" type="Parallax2D" parent="Visual"]
-scroll_scale = Vector2(2, 2)
-
-[node name="Noise02" type="Sprite2D" parent="Visual/Parallax2D_FG"]
-modulate = Color(1, 1, 1, 0.32549)
-scale = Vector2(3.07813, 3.07813)
-texture = ExtResource("20_8oxxf")
-
-[node name="Parallax2D_Particle_01" type="Parallax2D" parent="Visual"]
-scroll_scale = Vector2(3, 3)
-
-[node name="Noise02" type="Sprite2D" parent="Visual/Parallax2D_Particle_01"]
-modulate = Color(1, 1, 1, 0.32549)
-scale = Vector2(3.18164, 3.18164)
-texture = ExtResource("19_37wjk")
-
-[node name="Parallax2D_Particle_02" type="Parallax2D" parent="Visual"]
-scroll_scale = Vector2(7, 7)
-
-[node name="Noise02" type="Sprite2D" parent="Visual/Parallax2D_Particle_02"]
-modulate = Color(1, 1, 1, 0.32549)
-scale = Vector2(3.39355, 3.39355)
-texture = ExtResource("19_37wjk")
+[node name="Visual" parent="." instance=ExtResource("8_q7ttk")]
