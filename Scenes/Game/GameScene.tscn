@@ -399,7 +399,8 @@ shape = SubResource("CapsuleShape2D_xx56t")
 position = Vector2(-105, 1296)
 rotation = 0.541919
 script = ExtResource("6_qxwgx")
-RotationSpeed = 0.3
+RotationSpeed = 0.2
+invertDirection = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars3"]
 position = Vector2(26.01, 14.4028)
@@ -417,7 +418,8 @@ position = Vector2(-54, -1395)
 rotation = 0.541919
 scale = Vector2(0.938624, 0.938624)
 script = ExtResource("6_qxwgx")
-RotationSpeed = 0.3
+RotationSpeed = 0.2
+invertDirection = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars4"]
 position = Vector2(26.01, 14.4028)
@@ -447,7 +449,6 @@ position = Vector2(1156, -994)
 rotation = 0.541919
 script = ExtResource("6_qxwgx")
 RotationSpeed = 0.3
-invertDirection = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars5"]
 position = Vector2(26.01, 14.4028)
@@ -459,6 +460,65 @@ position = Vector2(16.3389, 31.0168)
 rotation = -0.612611
 scale = Vector2(1.01067, 0.61917)
 shape = SubResource("CapsuleShape2D_mmp1k")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Node"]
+position = Vector2(-1969, -192)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.75
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/CharacterBody2D"]
+position = Vector2(1183, -921)
+polygon = PackedVector2Array(-1154, 799, -1234, 825, -1244, 883, -1284, 851, -1310, 865, -1312, 871, -1309, 901, -1257, 953, -1260, 967, -1230, 1011, -1206, 1038, -1148, 1020, -1120, 1005, -1093, 859, -1127, 813)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/CharacterBody2D/CollisionPolygon2D"]
+position = Vector2(-1178, 921)
+scale = Vector2(0.584687, 0.584687)
+texture = ExtResource("5_kkjux")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="Node"]
+position = Vector2(-1062, 1376)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.75
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/CharacterBody2D2"]
+position = Vector2(1183, -921)
+polygon = PackedVector2Array(-1154, 799, -1234, 825, -1244, 883, -1284, 851, -1310, 865, -1312, 871, -1309, 901, -1257, 953, -1260, 967, -1230, 1011, -1206, 1038, -1148, 1020, -1120, 1005, -1093, 859, -1127, 813)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/CharacterBody2D2/CollisionPolygon2D"]
+position = Vector2(-1178, 921)
+scale = Vector2(0.584687, 0.584687)
+texture = ExtResource("5_kkjux")
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="Node"]
+position = Vector2(2167, -641)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.75
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/CharacterBody2D3"]
+position = Vector2(1183, -921)
+polygon = PackedVector2Array(-1154, 799, -1234, 825, -1244, 883, -1284, 851, -1310, 865, -1312, 871, -1309, 901, -1257, 953, -1260, 967, -1230, 1011, -1206, 1038, -1148, 1020, -1120, 1005, -1093, 859, -1127, 813)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/CharacterBody2D3/CollisionPolygon2D"]
+position = Vector2(-1178, 921)
+scale = Vector2(0.584687, 0.584687)
+texture = ExtResource("5_kkjux")
+
+[node name="CharacterBody2D4" type="CharacterBody2D" parent="Node"]
+position = Vector2(-1714, -1167)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.85
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/CharacterBody2D4"]
+position = Vector2(1975, -882)
+polygon = PackedVector2Array(-1778, 801, -1772, 874, -1819, 931, -1788, 995, -1923, 1070, -1982, 1066, -2019, 1050, -2087, 1022, -2094, 980, -2106, 955, -2149, 895, -2169, 868, -2157, 819, -2121, 833, -2087, 792, -2068, 804, -2060, 778, -2068, 713, -2056, 690, -1973, 726, -1962, 678, -1917, 661, -1893, 691, -1917, 788, -1850, 761)
+
+[node name="ObstacleSmall02" type="Sprite2D" parent="Node/CharacterBody2D4/CollisionPolygon2D"]
+position = Vector2(-1958, 882)
+texture = ExtResource("6_m5y7r")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_kfg6m")
