@@ -1,47 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://dra8okwnlx2v4"]
+[gd_scene load_steps=7 format=3 uid="uid://dra8okwnlx2v4"]
 
-[ext_resource type="Script" path="res://Player/PlayerInput.cs" id="1_tt2et"]
+[ext_resource type="Script" path="res://Levels/camera_2d.gd" id="1_3wl8t"]
+[ext_resource type="Texture2D" uid="uid://qadm0qnebd0t" path="res://Asset/BG_01.png" id="2_s45ww"]
+[ext_resource type="Texture2D" uid="uid://c4jkerm0djxiw" path="res://Asset/Particles/Noise_01.png" id="3_rx4h2"]
+[ext_resource type="Texture2D" uid="uid://bi4725wxxp7yc" path="res://Asset/Particles/Particles_S_01_Blur.png" id="4_jkxh8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3tgl"]
-size = Vector2(1280, 50)
+[sub_resource type="Gradient" id="Gradient_wqhry"]
+offsets = PackedFloat32Array(0, 0.55531, 0.676991)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0.192, 0.36, 0.701961, 0.0756, 0.1015, 0.12, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_namsx"]
+gradient = SubResource("Gradient_wqhry")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="LevelDesign" type="Node2D"]
 
-[node name="Walls" type="Node" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
-position = Vector2(17, 349)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
-shape = SubResource("RectangleShape2D_n3tgl")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
-position = Vector2(603, 110)
-rotation = 1.56684
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
-shape = SubResource("RectangleShape2D_n3tgl")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
-position = Vector2(-602, 106)
-rotation = 1.56684
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-shape = SubResource("RectangleShape2D_n3tgl")
-
-[node name="SpawnPointP1" type="Marker2D" parent="."]
-position = Vector2(-440, 4)
-
-[node name="SpawnPointP2" type="Marker2D" parent="."]
-position = Vector2(-228, 2)
-
-[node name="SpawnPointP3" type="Marker2D" parent="."]
-position = Vector2(134, 2)
-
-[node name="SpawnPointP4" type="Marker2D" parent="."]
-position = Vector2(347, -1)
-
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_3wl8t")
 
-[node name="PlayerInputManager" type="Node" parent="."]
-script = ExtResource("1_tt2et")
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+top_level = true
+position = Vector2(575, 323.5)
+scale = Vector2(18.0937, 16.6406)
+texture = SubResource("GradientTexture2D_namsx")
+
+[node name="Parallax2D_BG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Bg01" type="Sprite2D" parent="Parallax2D_BG"]
+scale = Vector2(0.539815, 0.539815)
+texture = ExtResource("2_s45ww")
+
+[node name="Parallax2D_BG2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="ParticlesS01Blur" type="Sprite2D" parent="Parallax2D_BG2"]
+modulate = Color(1, 1, 1, 0.247059)
+texture = ExtResource("4_jkxh8")
+
+[node name="Parallax2D_MG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Noise01" type="Sprite2D" parent="Parallax2D_MG"]
+modulate = Color(1, 1, 1, 0.32549)
+texture = ExtResource("3_rx4h2")
+
+[node name="Parallax2D_FG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(2, 2)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_FG"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_rx4h2")
+
+[node name="Parallax2D_Particle_01" type="Parallax2D" parent="."]
+scroll_scale = Vector2(3, 3)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_01"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_jkxh8")
+
+[node name="Parallax2D_Particle_02" type="Parallax2D" parent="."]
+scroll_scale = Vector2(7, 7)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_02"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.39355, 3.39355)
+texture = ExtResource("4_jkxh8")
