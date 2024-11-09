@@ -10,11 +10,11 @@ public enum State
 
 public partial class Character : CharacterBody2D
 {
-    [Signal] public delegate void CharacterPositionChangedEventHandler(int characterId, Vector2 position);
+	[Signal] public delegate void CharacterPositionChangedEventHandler(int characterId, Vector2 position);
 
-    private Timer EmitPositionTimer;
+	private Timer EmitPositionTimer;
 
-    [Export] public AnimationPlayer animator;
+	[Export] public AnimationPlayer animator;
 
 	[Export]
 	private float MoveSpeed = 60.0f;
@@ -45,22 +45,22 @@ public partial class Character : CharacterBody2D
 
 
 
-    public override void _Ready()
-    {
-        EmitPositionTimer = GetNode<Timer>("EmitPositionTimer");
-        EmitPositionTimer.WaitTime = 0.1f;
-        EmitPositionTimer.Timeout += () => EmitSignal(SignalName.CharacterPositionChanged, characterId, GlobalPosition);
-        EmitPositionTimer.Start();
-    }
+	public override void _Ready()
+	{
+		EmitPositionTimer = GetNode<Timer>("EmitPositionTimer");
+		EmitPositionTimer.WaitTime = 0.1f;
+		EmitPositionTimer.Timeout += () => EmitSignal(SignalName.CharacterPositionChanged, characterId, GlobalPosition);
+		EmitPositionTimer.Start();
+	}
 
-    public void SetupPlayer(PlayerID id, int characterId)
-    {
-        _players = new List<PlayerChargeState> {
-            new(new PlayerInput(id))
-        };
+	public void SetupPlayer(PlayerID id, int characterId)
+	{
+		_players = new List<PlayerChargeState> {
+			new(new PlayerInput(id))
+		};
 
 		this.characterId = characterId;
-    }
+	}
 
 	public void SetupPlayer(List<PlayerID> ids, int characterId)
 	{

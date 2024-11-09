@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
 [ext_resource type="AudioStream" uid="uid://d3ncihv0c7yyf" path="res://SFX/Glass Ocean.mp3" id="11_kfg6m"]
-[ext_resource type="PackedScene" uid="uid://dh41ker7j2h41" path="res://Levels/visual.tscn" id="12_bflyp"]
+[ext_resource type="PackedScene" path="res://Levels/visual.tscn" id="12_bflyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
@@ -330,3 +330,71 @@ autoplay = true
 bus = &"Music"
 
 [node name="Visual" parent="." instance=ExtResource("12_bflyp")]
+
+[node name="PelletA2" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-410, 376)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA3" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-417, 851)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA4" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-1037, 247)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA5" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-1898, 353)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA6" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-916, 1161)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA7" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-816, 680)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletB2" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(384, -1336)
+scale = Vector2(1.47665, 1.47665)
+
+[node name="PelletB3" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(320, -864)
+scale = Vector2(1.47665, 1.47665)
+
+[node name="PelletB4" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(856, -1144)
+scale = Vector2(1.47665, 1.47665)
+
+[node name="PelletB5" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(1360, -1344)
+scale = Vector2(1.47665, 1.47665)
+
+[node name="PelletB6" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(1872, -1072)
+scale = Vector2(1.47665, 1.47665)
+
+[node name="PelletB7" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(920, -656)
+scale = Vector2(1.47665, 1.47665)
+
+[node name="PelletA8" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-1792, -440)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA9" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(2488, -200)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA10" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(2352, 472)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA11" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(-2320, 272)
+scale = Vector2(1.47475, 1.47475)
+
+[node name="PelletA12" parent="." instance=ExtResource("3_g4cok")]
+position = Vector2(848, 1416)
+scale = Vector2(1.47475, 1.47475)
