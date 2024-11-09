@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bthsjbhotwaer"]
 
 [ext_resource type="Script" path="res://Pellet/Pellet.cs" id="1_ido84"]
+[ext_resource type="Texture2D" uid="uid://wdnv8wgu1s4r" path="res://Asset/Food_A.png" id="2_vt8hm"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ls52h"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ufnho"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_057ja"]
 
 [node name="Pellet" type="Node2D"]
 script = ExtResource("1_ido84")
@@ -13,10 +12,10 @@ script = ExtResource("1_ido84")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_ls52h")
+shape = SubResource("CircleShape2D_057ja")
 debug_color = Color(0.455227, 0.484883, 0.898078, 0.42)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, -1)
-scale = Vector2(14, 22)
-texture = SubResource("CanvasTexture_ufnho")
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+position = Vector2(1, 4)
+scale = Vector2(0.127547, 0.127547)
+texture = ExtResource("2_vt8hm")
