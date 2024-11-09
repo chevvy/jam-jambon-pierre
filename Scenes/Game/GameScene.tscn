@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=24 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
@@ -36,6 +36,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1557, 453, 0, 0, 0, 0, -1165, 689, 0, 0, 0, 0, -343, 800, 0, 0, 0, 0, 80, 795, 0, 0, 0, 0, 377, 754, 0, 0, 0, 0, 912, 618, 0, 0, 0, 0, 1627, 376, 0, 0, 0, 0, 2034, 225, 0, 0, 0, 0, 2076, 104, 0, 0, 0, 0, 2090, -37, 0, 0, 0, 0, 1964, -730, 0, 0, 0, 0, 1867, -938, 0, 0, 0, 0, 1680, -1141, 0, 0, 0, 0, 1146, -1212, 0, 0, 0, 0, 408, -1297, 0, 0, 0, 0, -263, -1352, 0, 0, 0, 0, -1321, -1277, 0, 0, 0, 0, -1706, -1230, 0, 0, 0, 0, -1890, -1045, 0, 0, 0, 0, -1964, -900, 0, 0, 0, 0, -2001, -632, 0, 0, 0, 0, -1845, 185, 0, 0, 0, 0, -1553, 449)
 }
 point_count = 23
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7fyk"]
+radius = 188.33
 
 [sub_resource type="Curve2D" id="Curve2D_em6eo"]
 _data = {
@@ -280,15 +283,14 @@ script = ExtResource("8_uen8u")
 script = ExtResource("6_qxwgx")
 RotationSpeed = 1.02
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Path2D/PathFollow2D/CharacterBody2D"]
-position = Vector2(1954.08, 33.3786)
-polygon = PackedVector2Array(-1759, 141, -1771, 101, -1788, 77, -1788, 51, -1810, 23, -1827, 12, -1790, 11, -1776, 2, -1716, -11, -1716, -20, -1775, -9, -1779, -27, -1799, -35, -1812, -35, -1787, -55, -1779, -68, -1781, -80, -1762, -89, -1734, -89, -1722, -89, -1720, -97, -1746, -98, -1775, -104, -1789, -96, -1805, -110, -1827, -109, -1856, -95, -1855, -114, -1839, -142, -1819, -170, -1830, -166, -1867, -120, -1886, -125, -1902, -115, -1885, -152, -1890, -170, -1897, -172, -1889, -190, -1858, -225, -1865, -228, -1909, -176, -1935, -173, -1943, -159, -1949, -140, -1952, -105, -1975, -136, -1992, -139, -2029, -195, -2034, -190, -2012, -158, -1999, -134, -2009, -120, -2006, -94, -1998, -85, -2036, -88, -2060, -73, -2063, -62, -2101, -61, -2136, -52, -2132, -47, -2100, -54, -2061, -54, -2056, -37, -2033, -37, -2041, -17, -2089, 4, -2086, 9, -2039, -10, -2033, 3, -2000, 2, -2033, 14, -2066, 21, -2071, 38, -2093, 36, -2116, 29, -2128, 21, -2128, 29, -2098, 47, -2068, 50, -2063, 58, -2024, 53, -2031, 69, -2027, 79, -2035, 89, -2060, 100, -2089, 115, -2081, 119, -2035, 98, -2019, 85, -1978, 75, -1964, 65, -1963, 91, -1956, 107, -1951, 113, -1958, 152, -1971, 171, -1963, 172, -1948, 148, -1943, 110, -1933, 105, -1928, 88, -1909, 110, -1891, 114, -1885, 153, -1885, 185, -1879, 184, -1871, 149, -1883, 113, -1868, 108, -1860, 82, -1868, 59, -1823, 89, -1800, 87, -1782, 99, -1768, 129)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Node/Path2D/PathFollow2D/CharacterBody2D/CollisionPolygon2D"]
-position = Vector2(-1928.07, -18.9758)
+[node name="Sprite2D" type="Sprite2D" parent="Node/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(26.0099, 14.4028)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_m0oud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(35.5277, 18.2971)
+shape = SubResource("CircleShape2D_g7fyk")
 
 [node name="Path2D2" type="Path2D" parent="Node"]
 curve = SubResource("Curve2D_em6eo")
