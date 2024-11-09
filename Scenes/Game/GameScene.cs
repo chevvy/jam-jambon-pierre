@@ -8,9 +8,15 @@ public partial class GameScene : Node2D
 	[Export] public PackedScene Character;
 	[Export] public Marker2D[] PlayerSpawnPoint;
 
+	private SlimeTrails SlimeTrails;
+
 	public override void _Ready()
 	{
 		SpawnCharacters();
+
+		SlimeTrails = GetNode<SlimeTrails>("SlimeTrails");
+		var characters = GetChildren().OfType<CharacterRoot>().Select(x => x.Character);
+		characters.ToList().ForEach(character => character.CharacterPositionChanged += SlimeTrails.UpdateCharacterSlimeTrail);
 	}
 
 	public void SpawnCharacters()

@@ -10,8 +10,11 @@ public enum State
 
 public partial class Character : CharacterBody2D
 {
-    [Export]
-    public AnimationPlayer animator;
+    [Signal] public delegate void CharacterPositionChangedEventHandler(int playerId, Vector2 position);
+
+    private Timer EmitPositionTimer;
+
+    [Export] public AnimationPlayer animator;
 
     [Export]
     private float MoveSpeed = 60.0f;
@@ -31,6 +34,14 @@ public partial class Character : CharacterBody2D
     [Export] ChargeBall chargeball;
 
     private List<PlayerChargeState> _players = new List<PlayerChargeState>();
+
+    public override void _Ready()
+    {
+        EmitPositionTimer = GetNode<Timer>("EmitPositionTimer");
+        EmitPositionTimer.WaitTime = 0.1f;
+        EmitPositionTimer.Timeout += () => EmitSignal(SignalName.CharacterPositionChanged, 0, GlobalPosition);
+        EmitPositionTimer.Start();
+    }
 
     public void SetupPlayer(PlayerID id)
     {
