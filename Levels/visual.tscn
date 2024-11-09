@@ -1,0 +1,206 @@
+[gd_scene load_steps=30 format=3 uid="uid://dh41ker7j2h41"]
+
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_open.gd" id="1_7teeg"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="2_damc4"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="3_erp0t"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_vaol7"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_pa55m"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="6_tccif"]
+[ext_resource type="Texture2D" uid="uid://d1ungdsuod3ka" path="res://Asset/Env_Wall_01_512.png" id="7_23mey"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="8_03fxq"]
+[ext_resource type="Texture2D" uid="uid://qadm0qnebd0t" path="res://Asset/BG_01.png" id="9_2xnhj"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="10_k7w2v"]
+[ext_resource type="Texture2D" uid="uid://bi4725wxxp7yc" path="res://Asset/Particles/Particles_S_01_Blur.png" id="11_36e5t"]
+[ext_resource type="Texture2D" uid="uid://c4jkerm0djxiw" path="res://Asset/Particles/Noise_01.png" id="12_dbpy4"]
+
+[sub_resource type="Resource" id="Resource_dlg6g"]
+script = ExtResource("2_damc4")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ntyql"]
+script = ExtResource("3_erp0t")
+position = Vector2(2907.65, -52.3123)
+point_in = Vector2(32, -1544)
+point_out = Vector2(-32, 1544)
+properties = SubResource("Resource_dlg6g")
+
+[sub_resource type="Resource" id="Resource_3evow"]
+script = ExtResource("2_damc4")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_70uuq"]
+script = ExtResource("3_erp0t")
+position = Vector2(2907.65, -52.3123)
+point_in = Vector2(32, -1544)
+point_out = Vector2(-32, 1544)
+properties = SubResource("Resource_3evow")
+
+[sub_resource type="Resource" id="Resource_gltin"]
+script = ExtResource("2_damc4")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_q1gkt"]
+script = ExtResource("3_erp0t")
+position = Vector2(-3.70459, 2089.09)
+point_in = Vector2(1132.13, 0)
+point_out = Vector2(-1132.13, 0)
+properties = SubResource("Resource_gltin")
+
+[sub_resource type="Resource" id="Resource_jylef"]
+script = ExtResource("2_damc4")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ufe2n"]
+script = ExtResource("3_erp0t")
+position = Vector2(-2793.8, -62.656)
+point_in = Vector2(-24, 1640)
+point_out = Vector2(24, -1640)
+properties = SubResource("Resource_jylef")
+
+[sub_resource type="Resource" id="Resource_7jem2"]
+script = ExtResource("2_damc4")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_g0scx"]
+script = ExtResource("3_erp0t")
+position = Vector2(-14.7261, -2123.01)
+point_in = Vector2(-1322.4, 57.0818)
+point_out = Vector2(1322.4, -57.0818)
+properties = SubResource("Resource_7jem2")
+
+[sub_resource type="Resource" id="Resource_nst8f"]
+script = ExtResource("2_damc4")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_kvn1u"]
+script = ExtResource("3_erp0t")
+position = Vector2(1989.29, 1545.5)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_nst8f")
+
+[sub_resource type="Resource" id="Resource_gqkca"]
+script = ExtResource("4_vaol7")
+_points = {
+0: SubResource("Resource_ntyql"),
+4: SubResource("Resource_70uuq"),
+6: SubResource("Resource_q1gkt"),
+8: SubResource("Resource_ufe2n"),
+12: SubResource("Resource_g0scx"),
+13: SubResource("Resource_kvn1u")
+}
+_point_order = PackedInt32Array(4, 13, 6, 8, 12, 0)
+_constraints = {
+Vector2i(4, 0): 15
+}
+_next_key = 19
+_material_overrides = {}
+tessellation_stages = 3
+tessellation_tolerance = 6.0
+curve_bake_interval = 20.0
+
+[sub_resource type="Resource" id="Resource_4wh8a"]
+script = ExtResource("6_tccif")
+textures = Array[Texture2D]([ExtResource("7_23mey")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+textures_taper_corner_left = Array[Texture2D]([])
+textures_taper_corner_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_2iq5x"]
+script = ExtResource("8_03fxq")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_srwc6"]
+script = ExtResource("5_pa55m")
+edge_material = SubResource("Resource_4wh8a")
+normal_range = SubResource("Resource_2iq5x")
+weld = true
+taper_sharp_corners = false
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
+[sub_resource type="Resource" id="Resource_bb6sx"]
+script = ExtResource("10_k7w2v")
+_edge_meta_materials = Array[ExtResource("5_pa55m")]([SubResource("Resource_srwc6")])
+fill_textures = Array[Texture2D]([ExtResource("9_2xnhj")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_texture_scale = 4.82
+fill_texture_absolute_position = false
+fill_texture_absolute_rotation = false
+fill_texture_offset = Vector2(5000, 2500)
+fill_texture_angle_offset = 0.0
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[node name="Visual" type="Node"]
+
+[node name="Cell_Wall" type="Node2D" parent="."]
+texture_repeat = 2
+script = ExtResource("1_7teeg")
+_points = SubResource("Resource_gqkca")
+flip_edges = true
+shape_material = SubResource("Resource_bb6sx")
+
+[node name="Parallax2D_BG2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="ParticlesS01Blur" type="Sprite2D" parent="Parallax2D_BG2"]
+modulate = Color(1, 1, 1, 0.247059)
+scale = Vector2(2.88965, 2.88965)
+texture = ExtResource("11_36e5t")
+
+[node name="Parallax2D_MG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Noise01" type="Sprite2D" parent="Parallax2D_MG"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.11914, 3.11914)
+texture = ExtResource("12_dbpy4")
+
+[node name="Parallax2D_FG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(2, 2)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_FG"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.07813, 3.07813)
+texture = ExtResource("12_dbpy4")
+
+[node name="Parallax2D_Particle_01" type="Parallax2D" parent="."]
+scroll_scale = Vector2(3, 3)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_01"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.18164, 3.18164)
+texture = ExtResource("11_36e5t")
+
+[node name="Parallax2D_Particle_02" type="Parallax2D" parent="."]
+scroll_scale = Vector2(7, 7)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_02"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.39355, 3.39355)
+texture = ExtResource("11_36e5t")

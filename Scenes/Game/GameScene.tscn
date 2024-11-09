@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=19 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
 [ext_resource type="AudioStream" uid="uid://d3ncihv0c7yyf" path="res://SFX/Glass Ocean.mp3" id="11_kfg6m"]
+[ext_resource type="PackedScene" uid="uid://dh41ker7j2h41" path="res://Levels/visual.tscn" id="12_bflyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
@@ -49,9 +50,10 @@ PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2"), NodePath
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+visible = false
 
 [node name="Rectangle Wall2" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(105, 1418)
+position = Vector2(104, 1840)
 rotation = -1.5708
 scale = Vector2(-1.06589, 7.42036)
 shape = SubResource("RectangleShape2D_no3xi")
@@ -65,7 +67,7 @@ color = Color(0.145098, 1, 0.227451, 0.768627)
 polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
 [node name="Rectangle Wall5" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(112, -1475)
+position = Vector2(112, -1752)
 rotation = -1.5708
 scale = Vector2(1.6217, 7.44529)
 shape = SubResource("RectangleShape2D_no3xi")
@@ -79,7 +81,7 @@ color = Color(0.145098, 1, 0.227451, 0.768627)
 polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
 [node name="Rectangle Wall6" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-2539, -89)
+position = Vector2(-2688, -88)
 scale = Vector2(1, 4.44)
 shape = SubResource("RectangleShape2D_no3xi")
 debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
@@ -92,12 +94,68 @@ color = Color(0.145098, 1, 0.227451, 0.768627)
 polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
 [node name="Rectangle Wall7" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(2681, -197)
+position = Vector2(2600, -192)
 scale = Vector2(1, 4.69782)
 shape = SubResource("RectangleShape2D_no3xi")
 debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall7"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall8" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(2040, -1252)
+rotation = -0.785397
+scale = Vector2(1, 4.69782)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall8"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall9" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-2272, -888)
+rotation = 0.523598
+scale = Vector2(1, 4.69782)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall9"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall10" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1968, 1120)
+rotation = -0.785397
+scale = Vector2(1, 4.69782)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall10"]
+position = Vector2(-80.3967, -469.423)
+rotation = -3.14159
+scale = Vector2(0.764386, 3.01711)
+color = Color(0.145098, 1, 0.227451, 0.768627)
+polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
+
+[node name="Rectangle Wall11" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(1808, 1368)
+rotation = -2.09439
+scale = Vector2(1, 4.69782)
+shape = SubResource("RectangleShape2D_no3xi")
+debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall11"]
 position = Vector2(-80.3967, -469.423)
 rotation = -3.14159
 scale = Vector2(0.764386, 3.01711)
@@ -270,3 +328,5 @@ texture = ExtResource("6_m5y7r")
 stream = ExtResource("11_kfg6m")
 autoplay = true
 bus = &"Music"
+
+[node name="Visual" parent="." instance=ExtResource("12_bflyp")]
