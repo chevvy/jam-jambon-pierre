@@ -36,5 +36,6 @@ public partial class GameManager : Node
 		EmitSignal(SignalName.GameEnd, winnerId);
 		WinningTeamId = winnerId;
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Result.SceneId);
+		AudioManager.Instance.PlayEnd();
 	}
 }

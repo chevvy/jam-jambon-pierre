@@ -276,4 +276,6 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "PRESS A TO START"
 
+[node name="UISfx" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="StartGame"]
