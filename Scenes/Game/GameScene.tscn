@@ -1,22 +1,35 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=23 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/PelletA.tscn" id="3_g4cok"]
 [ext_resource type="Texture2D" uid="uid://b7ju55p3tol42" path="res://Asset/Obstacle_Medium_01.png" id="4_m0oud"]
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kkjux"]
+[ext_resource type="Texture2D" uid="uid://ba25xyko7h3kg" path="res://Asset/Obstacle_Large_01.png" id="6_eq1un"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_m5y7r"]
 [ext_resource type="Script" path="res://Scenes/Game/RotateDeezNutz.cs" id="6_qxwgx"]
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ruwda"]
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
 [ext_resource type="AudioStream" uid="uid://d3ncihv0c7yyf" path="res://SFX/Glass Ocean.mp3" id="11_kfg6m"]
-[ext_resource type="PackedScene" path="res://Levels/visual.tscn" id="12_bflyp"]
+[ext_resource type="PackedScene" uid="uid://dh41ker7j2h41" path="res://Levels/visual.tscn" id="12_bflyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_u8dyv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmp1k"]
+radius = 224.48
+height = 718.43
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uw4at"]
+radius = 79.19
+height = 663.45
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xx56t"]
+radius = 265.995
+height = 708.42
 
 [sub_resource type="Curve2D" id="Curve2D_gnyqy"]
 _data = {
@@ -227,6 +240,31 @@ position = Vector2(579, 610)
 script = ExtResource("8_p12la")
 
 [node name="Node" type="Node" parent="."]
+
+[node name="GrosGars" type="CharacterBody2D" parent="Node"]
+position = Vector2(-968, -656)
+rotation = 0.541919
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars"]
+position = Vector2(26.01, 14.4028)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_eq1un")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/GrosGars"]
+position = Vector2(-93.2951, 0.139893)
+shape = SubResource("CapsuleShape2D_mmp1k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/GrosGars"]
+position = Vector2(251.072, -1.74847)
+rotation = 0.261799
+shape = SubResource("CapsuleShape2D_uw4at")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node/GrosGars"]
+position = Vector2(50.9137, 100.079)
+rotation = 1.309
+shape = SubResource("CapsuleShape2D_xx56t")
 
 [node name="Path2D" type="Path2D" parent="Node"]
 position = Vector2(144, 193)

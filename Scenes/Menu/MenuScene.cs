@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class MenuScene : Control
+public partial class MenuScene : CanvasLayer
 {
 
 	// I apologize for this janky code
@@ -16,8 +16,6 @@ public partial class MenuScene : Control
 	private Control playerControl3;
 	[Export]
 	private Control playerControl4;
-	[Export]
-	private Control playerControl5;
 
 	private List<Control> controls;
 
@@ -25,23 +23,37 @@ public partial class MenuScene : Control
 
 	public override void _Ready()
 	{
+		PartyManager.IsOnPlayerPickingMenu = true;
+
 		controls = new List<Control>{
 			playerControl1,
 			playerControl2,
 			playerControl3,
 			playerControl4,
-			playerControl5,
 		};
+
+		controls[0].Modulate = CharacterColor.CharColor[0];
+		controls[1].Modulate = CharacterColor.CharColor[1];
+		controls[2].Modulate = CharacterColor.CharColor[2];
+		controls[3].Modulate = CharacterColor.CharColor[3];
 
 		foreach (Control each in controls)
 		{
-			each.Visible = true;
+			each.Visible = false;
 		}
 
 		foreach (var player in PlayerInput.PlayerTagByID)
 		{
-			PlayerEntered((int)player.Key);
+			SetupPlayerTeam((int)player.Key);
 		}
+
+		Signals.Instance.PlayerJoinedParty += OnPlayerJoinedParty;
+	}
+
+	public void OnPlayerJoinedParty(int partySlot, int playerId)
+	{
+		GD.Print($"Player {playerId} with slot {partySlot} is being shown");
+		controls[partySlot].Visible = true;
 	}
 
 	public override void _Process(double delta)
@@ -49,22 +61,29 @@ public partial class MenuScene : Control
 		// Has any player pressed start
 		foreach (var player in PlayerInput.PlayerTagByID)
 		{
-			if (Input.IsActionPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveLeft]}"))
-			{
-				SelectTeam((int)player.Key, (int)player.Key);
-			}
-			if (Input.IsActionJustPressed($"{player.Value}{PlayerInput.InputByName[InputAction.MoveRight]}"))
-			{
-				SelectTeam((int)player.Key, (int)player.Key);
-			}
-
 			// Jump means start :)
 			if (Input.IsActionJustPressed($"{player.Value}{PlayerInput.InputByName[InputAction.Jump]}"))
 			{
+				if (!hasPlayers())
+				{
+					return;
+				}
 				StartGame();
 				AudioManager.Instance.PlayStart();
 			}
 		}
+	}
+
+	private bool hasPlayers()
+	{
+		foreach (Control each in controls)
+		{
+			if (each.Visible)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public List<int> GetPlayersWithTeam(int teamId)
@@ -72,32 +91,16 @@ public partial class MenuScene : Control
 		return playerIdToTeam.Where(each => each.Value == teamId).Select(each => each.Key).ToList();
 	}
 
-	public void PlayerEntered(int playerId)
+	public void SetupPlayerTeam(int playerId)
 	{
-		int idInArray = playerId - 1;
-		controls[idInArray].Visible = true;
-
-		if (playerId <= GameScene.MaxCharacterCount)
-		{
-			// Default team is 1
-			SelectTeam(playerId, playerId);
-		}
-		else
-		{
-			GD.Print("Keyboard defaulting to team 2");
-			SelectTeam(playerId, 2);
-		}
+		int team = playerId > GameScene.MaxCharacterCount ? 2 : playerId;
+		SelectTeam(playerId, team);
 	}
 
 	public void SelectTeam(int playerId, int teamId)
 	{
-		int idInArray = playerId - 1;
-
 		playerIdToTeam.Remove(playerId);
 		playerIdToTeam.Add(playerId, teamId);
-
-		controls[idInArray].GetNode<Label>("1/Label").Visible = teamId == 1;
-		controls[idInArray].GetNode<Label>("2/Label").Visible = teamId == 2;
 	}
 
 	private void StartGame()
@@ -110,8 +113,10 @@ public partial class MenuScene : Control
 			each.TeamNumber = teamId;
 		}
 
-
 		GD.Print("Game start requested");
+
+		PartyManager.IsOnPlayerPickingMenu = false;
+
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
 	}
 }
