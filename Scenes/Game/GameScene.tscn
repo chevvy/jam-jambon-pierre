@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=17 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7ju55p3tol42" path="res://Asset/Obstacle_Medium_01.png" id="4_m0oud"]
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kkjux"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_m5y7r"]
+[ext_resource type="Script" path="res://Scenes/Game/RotateDeezNutz.cs" id="6_qxwgx"]
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ruwda"]
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
@@ -179,6 +180,8 @@ rotates = false
 script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D/PathFollow2D"]
+script = ExtResource("6_qxwgx")
+RotationSpeed = 1.02
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Path2D/PathFollow2D/CharacterBody2D"]
 position = Vector2(1954.08, 33.3786)
@@ -187,7 +190,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/Path2D/PathFollow2D/CharacterBody2D/CollisionPolygon2D"]
 position = Vector2(-1928.07, -18.9758)
-scale = Vector2(0.213975, 0.213975)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_m0oud")
 
 [node name="Path2D2" type="Path2D" parent="Node"]
@@ -201,6 +204,8 @@ script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D2/PathFollow2D"]
 position = Vector2(-7.00002, 8)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.75
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Path2D2/PathFollow2D/CharacterBody2D"]
@@ -223,6 +228,8 @@ script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D3/PathFollow2D"]
 position = Vector2(-2.7804, 51.0124)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 1.1
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Path2D3/PathFollow2D/CharacterBody2D"]
@@ -246,6 +253,8 @@ script = ExtResource("8_uen8u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Node/Path2D4/PathFollow2D"]
 position = Vector2(-2.25488, -5.64929)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.85
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Path2D4/PathFollow2D/CharacterBody2D"]
