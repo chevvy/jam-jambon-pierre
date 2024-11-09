@@ -13,6 +13,9 @@ public partial class Pellet : Node2D
 	[Export]
 	private PelletType _pelletType = PelletType.RED;
 
+	[Export] private DeleteAfterSFX MangeSfx;
+	[Export] private Sprite2D _spriteToHide;
+
 	public Area2D Area;
 
 	public override void _Ready()
@@ -45,7 +48,8 @@ public partial class Pellet : Node2D
 			EmitSignal(SignalName.PelletCollectedByCharacter, characterId, pelletId);
 			
 			GameManager.Instance.OnGainedPoint(character.GetPlayerTeam().ToString(), pelletId);
-			QueueFree();
+			MangeSfx.PlayAndDelete();
+			_spriteToHide.Hide();
 		}
 	}
 }

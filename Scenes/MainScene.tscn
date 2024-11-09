@@ -16,6 +16,7 @@ scoreManager = NodePath("CanvasLayer/ScoreManager")
 script = ExtResource("2_jd5ek")
 LabelTeam1 = NodePath("../UI/VBoxContainer/ScoreContainer/Team1Points")
 LabelTeam2 = NodePath("../UI/VBoxContainer/ScoreContainer2/Team2Points")
+ScoreLimit = 10
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3

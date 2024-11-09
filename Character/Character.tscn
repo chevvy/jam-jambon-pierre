@@ -1,10 +1,12 @@
-[gd_scene load_steps=44 format=3 uid="uid://chee75rc3xkxq"]
+[gd_scene load_steps=46 format=3 uid="uid://chee75rc3xkxq"]
 
 [ext_resource type="Script" path="res://Character/CharacterRoot.cs" id="1_d0aun"]
 [ext_resource type="Script" path="res://Character/Character.cs" id="1_q02ar"]
 [ext_resource type="PackedScene" uid="uid://in8asrulsxy0" path="res://Character/ChargeBallManager.tscn" id="3_vi8uw"]
 [ext_resource type="Texture2D" uid="uid://tocps5kx32fk" path="res://Asset/Player_01.png" id="4_1oyl6"]
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="4_ul4q0"]
+[ext_resource type="AudioStream" uid="uid://8iov6ab15wrh" path="res://SFX/souff-but-slow.wav" id="6_2oeew"]
+[ext_resource type="AudioStream" uid="uid://b21qqo54jmnr6" path="res://SFX/Release.wav" id="7_6ru5f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8n5x"]
 radius = 40.0
@@ -316,7 +318,7 @@ _data = {
 script = ExtResource("1_d0aun")
 Character = NodePath("Character")
 
-[node name="Character" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animator", "chargeball") groups=["characters"]]
+[node name="Character" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animator", "chargeball", "BuildUpSfx", "ReleaseBuildUpSfx") groups=["characters"]]
 collision_mask = 3
 script = ExtResource("1_q02ar")
 animator = NodePath("../AnimationPlayer")
@@ -324,6 +326,8 @@ ChargeSpeed = 60.0
 MaxCharge = 90.0
 ChargeInertiaRatio = 1.5
 chargeball = NodePath("ChargeBall")
+BuildUpSfx = NodePath("../BuildUpCharge")
+ReleaseBuildUpSfx = NodePath("../ReleaseCharge")
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="Character"]
 node_a = NodePath("..")
@@ -370,8 +374,8 @@ collision_mask = 0
 modification_stack = SubResource("SkeletonModificationStack2D_qst05")
 
 [node name="Bone-0" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
-position = Vector2(28.9675, 116.174)
-rotation = 0.159287
+position = Vector2(28.9674, 116.174)
+rotation = 0.159298
 rest = Transform2D(0.987341, 0.158614, -0.158614, 0.987341, 28.9674, 116.174)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -423,7 +427,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-4" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(49.8696, 153.724)
-rotation = -0.0384713
+rotation = -0.0384683
 rest = Transform2D(0.99926, -0.0384618, 0.0384618, 0.99926, 49.8696, 153.724)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -464,6 +468,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-7" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(91.9399, 120.915)
 rotation = 1.60587
+scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(-0.0350672, 0.999385, -0.999385, -0.0350672, 91.9399, 120.915)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -504,6 +509,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-10" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(122.544, 90.8275)
 rotation = 1.43866
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.131751, 0.991283, -0.991283, 0.131751, 122.544, 90.8275)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -516,7 +522,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-11" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(126.918, 123.738)
-rotation = 1.71842
+rotation = 1.71841
 rest = Transform2D(-0.147088, 0.989123, -0.989123, -0.147088, 126.918, 123.738)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -542,7 +548,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-13" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(154.96, 45.6963)
-rotation = 1.60912
+rotation = 1.60911
+scale = Vector2(0.999959, 0.999959)
 rest = Transform2D(-0.0383142, 0.999266, -0.999266, -0.0383142, 154.96, 45.6963)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -556,6 +563,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-14" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(153.265, 89.9201)
 rotation = 1.66825
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(-0.0973012, 0.995255, -0.995255, -0.0973012, 153.265, 89.9201)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -568,7 +576,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-15" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(150.173, 121.546)
-rotation = 1.49586
+rotation = 1.49585
 rest = Transform2D(0.0748698, 0.997193, -0.997193, 0.0748698, 150.173, 121.546)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -582,7 +590,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-16" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(152.366, 150.754)
 rotation = 1.51256
-scale = Vector2(1, 1)
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.0582036, 0.998305, -0.998305, 0.0582036, 152.366, 150.754)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -595,7 +603,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-17" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(54.9266, 187.578)
-rotation = -0.0393814
+rotation = -0.039367
+scale = Vector2(0.999983, 0.999983)
 rest = Transform2D(0.999225, -0.0393712, 0.0393712, 0.999225, 54.9266, 187.578)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -608,8 +617,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-18" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(88.9731, 186.237)
-rotation = -0.824366
-scale = Vector2(1, 1)
+rotation = -0.824367
 rest = Transform2D(0.679023, -0.734117, 0.734117, 0.679023, 88.9731, 186.237)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -635,7 +643,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-20" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(121.997, 185.071)
-rotation = 0.0133548
+rotation = 0.0133654
 rest = Transform2D(0.999911, 0.0133544, -0.0133544, 0.999911, 121.997, 185.071)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -648,7 +656,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-21" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(121.669, 218.032)
-rotation = -2.37015
+rotation = -2.37016
 rest = Transform2D(-0.716909, -0.697167, 0.697167, -0.716909, 121.669, 218.032)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -661,7 +669,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-22" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(154.392, 185.504)
-rotation = -0.789033
+rotation = -0.789039
 rest = Transform2D(0.704532, -0.709672, 0.709672, 0.704532, 154.392, 185.504)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -674,7 +682,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-23" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(155.181, 217.74)
-rotation = -1.59529
+rotation = -1.59527
 rest = Transform2D(-0.0244876, -0.9997, 0.9997, -0.0244876, 155.181, 217.74)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -713,8 +721,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-26" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(186.032, 120.669)
-rotation = 1.55045
-scale = Vector2(1, 1)
+rotation = 1.55046
 rest = Transform2D(0.0203445, 0.999793, -0.999793, 0.0203445, 186.032, 120.669)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -727,8 +734,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-27" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(186.689, 152.971)
-rotation = 2.35256
-scale = Vector2(1, 1)
+rotation = 2.35255
 rest = Transform2D(-0.704532, 0.709672, -0.709672, -0.704532, 186.689, 152.971)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -2747,3 +2753,11 @@ softness = 25.0
 libraries = {
 "": SubResource("AnimationLibrary_h5fuq")
 }
+
+[node name="BuildUpCharge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2oeew")
+volume_db = -4.607
+
+[node name="ReleaseCharge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6ru5f")
+volume_db = -16.421

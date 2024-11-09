@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=18 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ruwda"]
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
+[ext_resource type="AudioStream" uid="uid://d3ncihv0c7yyf" path="res://SFX/Glass Ocean.mp3" id="11_kfg6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
@@ -264,3 +265,8 @@ polygon = PackedVector2Array(-1778, 801, -1772, 874, -1819, 931, -1788, 995, -19
 [node name="ObstacleSmall02" type="Sprite2D" parent="Node/Path2D4/PathFollow2D/CharacterBody2D/CollisionPolygon2D"]
 position = Vector2(-1958, 882)
 texture = ExtResource("6_m5y7r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_kfg6m")
+autoplay = true
+bus = &"Music"
