@@ -7,14 +7,25 @@ public partial class SlimeTrailsManager : Node
 
 	public override void _Ready()
 	{
-		SlimeTrailsList = new List<Line2D>();
+		SlimeTrailsList = new List<Line2D>(GameScene.MaxCharacterCount);
+
+		for (int i = 0; i < GameScene.MaxCharacterCount; i++)
+		{
+            var slimeTrail = new Line2D
+            {
+                DefaultColor = CharacterColor.CharColor[i],
+                Width = 75f,
+                Name = $"SlimeTrail{i}"
+            };
+
+            SlimeTrailsList.Add(slimeTrail);
+
+			AddChild(slimeTrail);
+		}
 	}
 
     public void UpdateCharacterSlimeTrail(int characterId, Vector2 position)
 	{
-		if (characterId >= SlimeTrailsList.Count)
-			SlimeTrailsList.Add(new Line2D());
-
 		SlimeTrailsList[characterId].AddPoint(position);
 	}
 }
