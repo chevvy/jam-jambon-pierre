@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Character/CharacterRoot.cs" id="1_d0aun"]
 [ext_resource type="Script" path="res://Character/Character.cs" id="1_q02ar"]
-[ext_resource type="PackedScene" uid="uid://in8asrulsxy0" path="res://Character/ChargeBallManager.tscn" id="3_vi8uw"]
+[ext_resource type="PackedScene" path="res://Character/ChargeBallManager.tscn" id="3_vi8uw"]
 [ext_resource type="Texture2D" uid="uid://b15666qrktm6y" path="res://Asset/New Player Design.png" id="4_a1rlr"]
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="4_ul4q0"]
 [ext_resource type="AudioStream" uid="uid://8iov6ab15wrh" path="res://SFX/souff-but-slow.wav" id="6_2oeew"]
@@ -375,7 +375,7 @@ visible = false
 modification_stack = SubResource("SkeletonModificationStack2D_xojlp")
 
 [node name="Bone-0" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
-position = Vector2(28.9675, 116.174)
+position = Vector2(28.9674, 116.174)
 rotation = 0.159287
 rest = Transform2D(0.987341, 0.158614, -0.158614, 0.987341, 28.9674, 116.174)
 auto_calculate_length_and_angle = false
