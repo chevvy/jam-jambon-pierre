@@ -3,15 +3,21 @@
 [ext_resource type="Script" path="res://Scenes/Game/GameSceneWrapper.cs" id="1_p0jty"]
 [ext_resource type="PackedScene" uid="uid://ddn6x08fr8cja" path="res://Scenes/Game/GameScene.tscn" id="2_smh5q"]
 
-[node name="GameSceneWrapper" type="Node2D" node_paths=PackedStringArray("viewPort1", "viewport2", "camera1", "camera2", "extraScreenContainer")]
+[node name="GameSceneWrapper" type="Node2D" node_paths=PackedStringArray("viewPort1", "viewport2", "viewport3", "viewport4", "camera1", "camera2", "camera3", "camera4", "viewportContainer2", "viewportContainer3", "viewportContainer4")]
 script = ExtResource("1_p0jty")
-viewPort1 = NodePath("HB/VPC/VC")
-viewport2 = NodePath("HB/VPC2/VC2")
-camera1 = NodePath("HB/VPC/VC/Camera2D")
-camera2 = NodePath("HB/VPC2/VC2/Camera2D")
-extraScreenContainer = NodePath("HB/VPC2")
+viewPort1 = NodePath("VB/HB/VPC/VC")
+viewport2 = NodePath("VB/HB/VPC2/VC2")
+viewport3 = NodePath("VB/HB2/VPC/VC")
+viewport4 = NodePath("VB/HB2/VPC2/VC2")
+camera1 = NodePath("VB/HB/VPC/VC/Camera2D")
+camera2 = NodePath("VB/HB/VPC2/VC2/Camera2D")
+camera3 = NodePath("VB/HB2/VPC/VC/Camera2D")
+camera4 = NodePath("VB/HB2/VPC2/VC2/Camera2D")
+viewportContainer2 = NodePath("VB/HB/VPC2")
+viewportContainer3 = NodePath("VB/HB2/VPC")
+viewportContainer4 = NodePath("VB/HB2/VPC2")
 
-[node name="HB" type="HBoxContainer" parent="."]
+[node name="VB" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1200)
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,34 +26,71 @@ offset_right = 1920.0
 offset_bottom = 1200.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HB" type="HBoxContainer" parent="VB"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
 alignment = 1
 
-[node name="VPC" type="SubViewportContainer" parent="HB"]
+[node name="VPC" type="SubViewportContainer" parent="VB/HB"]
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="VC" type="SubViewport" parent="HB/VPC"]
+[node name="VC" type="SubViewport" parent="VB/HB/VPC"]
 handle_input_locally = false
-size = Vector2i(958, 1200)
+size = Vector2i(958, 600)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="HB/VPC/VC"]
+[node name="Camera2D" type="Camera2D" parent="VB/HB/VPC/VC"]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
-[node name="GameScene" parent="HB/VPC/VC" instance=ExtResource("2_smh5q")]
+[node name="GameScene" parent="VB/HB/VPC/VC" instance=ExtResource("2_smh5q")]
 
-[node name="VPC2" type="SubViewportContainer" parent="HB"]
+[node name="VPC2" type="SubViewportContainer" parent="VB/HB"]
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="VC2" type="SubViewport" parent="HB/VPC2"]
+[node name="VC2" type="SubViewport" parent="VB/HB/VPC2"]
 handle_input_locally = false
-size = Vector2i(958, 1200)
+size = Vector2i(958, 600)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="HB/VPC2/VC2"]
+[node name="Camera2D" type="Camera2D" parent="VB/HB/VPC2/VC2"]
+zoom = Vector2(0.75, 0.75)
+
+[node name="HB2" type="HBoxContainer" parent="VB"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+alignment = 1
+
+[node name="VPC" type="SubViewportContainer" parent="VB/HB2"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="VC" type="SubViewport" parent="VB/HB2/VPC"]
+handle_input_locally = false
+size = Vector2i(958, 600)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="VB/HB2/VPC/VC"]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="VPC2" type="SubViewportContainer" parent="VB/HB2"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="VC2" type="SubViewport" parent="VB/HB2/VPC2"]
+handle_input_locally = false
+size = Vector2i(958, 600)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="VB/HB2/VPC2/VC2"]
 zoom = Vector2(0.75, 0.75)

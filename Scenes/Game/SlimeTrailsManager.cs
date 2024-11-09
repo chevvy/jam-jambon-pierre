@@ -26,6 +26,6 @@ public partial class SlimeTrailsManager : Node
 
     public void UpdateCharacterSlimeTrail(int characterId, Vector2 position)
 	{
-		SlimeTrailsList[characterId].AddPoint(position);
+		SlimeTrailsList[characterId - 1].AddPoint(position);
 	}
 }
