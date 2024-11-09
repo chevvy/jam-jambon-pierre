@@ -63,6 +63,8 @@ public partial class Character : CharacterBody2D
 		};
 
 		this.characterId = characterId;
+		
+		GetParent<CharacterRoot>().Modulate = CharacterColor.CharColor[characterId - 1];
 	}
 
 	public void SetupPlayer(List<PlayerID> ids, int characterId)
@@ -74,6 +76,8 @@ public partial class Character : CharacterBody2D
 		}
 		
 		this.characterId = characterId;
+		
+		GetParent<CharacterRoot>().Modulate = CharacterColor.CharColor[characterId - 1];
 	}
 
 	public void SetupPlayer(List<PlayerInput> inputs, int characterId)
@@ -85,6 +89,8 @@ public partial class Character : CharacterBody2D
 		}
 		
 		this.characterId = characterId;
+		
+		GetParent<CharacterRoot>().Modulate = CharacterColor.CharColor[characterId - 1];
 	}
 
 	public override void _Process(double delta)
@@ -256,7 +262,7 @@ public partial class Character : CharacterBody2D
 			MoveSpeed += SpeedGainPerPill;
 		}
 
-		PelletsEaten++;
+		PelletsEaten++;		
 	}
 }
 
