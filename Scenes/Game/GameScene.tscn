@@ -447,6 +447,7 @@ position = Vector2(1156, -994)
 rotation = 0.541919
 script = ExtResource("6_qxwgx")
 RotationSpeed = 0.3
+invertDirection = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars5"]
 position = Vector2(26.01, 14.4028)
