@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3ncihv0c7yyf"
+path="res://.godot/imported/Glass Ocean.mp3-106662a18b45398ac04f60a9f79c2427.mp3str"
+
+[deps]
+
+source_file="res://SFX/Glass Ocean.mp3"
+dest_files=["res://.godot/imported/Glass Ocean.mp3-106662a18b45398ac04f60a9f79c2427.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
