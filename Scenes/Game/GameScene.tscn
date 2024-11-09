@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=27 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
 [ext_resource type="AudioStream" uid="uid://d3ncihv0c7yyf" path="res://SFX/Glass Ocean.mp3" id="11_kfg6m"]
 [ext_resource type="PackedScene" uid="uid://dh41ker7j2h41" path="res://Levels/visual.tscn" id="12_bflyp"]
+[ext_resource type="Texture2D" uid="uid://cdkfx1cv7tu5q" path="res://Asset/Obstacle_Medium_02.png" id="12_svdbp"]
+[ext_resource type="Texture2D" uid="uid://c7sawn8fff8oj" path="res://Asset/Obstacle_Medium_03.png" id="13_mggi6"]
+[ext_resource type="Texture2D" uid="uid://6oxtvvw2rc1j" path="res://Asset/Obstacle_Medium_04.png" id="14_yfl76"]
+[ext_resource type="Texture2D" uid="uid://ggyksm48vl0i" path="res://Asset/Obstacle_Medium_05.png" id="15_0e7wx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
 size = Vector2(45.7507, 715.906)
@@ -361,6 +365,99 @@ polygon = PackedVector2Array(-1778, 801, -1772, 874, -1819, 931, -1788, 995, -19
 [node name="ObstacleSmall02" type="Sprite2D" parent="Node/Path2D4/PathFollow2D/CharacterBody2D/CollisionPolygon2D"]
 position = Vector2(-1958, 882)
 texture = ExtResource("6_m5y7r")
+
+[node name="GrosGars2" type="CharacterBody2D" parent="Node"]
+position = Vector2(998, 711)
+rotation = 0.541919
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars2"]
+position = Vector2(26.01, 14.4028)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_svdbp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/GrosGars2"]
+position = Vector2(-125.964, 58.3271)
+rotation = -0.612611
+scale = Vector2(0.675775, 0.624328)
+shape = SubResource("CapsuleShape2D_mmp1k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/GrosGars2"]
+position = Vector2(181.17, -69.3856)
+rotation = -0.657989
+scale = Vector2(1.01281, 0.584287)
+shape = SubResource("CapsuleShape2D_uw4at")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node/GrosGars2"]
+position = Vector2(44.3658, -34.8807)
+rotation = -0.53058
+scale = Vector2(0.512105, 0.267718)
+shape = SubResource("CapsuleShape2D_xx56t")
+
+[node name="GrosGars3" type="CharacterBody2D" parent="Node"]
+position = Vector2(-105, 1296)
+rotation = 0.541919
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars3"]
+position = Vector2(26.01, 14.4028)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("13_mggi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/GrosGars3"]
+position = Vector2(41.175, 10.2283)
+rotation = -0.612611
+scale = Vector2(1.39455, 0.614227)
+shape = SubResource("CapsuleShape2D_mmp1k")
+
+[node name="GrosGars4" type="CharacterBody2D" parent="Node"]
+position = Vector2(-54, -1395)
+rotation = 0.541919
+scale = Vector2(0.938624, 0.938624)
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars4"]
+position = Vector2(26.01, 14.4028)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("14_yfl76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/GrosGars4"]
+position = Vector2(0.760521, 49.7335)
+rotation = -1.30202
+scale = Vector2(0.510133, 0.737001)
+shape = SubResource("CapsuleShape2D_mmp1k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node/GrosGars4"]
+position = Vector2(167.428, 29.9328)
+rotation = -0.5044
+scale = Vector2(1.01859, 0.679445)
+shape = SubResource("CapsuleShape2D_uw4at")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node/GrosGars4"]
+position = Vector2(-0.0524588, -34.9856)
+rotation = 0.235619
+scale = Vector2(0.672154, 0.2964)
+shape = SubResource("CapsuleShape2D_xx56t")
+
+[node name="GrosGars5" type="CharacterBody2D" parent="Node"]
+position = Vector2(1156, -994)
+rotation = 0.541919
+script = ExtResource("6_qxwgx")
+RotationSpeed = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node/GrosGars5"]
+position = Vector2(26.01, 14.4028)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_0e7wx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/GrosGars5"]
+position = Vector2(16.3389, 31.0168)
+rotation = -0.612611
+scale = Vector2(1.01067, 0.61917)
+shape = SubResource("CapsuleShape2D_mmp1k")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_kfg6m")
