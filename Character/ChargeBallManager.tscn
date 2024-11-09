@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsy18pwub01y0"]
+[gd_scene load_steps=10 format=3 uid="uid://in8asrulsxy0"]
 
 [ext_resource type="Script" path="res://Character/ChargeBall.cs" id="1_eebwc"]
 [ext_resource type="Material" uid="uid://dpec5hjpflmri" path="res://examples/edge_shader/material_edge_shader.tres" id="1_nc7al"]
 [ext_resource type="Texture2D" uid="uid://bp0uppvkrsyk7" path="res://Asset/UI/UI_Arrow.png" id="2_aea1q"]
-[ext_resource type="Shader" uid="uid://b6itn86afgkqm" path="res://ChargeBallManager.tres" id="3_3qyf1"]
+[ext_resource type="Shader" uid="uid://bhawpj2bcr42q" path="res://ChargeBallManager.tres" id="3_3qyf1"]
 [ext_resource type="Script" path="res://Character/ArrowSprite.cs" id="5_aa67h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vthss"]

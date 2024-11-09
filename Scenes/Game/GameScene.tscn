@@ -1,16 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://ddn6x08fr8cja"]
+[gd_scene load_steps=27 format=3 uid="uid://ddn6x08fr8cja"]
 
 [ext_resource type="Script" path="res://Scenes/Game/GameScene.cs" id="1_5j8y5"]
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
-[ext_resource type="PackedScene" path="res://Pellet/PelletA.tscn" id="3_g4cok"]
+[ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/PelletA.tscn" id="3_g4cok"]
 [ext_resource type="Script" path="res://addons/donut_collision_polygon2D/donut_collision_polygon2D.gd" id="4_li38q"]
 [ext_resource type="Texture2D" uid="uid://b7ju55p3tol42" path="res://Asset/Obstacle_Medium_01.png" id="4_m0oud"]
-[ext_resource type="Material" uid="uid://bh2pg1gdvuqkd" path="res://Shader/LineMaterial.tres" id="5_3c226"]
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kkjux"]
 [ext_resource type="Texture2D" uid="uid://ba25xyko7h3kg" path="res://Asset/Obstacle_Large_01.png" id="6_eq1un"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_m5y7r"]
 [ext_resource type="Script" path="res://Scenes/Game/RotateDeezNutz.cs" id="6_qxwgx"]
-[ext_resource type="Gradient" uid="uid://cnfhmbcu62hyq" path="res://Shader/Gradient.tres" id="6_sfl5a"]
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ruwda"]
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 [ext_resource type="Script" path="res://Scenes/Game/PathFollow2d.cs" id="8_uen8u"]
@@ -96,7 +94,7 @@ light_mask = 1023
 visibility_layer = 1023
 position = Vector2(165, 21)
 scale = Vector2(299.602, 214.602)
-polygon = PackedVector2Array(6.73533e-16, -11, 2.14599, -10.7886, 4.20952, -10.1627, 6.11127, -9.14617, 7.77817, -7.77817, 9.14617, -6.11127, 10.1627, -4.20952, 10.7886, -2.14599, 11, 0, 10.7886, 2.14599, 10.1627, 4.20952, 9.14617, 6.11127, 7.77817, 7.77817, 6.11127, 9.14617, 4.20952, 10.1627, 2.14599, 10.7886, 6.73533e-16, 11, -2.14599, 10.7886, -4.20952, 10.1627, -6.11127, 9.14617, -7.77817, 7.77817, -9.14617, 6.11127, -10.1627, 4.20952, -10.7886, 2.14599, -11, 1.34707e-15, -10.7886, -2.14599, -10.1627, -4.20952, -9.14617, -6.11127, -7.77817, -7.77817, -6.11127, -9.14617, -4.20952, -10.1627, -2.14599, -10.7886, -2.0206e-15, -11, -1.65322e-15, -9, -1.75581, -8.82707, -4.22894, -8.49012, -5.77766, -7.7399, -7.32304, -6.41186, -8.26429, -5.10246, -8.89179, -3.32242, -9.20888, -1.33736, -9.20888, 0.549855, -8.81168, 2.83315, -8.22424, 4.22642, -7.57337, 5.47059, -6.39848, 6.64485, -4.88982, 7.68398, -3.44415, 8.31492, -1.75581, 8.82707, 0.320425, 8.81631, 2.09945, 8.42955, 3.58475, 8.01483, 4.93988, 7.15743, 6.36396, 6.36396, 7.68018, 5.0745, 8.31492, 3.44415, 8.82707, 1.75581, 9, 0, 8.82707, -1.75581, 8.31492, -3.44415, 7.63012, -4.87413, 6.60876, -6.60291, 5.11011, -7.66534, 3.63482, -8.39693, 1.75581, -8.82707, 5.51073e-16, -9, 0.0001, -10.9999)
+polygon = PackedVector2Array(6.73556e-16, -11, 2.14599, -10.7886, 4.20952, -10.1627, 6.11127, -9.14617, 7.77817, -7.77817, 9.14617, -6.11127, 10.1627, -4.20952, 10.7886, -2.14599, 11, 0, 10.7886, 2.14599, 10.1627, 4.20952, 9.14617, 6.11127, 7.77817, 7.77817, 6.11127, 9.14617, 4.20952, 10.1627, 2.14599, 10.7886, 6.73556e-16, 11, -2.14599, 10.7886, -4.20952, 10.1627, -6.11127, 9.14617, -7.77817, 7.77817, -9.14617, 6.11127, -10.1627, 4.20952, -10.7886, 2.14599, -11, 1.34711e-15, -10.7886, -2.14599, -10.1627, -4.20952, -9.14617, -6.11127, -7.77817, -7.77817, -6.11127, -9.14617, -4.20952, -10.1627, -2.14599, -10.7886, -2.02067e-15, -11, -1.65327e-15, -9, -1.75581, -8.82707, -3.44415, -8.31492, -5.00013, -7.48323, -6.36396, -6.36396, -7.48323, -5.00013, -8.31492, -3.44415, -8.82707, -1.75581, -9, 1.10218e-15, -8.82707, 1.75581, -8.31492, 3.44415, -7.48323, 5.00013, -6.36396, 6.36396, -5.00013, 7.48323, -3.44415, 8.31492, -1.75581, 8.82707, 5.51091e-16, 9, 1.75581, 8.82707, 3.44415, 8.31492, 5.00013, 7.48323, 6.36396, 6.36396, 7.48323, 5.00013, 8.31492, 3.44415, 8.82707, 1.75581, 9, 0, 8.82707, -1.75581, 8.31492, -3.44415, 7.48323, -5.00013, 6.36396, -6.36396, 5.00013, -7.48323, 3.44415, -8.31492, 1.75581, -8.82707, 5.51091e-16, -9, 0.0001, -10.9999)
 one_way_collision_margin = 3.0
 script = ExtResource("4_li38q")
 
@@ -140,8 +138,6 @@ position = Vector2(579, 610)
 
 [node name="SlimeTrailsManager" type="Node2D" parent="."]
 script = ExtResource("8_p12la")
-shaderMaterial = ExtResource("5_3c226")
-gradient = ExtResource("6_sfl5a")
 
 [node name="Node" type="Node" parent="."]
 
