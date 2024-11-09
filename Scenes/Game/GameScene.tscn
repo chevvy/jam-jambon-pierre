@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cv4mv2nxruo64" path="res://Asset/Obstacle_Small_01.png" id="5_kkjux"]
 [ext_resource type="Texture2D" uid="uid://cmxxrexnpiuhj" path="res://Asset/Obstacle_Small_02.png" id="6_m5y7r"]
 [ext_resource type="Texture2D" uid="uid://c7l4rtki1ior4" path="res://Asset/Obstacle_Small_03.png" id="7_ruwda"]
-[ext_resource type="Script" path="res://Scenes/Game/SlimeTrails.cs" id="8_p12la"]
+[ext_resource type="Script" path="res://Scenes/Game/SlimeTrailsManager.cs" id="8_p12la"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1js0j"]
 radius = 52.1536
@@ -25,7 +25,7 @@ size = Vector2(45.7507, 715.906)
 
 [node name="GameScene" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("1_5j8y5")
-Character = ExtResource("2_cx38r")
+CharacterBlueprint = ExtResource("2_cx38r")
 PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2")]
 
 [node name="Walls" type="Node" parent="."]
@@ -632,5 +632,5 @@ position = Vector2(1855, 85)
 [node name="Pellet8" parent="." instance=ExtResource("3_g4cok")]
 position = Vector2(579, 610)
 
-[node name="SlimeTrails" type="Node2D" parent="."]
+[node name="SlimeTrailsManager" type="Node2D" parent="."]
 script = ExtResource("8_p12la")
