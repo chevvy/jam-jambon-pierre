@@ -33,6 +33,8 @@ render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="HB/VPC/VC"]
 zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 
 [node name="GameScene" parent="HB/VPC/VC" instance=ExtResource("2_smh5q")]
 

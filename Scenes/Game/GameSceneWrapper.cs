@@ -30,5 +30,8 @@ public partial class GameSceneWrapper : Node2D
 		remoteTransform2.RemotePath = camera2.GetPath();
 		character.AddChild(remoteTransform2);
 		character.AddChild(remoteTransform1);
+
+		camera2.PositionSmoothingEnabled = camera1.PositionSmoothingEnabled;
+		camera2.PositionSmoothingSpeed = camera1.PositionSmoothingSpeed;
 	}
 }
