@@ -1,6 +1,10 @@
+
 [gd_scene load_steps=4 format=3 uid="uid://dra8okwnlx2v4"]
 
-[ext_resource type="Script" path="res://Player/PlayerInput.cs" id="1_tt2et"]
+[ext_resource type="Script" path="res://Levels/camera_2d.gd" id="1_3wl8t"]
+[ext_resource type="Texture2D" uid="uid://qadm0qnebd0t" path="res://Asset/BG_01.png" id="2_s45ww"]
+[ext_resource type="Texture2D" uid="uid://c4jkerm0djxiw" path="res://Asset/Particles/Noise_01.png" id="3_rx4h2"]
+[ext_resource type="Texture2D" uid="uid://bi4725wxxp7yc" path="res://Asset/Particles/Particles_S_01_Blur.png" id="4_jkxh8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_08st7"]
 radius = 545.0
@@ -10,9 +14,17 @@ height = 1826.0
 radius = 512.0
 height = 1756.0
 
+
 [node name="LevelDesign" type="Node2D"]
 
-[node name="Walls" type="Node" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_3wl8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+top_level = true
+position = Vector2(575, 323.5)
+scale = Vector2(18.0937, 16.6406)
+texture = SubResource("GradientTexture2D_namsx")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
 
@@ -25,19 +37,27 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1wmei")
 disabled = true
 
-[node name="SpawnPointP1" type="Marker2D" parent="."]
-position = Vector2(-440, 4)
 
-[node name="SpawnPointP2" type="Marker2D" parent="."]
-position = Vector2(-228, 2)
+[node name="Parallax2D_FG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(2, 2)
 
-[node name="SpawnPointP3" type="Marker2D" parent="."]
-position = Vector2(134, 2)
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_FG"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_rx4h2")
 
-[node name="SpawnPointP4" type="Marker2D" parent="."]
-position = Vector2(347, -1)
+[node name="Parallax2D_Particle_01" type="Parallax2D" parent="."]
+scroll_scale = Vector2(3, 3)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_01"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_jkxh8")
 
-[node name="PlayerInputManager" type="Node" parent="."]
-script = ExtResource("1_tt2et")
+[node name="Parallax2D_Particle_02" type="Parallax2D" parent="."]
+scroll_scale = Vector2(7, 7)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_02"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.39355, 3.39355)
+texture = ExtResource("4_jkxh8")
