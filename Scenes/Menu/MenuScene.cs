@@ -23,6 +23,8 @@ public partial class MenuScene : CanvasLayer
 
 	public override void _Ready()
 	{
+		PartyManager.IsOnPlayerPickingMenu = true;
+
 		controls = new List<Control>{
 			playerControl1,
 			playerControl2,
@@ -62,10 +64,26 @@ public partial class MenuScene : CanvasLayer
 			// Jump means start :)
 			if (Input.IsActionJustPressed($"{player.Value}{PlayerInput.InputByName[InputAction.Jump]}"))
 			{
+				if (!hasPlayers())
+				{
+					return;
+				}
 				StartGame();
 				AudioManager.Instance.PlayStart();
 			}
 		}
+	}
+
+	private bool hasPlayers()
+	{
+		foreach (Control each in controls)
+		{
+			if (each.Visible)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public List<int> GetPlayersWithTeam(int teamId)
@@ -96,6 +114,9 @@ public partial class MenuScene : CanvasLayer
 		}
 
 		GD.Print("Game start requested");
+
+		PartyManager.IsOnPlayerPickingMenu = false;
+
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
 	}
 }
