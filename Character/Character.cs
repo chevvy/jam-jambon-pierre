@@ -17,17 +17,17 @@ public partial class Character : CharacterBody2D
 	[Export] public AnimationPlayer animator;
 
 	[Export]
-	private float MoveSpeed = 60.0f;
+	private float MoveSpeed = 40.0f;
 	[Export]
-	private float Desceleration = 45f;
+	private float Desceleration = 60f;
 	[Export]
-	private float ChargeSpeed = 30f;
+	private float ChargeSpeed = 25f;
 	[Export]
-	private float MaxCharge = 45f;
+	private float MaxCharge = 25f;
 	[Export]
 	private float ChargeInertiaRatio = 2f;
 	[Export]
-	private float SpeedGainPerPill = 10f;
+	private float SpeedGainPerPill = 2.5f;
 	[Export]
 	private float ChargeGainPerPill = 10f;
 
