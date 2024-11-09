@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://3wruc3y25h0m"]
+
+[ext_resource type="Script" path="res://Levels/camera_2d.gd" id="1_2742n"]
+[ext_resource type="Texture2D" uid="uid://qadm0qnebd0t" path="res://Asset/BG_01.png" id="2_euj45"]
+[ext_resource type="Texture2D" uid="uid://bi4725wxxp7yc" path="res://Asset/Particles/Particles_S_01_Blur.png" id="3_phy33"]
+[ext_resource type="Texture2D" uid="uid://c4jkerm0djxiw" path="res://Asset/Particles/Noise_01.png" id="4_3gaa5"]
+
+[sub_resource type="Gradient" id="Gradient_wqhry"]
+offsets = PackedFloat32Array(0, 0.55531, 0.676991)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0.192, 0.36, 0.701961, 0.0756, 0.1015, 0.12, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_namsx"]
+gradient = SubResource("Gradient_wqhry")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="LevelDesign" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_2742n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+top_level = true
+position = Vector2(575, 323.5)
+scale = Vector2(18.0937, 16.6406)
+texture = SubResource("GradientTexture2D_namsx")
+
+[node name="Parallax2D_BG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Bg01" type="Sprite2D" parent="Parallax2D_BG"]
+scale = Vector2(0.539815, 0.539815)
+texture = ExtResource("2_euj45")
+
+[node name="Parallax2D_BG2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="ParticlesS01Blur" type="Sprite2D" parent="Parallax2D_BG2"]
+modulate = Color(1, 1, 1, 0.247059)
+texture = ExtResource("3_phy33")
+
+[node name="Parallax2D_MG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Noise01" type="Sprite2D" parent="Parallax2D_MG"]
+modulate = Color(1, 1, 1, 0.32549)
+texture = ExtResource("4_3gaa5")
+
+[node name="Parallax2D_FG" type="Parallax2D" parent="."]
+scroll_scale = Vector2(2, 2)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_FG"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_3gaa5")
+
+[node name="Parallax2D_Particle_01" type="Parallax2D" parent="."]
+scroll_scale = Vector2(3, 3)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_01"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_phy33")
+
+[node name="Parallax2D_Particle_02" type="Parallax2D" parent="."]
+scroll_scale = Vector2(7, 7)
+
+[node name="Noise02" type="Sprite2D" parent="Parallax2D_Particle_02"]
+modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(3.39355, 3.39355)
+texture = ExtResource("3_phy33")
