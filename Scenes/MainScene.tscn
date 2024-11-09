@@ -4,9 +4,10 @@
 [ext_resource type="Script" path="res://Scenes/MainScenePartyUi.cs" id="2_a5rqi"]
 [ext_resource type="Script" path="res://System/ScoreManager.cs" id="2_jd5ek"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("SceneAnchorNode")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("SceneAnchorNode", "camera")]
 script = ExtResource("1_r044q")
 SceneAnchorNode = NodePath("SceneAnchor")
+camera = NodePath("Camera2D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -61,8 +62,5 @@ layout_mode = 2
 script = ExtResource("2_a5rqi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-enabled = false
-zoom = Vector2(0.2, 0.2)
 
 [node name="SceneAnchor" type="Node" parent="."]

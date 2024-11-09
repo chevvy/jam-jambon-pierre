@@ -7,6 +7,8 @@ public partial class MainScene : Node
 	private Dictionary<int, PackedScene> SceneStore;
 	[Export]
 	private Node SceneAnchorNode;
+	[Export]
+	private Camera2D camera;
 
 	public override void _Ready()
 	{
@@ -34,6 +36,8 @@ public partial class MainScene : Node
 			SceneAnchorNode.RemoveChild(SceneAnchorNode.GetChild(0));
 		
 		SceneAnchorNode.AddChild(SceneStore[sceneId].Instantiate());
+
+		camera.Enabled = sceneId != Scenes.Game.SceneId;
 	}
 	
 	public void OnSceneRequested(int sceneId)
