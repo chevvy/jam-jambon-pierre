@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/Pellet.tscn" id="3_g4cok"]
 [ext_resource type="Script" path="res://Scenes/Game/SlimeTrails.cs" id="3_wcb2f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
+size = Vector2(45.7507, 715.906)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1js0j"]
 radius = 52.1536
 
