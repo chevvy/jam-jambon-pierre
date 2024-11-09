@@ -10,7 +10,7 @@ public enum State
 
 public partial class Character : CharacterBody2D
 {
-    [Signal] public delegate void CharacterPositionChangedEventHandler(int playerId, Vector2 position);
+    [Signal] public delegate void CharacterPositionChangedEventHandler(int characterId, Vector2 position);
 
     private Timer EmitPositionTimer;
 
@@ -35,44 +35,52 @@ public partial class Character : CharacterBody2D
 
 	private List<PlayerChargeState> _players = new List<PlayerChargeState>();
 
+	[Export] public int characterId;
+
     public override void _Ready()
     {
         EmitPositionTimer = GetNode<Timer>("EmitPositionTimer");
         EmitPositionTimer.WaitTime = 0.1f;
-        EmitPositionTimer.Timeout += () => EmitSignal(SignalName.CharacterPositionChanged, 0, GlobalPosition);
+        EmitPositionTimer.Timeout += () => EmitSignal(SignalName.CharacterPositionChanged, characterId, GlobalPosition);
         EmitPositionTimer.Start();
     }
 
-    public void SetupPlayer(PlayerID id)
+    public void SetupPlayer(PlayerID id, int characterId)
     {
         _players = new List<PlayerChargeState> {
             new(new PlayerInput(id))
         };
+
+		this.characterId = characterId;
     }
 
-	public void SetupPlayer(List<PlayerID> ids)
+	public void SetupPlayer(List<PlayerID> ids, int characterId)
 	{
 		_players = new List<PlayerChargeState>();
 		foreach (PlayerID id in ids)
 		{
 			_players.Add(new(new PlayerInput(id)));
 		}
+		
+		this.characterId = characterId;
 	}
 
-	public void SetupPlayer(List<PlayerInput> inputs)
+	public void SetupPlayer(List<PlayerInput> inputs, int characterId)
 	{
 		_players = new List<PlayerChargeState>();
 		foreach (PlayerInput input in inputs)
 		{
 			_players.Add(new(input));
 		}
+		
+		this.characterId = characterId;
 	}
 
 	public override void _Process(double delta)
 	{
 		if (_players.Count == 0)
 		{
-			SetupPlayer(new List<PlayerID> { PlayerID.P5 });
+			SetupPlayer(new List<PlayerID> { PlayerID.P5 }, 0);
 			return;
 		}
 
@@ -205,6 +213,4 @@ public class PlayerChargeState
 	{
 		Input = _input;
 	}
-
-
 }
