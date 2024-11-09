@@ -41,6 +41,7 @@ public partial class MainScene : Node
 		
 		SceneAnchorNode.AddChild(SceneStore[sceneId].Instantiate());
 
+		// On the 'game' we potentially have split-screen. Hide regular camera
 		camera.Enabled = sceneId != Scenes.Game.SceneId;
 	}
 	
