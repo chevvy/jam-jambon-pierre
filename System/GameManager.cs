@@ -10,16 +10,26 @@ public partial class GameManager : Node
 	[Signal]
 	public delegate void PlayerGainedPelletEventHandler(string id, int qty);
 
+	[Signal]
+	public delegate void GameEndEventHandler(string winnerId);
+
 	public override void _Ready()
 	{
 		Instance = this;
 		PlayerGainedPellet += (id,qty) => GD.Print("biscuits du capitaine" + id + qty);
-		EmitSignal(SignalName.PlayerGainedPellet, "p1", 1);
+		
+		
 	}
 
 	public void OnGainedPoint(string id, int qty)
 	{
 		EmitSignal(SignalName.PlayerGainedPellet, id, qty);
 		GD.Print("player gained point : ");
+	}
+
+	public void OnGameEnded(string winnerId)
+	{
+		GD.Print("game ended");
+		EmitSignal(SignalName.GameEnd, winnerId);
 	}
 }
