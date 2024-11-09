@@ -28,8 +28,9 @@ public partial class ScoreManager : Node
         else
         {
             ScoreTeam2 += 1;
-            LabelTeam1.Text = ScoreTeam2.ToString();
+            LabelTeam2.Text = ScoreTeam2.ToString();
         }
+
         OnScoreUpdate();
     }
 
