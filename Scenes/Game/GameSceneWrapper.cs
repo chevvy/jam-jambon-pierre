@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public partial class GameSceneWrapper : Node2D
@@ -26,6 +27,12 @@ public partial class GameSceneWrapper : Node2D
 	private SubViewportContainer viewportContainer3;
 	[Export]
 	private SubViewportContainer viewportContainer4;
+	[Export]
+	private Control firstSplit;
+	[Export]
+	private Control secondSplit;
+	[Export]
+	private Control thirdSplit;
 
 	public override void _Ready()
 	{
@@ -37,51 +44,67 @@ public partial class GameSceneWrapper : Node2D
 
 		if (characters.Count() == 0) throw new Exception("No characters found in the scene");
 
+		// Bad sort - don't hurt me
 		{
-			var character1 = characters.First();
+			var character1Query = characters.Where(e => e.Name == "Character1");
+			var character2Query = characters.Where(e => e.Name == "Character2");
+			var character3Query = characters.Where(e => e.Name == "Character3");
+			var character4Query = characters.Where(e => e.Name == "Character4");
+			characters = character1Query
+							.Concat(character2Query)
+							.Concat(character3Query)
+							.Concat(character4Query);
+		}
+
+		GD.Print($"We have {characters.Count()} players");
+
+		if (characters.Count() >= 1)
+		{
+			GD.Print($"First player is {characters.First()}");
+
+			var character1 = characters.ElementAt(0);
 			RemoteTransform2D remoteTransform1 = new RemoteTransform2D();
 			remoteTransform1.RemotePath = camera1.GetPath();
 			character1.AddChild(remoteTransform1);
 		}
 
-		bool character2Exists = characters.Count() >= 2;
-		bool character3Exists = characters.Count() >= 3;
-		bool character4Exists = characters.Count() >= 4;
-
-		if (character2Exists)
+		if (characters.Count() >= 2)
 		{
 			RemoteTransform2D remoteTransform2 = new RemoteTransform2D();
 			remoteTransform2.RemotePath = camera2.GetPath();
 			Character character2 = characters.ElementAt(1);
 			character2.AddChild(remoteTransform2);
+			firstSplit.Visible = true;
 		}
 		else
 		{
 			viewportContainer2.Visible = false;
 		}
 
-		if (character3Exists)
+		if (characters.Count() >= 3)
 		{
 			RemoteTransform2D remoteTransform3 = new RemoteTransform2D();
 			remoteTransform3.RemotePath = camera3.GetPath();
 			Character character3 = characters.ElementAt(2);
 			character3.AddChild(remoteTransform3);
+			secondSplit.Visible = true;
 		}
 		else
 		{
-			viewportContainer2.Visible = false;
+			viewportContainer3.Visible = false;
 		}
 
-		if (character4Exists)
+		if (characters.Count() >= 4)
 		{
 			RemoteTransform2D remoteTransform4 = new RemoteTransform2D();
 			remoteTransform4.RemotePath = camera4.GetPath();
 			Character character4 = characters.ElementAt(3);
 			character4.AddChild(remoteTransform4);
+			thirdSplit.Visible = true;
 		}
 		else
 		{
-			viewportContainer2.Visible = false;
+			viewportContainer4.Visible = false;
 		}
 
 		camera2.PositionSmoothingEnabled = camera1.PositionSmoothingEnabled;

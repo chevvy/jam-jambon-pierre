@@ -26,6 +26,10 @@ public partial class SlimeTrailsManager : Node
 
     public void UpdateCharacterSlimeTrail(int characterId, Vector2 position)
 	{
+		if (characterId <= 0)
+		{
+			GD.PrintErr($"Invalid character ID {characterId}");
+		}
 		SlimeTrailsList[characterId - 1].AddPoint(position);
 	}
 }
