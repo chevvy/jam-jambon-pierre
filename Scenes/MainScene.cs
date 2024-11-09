@@ -12,7 +12,8 @@ public partial class MainScene : Node
 		SceneStore = new Dictionary<int, PackedScene> {
 			{ Scenes.Menu.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Menu.ScenePath) ?? throw new Exception($"{Scenes.Menu.ScenePath} not found") },
 			{ Scenes.Game.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Game.ScenePath) ?? throw new Exception($"{Scenes.Game.ScenePath} not found") },
-			{ Scenes.Credit.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Credit.ScenePath) ?? throw new Exception($"{Scenes.Credit.ScenePath} not found") }
+			{ Scenes.Credit.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Credit.ScenePath) ?? throw new Exception($"{Scenes.Credit.ScenePath} not found") },
+			{ Scenes.Result.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Result.ScenePath) ?? throw new Exception($"{Scenes.Result.ScenePath} not found") }
 		};
 
 		SceneAnchorNode = GetNode<Node>("SceneAnchor") ?? throw new Exception("SceneAnchor (Node) not found");
@@ -21,12 +22,12 @@ public partial class MainScene : Node
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Menu.SceneId);
 	}
 
-    public override void _Input(InputEvent @event)
-    {
+	public override void _Input(InputEvent @event)
+	{
 		if 		(Input.IsActionJustPressed("load_scene_0")) Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Menu.SceneId);
 		else if (Input.IsActionJustPressed("load_scene_1")) Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
 		else if (Input.IsActionJustPressed("load_scene_2")) Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Credit.SceneId);
-    }
+	}
 
 	public void LoadScene(int sceneId)
 	{
@@ -38,6 +39,6 @@ public partial class MainScene : Node
 	
 	public void OnSceneRequested(int sceneId)
 	{
-		LoadScene(sceneId);
+		CallDeferred("LoadScene", sceneId);
 	}
 }

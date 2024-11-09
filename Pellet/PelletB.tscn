@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8x5yb1wkjghs"]
+
+[ext_resource type="Script" path="res://Pellet/Pellet.cs" id="1_tx524"]
+[ext_resource type="Texture2D" uid="uid://ccytcgcmkdplm" path="res://Asset/Food_B.png" id="2_ne01k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fkkw0"]
+
+[node name="Pellet" type="Node2D"]
+script = ExtResource("1_tx524")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fkkw0")
+debug_color = Color(0.455227, 0.484883, 0.898078, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+position = Vector2(0, 3)
+scale = Vector2(0.0987394, 0.0987394)
+texture = ExtResource("2_ne01k")

@@ -17,4 +17,10 @@ public static class Scenes
 		public static int SceneId = 2;
 		public static string ScenePath = "res://Scenes/Credit/CreditScene.tscn";
 	}
+	
+	public static class Result
+	{
+		public static int SceneId = 3;
+		public static string ScenePath = "res://Scenes/Result/ResultScreen.tscn";
+	}
 }
