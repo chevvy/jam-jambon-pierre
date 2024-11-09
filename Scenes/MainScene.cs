@@ -9,6 +9,8 @@ public partial class MainScene : Node
 	private Node SceneAnchorNode;
 	[Export]
 	private Camera2D camera;
+	[Export]
+	private ScoreManager scoreManager;
 
 	public override void _Ready()
 	{
@@ -32,6 +34,8 @@ public partial class MainScene : Node
 
 	public void LoadScene(int sceneId)
 	{
+		scoreManager.ResetScores();
+
 		if (SceneAnchorNode.GetChildCount() > 0)
 			SceneAnchorNode.RemoveChild(SceneAnchorNode.GetChild(0));
 		
