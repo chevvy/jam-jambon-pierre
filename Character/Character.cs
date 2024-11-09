@@ -190,23 +190,42 @@ public partial class Character : CharacterBody2D
 		velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
 		Velocity = velocity;
 		
-	
+		HandleCollisions(MoveAndCollide(Velocity * (float)delta));
+	}
 
-		var collision = MoveAndCollide(Velocity * (float)delta);
+	public void HandleCollisions(KinematicCollision2D collision)
+	{
+		if (collision == null) return;
 
-        if (collision != null)
-        {
-            Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDamping;
+		var other = collision.GetCollider();
+
+		if 		(other is Character) HandleCollision((Character)other, collision);
+		else if (other is RotateDeezNutz) HandleCollision((RotateDeezNutz)other, collision);
+		else if (other is StaticBody2D) HandleCollision((StaticBody2D)other, collision);
+	}
+
+	public void HandleCollision(Character other, KinematicCollision2D collision)
+	{
+		Velocity = Velocity.Bounce(collision.GetNormal());
+	}	
+
+	public void HandleCollision(RotateDeezNutz deezNutz, KinematicCollision2D collision)
+	{
+		GD.Print($"Collided with RotateDeezNutz {deezNutz.Name}");
+	}
+
+	public void HandleCollision(StaticBody2D staticBody, KinematicCollision2D collision)
+	{
+		Velocity = Velocity.Bounce(collision.GetNormal()) * BounceDamping;
 
 
-			GD.Print("This is the speed before minimum" + Velocity);
-            if (Velocity.Length() < MinimumBounceSpeed)
-            {
-                Velocity = Velocity.Normalized() * MinimumBounceSpeed;
-				GD.Print("This is the after speed before minimum" + Velocity);
+		GD.Print("This is the speed before minimum" + Velocity);
+		if (Velocity.Length() < MinimumBounceSpeed)
+		{
+			Velocity = Velocity.Normalized() * MinimumBounceSpeed;
+			GD.Print("This is the after speed before minimum" + Velocity);
 
-            }
-        }
+		}
 	}
 
 	public void HandlePelletAcquired(PelletType color)
