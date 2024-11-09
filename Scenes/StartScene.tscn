@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn5pxn85bcae2"]
+
+[ext_resource type="Script" path="res://Scenes/StartScene.cs" id="1_27oo2"]
+[ext_resource type="Texture2D" uid="uid://dwg8rprhgvry1" path="res://Asset/UI/UI_Menu.png" id="1_ubadq"]
+
+[node name="StartScene" type="Node2D"]
+script = ExtResource("1_27oo2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ubadq")
+expand_mode = 2

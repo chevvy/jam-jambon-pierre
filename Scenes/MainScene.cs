@@ -18,11 +18,12 @@ public partial class MainScene : Node
 			{ Scenes.Menu.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Menu.ScenePath) ?? throw new Exception($"{Scenes.Menu.ScenePath} not found") },
 			{ Scenes.Game.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Game.ScenePath) ?? throw new Exception($"{Scenes.Game.ScenePath} not found") },
 			{ Scenes.Credit.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Credit.ScenePath) ?? throw new Exception($"{Scenes.Credit.ScenePath} not found") },
-			{ Scenes.Result.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Result.ScenePath) ?? throw new Exception($"{Scenes.Result.ScenePath} not found") }
+			{ Scenes.Result.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Result.ScenePath) ?? throw new Exception($"{Scenes.Result.ScenePath} not found") },
+			{ Scenes.Start.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Start.ScenePath) ?? throw new Exception($"{Scenes.Start.ScenePath} not found") }
 		};
 
 		Signals.Instance.SceneRequested += OnSceneRequested;
-		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Menu.SceneId);
+		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Start.SceneId);
 	}
 
 	public override void _Input(InputEvent @event)
