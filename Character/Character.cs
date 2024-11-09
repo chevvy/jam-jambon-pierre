@@ -193,7 +193,6 @@ public partial class Character : CharacterBody2D
 		HandleCollisions(MoveAndCollide(Velocity * (float)delta));
 	}
 
-	// Must be called after move&slide
 	public void HandleCollisions(KinematicCollision2D collision)
 	{
 		if (collision == null) return;
