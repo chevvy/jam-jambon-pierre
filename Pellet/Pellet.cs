@@ -15,6 +15,7 @@ public partial class Pellet : Node2D
 
 	[Export] private DeleteAfterSFX MangeSfx;
 	[Export] private Sprite2D _spriteToHide;
+	[Export] private CollisionShape2D lol;
 
 	public Area2D Area;
 
@@ -49,6 +50,7 @@ public partial class Pellet : Node2D
 			
 			GameManager.Instance.OnGainedPoint(character.characterId, pelletId);
 			MangeSfx.PlayAndDelete();
+			lol.QueueFree();
 			_spriteToHide.Hide();
 		}
 	}

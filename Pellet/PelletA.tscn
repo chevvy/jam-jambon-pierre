@@ -7,10 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_057ja"]
 radius = 51.51
 
-[node name="Pellet" type="Node2D" node_paths=PackedStringArray("MangeSfx", "_spriteToHide")]
+[node name="Pellet" type="Node2D" node_paths=PackedStringArray("MangeSfx", "_spriteToHide", "lol")]
 script = ExtResource("1_ido84")
 MangeSfx = NodePath("MangeSFX")
 _spriteToHide = NodePath("Sprite2D")
+lol = NodePath("Area2D/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 16)

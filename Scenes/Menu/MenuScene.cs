@@ -53,7 +53,7 @@ public partial class MenuScene : CanvasLayer
 	public void OnPlayerJoinedParty(int partySlot, int playerId)
 	{
 		GD.Print($"Player {playerId} with slot {partySlot} is being shown");
-		controls[partySlot].Visible = true;
+		controls[partySlot - 1].Visible = true;
 	}
 
 	public override void _Process(double delta)
