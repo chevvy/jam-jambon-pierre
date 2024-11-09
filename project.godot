@@ -37,6 +37,10 @@ project/assembly_name="GameJamAuChalet2024"
 
 enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 
+[global_group]
+
+characters=""
+
 [input]
 
 p1_move_left={

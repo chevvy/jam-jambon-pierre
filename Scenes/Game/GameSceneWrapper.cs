@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class GameSceneWrapper : Node2D
 {
@@ -14,32 +15,26 @@ public partial class GameSceneWrapper : Node2D
 	[Export]
 	private SubViewportContainer extraScreenContainer;
 
-	private const string PlayerPath = "HB/VPC/VC/GameScene/CharacterRoot/Character";
-
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		viewport2.World2D = viewPort1.World2D;
 
-		Character character1 = GetNode<Character>(PlayerPath + "1");
+		var characters = GetTree().GetNodesInGroup("characters").Cast<Character>();
 
-		// Sanity check
-		if (character1 == null)
-		{
-			GD.PrintErr("Character not found");
-		}
-		bool character2Exists = HasNode(PlayerPath + "2");
+		if (characters.Count() == 0) throw new Exception("No characters found in the scene");
 
+		var character1 = characters.First();
 
 		RemoteTransform2D remoteTransform1 = new RemoteTransform2D();
 		remoteTransform1.RemotePath = camera1.GetPath();
 		character1.AddChild(remoteTransform1);
 
+		bool character2Exists = characters.Count() > 1;
 		if (character2Exists)
 		{
 			RemoteTransform2D remoteTransform2 = new RemoteTransform2D();
 			remoteTransform2.RemotePath = camera2.GetPath();
-			Character character2 = GetNode<Character>(PlayerPath + "2");
+			Character character2 = characters.ElementAt(1);
 			character2.AddChild(remoteTransform2);
 		}
 
