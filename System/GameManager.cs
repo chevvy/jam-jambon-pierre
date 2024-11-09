@@ -4,6 +4,7 @@ using System;
 public partial class GameManager : Node
 {
 	public static GameManager Instance;
+	public int WinningTeamId;
 
 	// playerid should be used with PlayerInput classes to convert it to enum
 	// Godot doesnt allow enum for signal props
@@ -17,8 +18,6 @@ public partial class GameManager : Node
 	{
 		Instance = this;
 		PlayerGainedPellet += (id,qty) => GD.Print("biscuits du capitaine" + id + qty);
-		
-		
 	}
 
 	public void OnGainedPoint(string id, int qty)
@@ -27,9 +26,10 @@ public partial class GameManager : Node
 		GD.Print("player gained point : ");
 	}
 
-	public void OnGameEnded(string winnerId)
+	public void OnGameEnded(int winnerId)
 	{
-		GD.Print("game ended");
 		EmitSignal(SignalName.GameEnd, winnerId);
+		WinningTeamId = winnerId;
+		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Result.SceneId);
 	}
 }

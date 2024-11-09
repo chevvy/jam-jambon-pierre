@@ -9,14 +9,14 @@ public partial class ScoreManager : Node
     private int ScoreTeam1 = 0;
     private int ScoreTeam2 = 0;
 
-    [Export] public int ScoreLimit = 5;
+    [Export] public int ScoreLimit = 1;
 
     public override void _Ready()
     {
         GameManager.Instance.PlayerGainedPellet += OnTeamGainPoint;
     }
 
-    // public void OnTeamGainPoint(string id, int qty)
+    
     public void OnTeamGainPoint(string id, int qty)
     {
         var playerId = (int)PlayerInput.IDbyPlayerTag["p" + id];
@@ -30,18 +30,19 @@ public partial class ScoreManager : Node
             ScoreTeam2 += 1;
             LabelTeam1.Text = ScoreTeam2.ToString();
         }
+        OnScoreUpdate();
     }
 
     private void OnScoreUpdate()
     {
         if (ScoreTeam2 >= ScoreLimit)
         {
-            GameManager.Instance.OnGameEnded("p2");
+            GameManager.Instance.OnGameEnded(2);
         }
 
         if (ScoreTeam1 >= ScoreLimit)
         {
-            GameManager.Instance.OnGameEnded("1");
+            GameManager.Instance.OnGameEnded(1);
         }
     }
 }

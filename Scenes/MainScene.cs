@@ -12,7 +12,8 @@ public partial class MainScene : Node
 		SceneStore = new Dictionary<int, PackedScene> {
 			{ Scenes.Menu.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Menu.ScenePath) ?? throw new Exception($"{Scenes.Menu.ScenePath} not found") },
 			{ Scenes.Game.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Game.ScenePath) ?? throw new Exception($"{Scenes.Game.ScenePath} not found") },
-			{ Scenes.Credit.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Credit.ScenePath) ?? throw new Exception($"{Scenes.Credit.ScenePath} not found") }
+			{ Scenes.Credit.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Credit.ScenePath) ?? throw new Exception($"{Scenes.Credit.ScenePath} not found") },
+			{ Scenes.Result.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Result.ScenePath) ?? throw new Exception($"{Scenes.Result.ScenePath} not found") }
 		};
 
 		SceneAnchorNode = GetNode<Node>("SceneAnchor") ?? throw new Exception("SceneAnchor (Node) not found");
