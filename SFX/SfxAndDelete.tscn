@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yqgbfwfc5wgq"]
+
+[ext_resource type="AudioStream" uid="uid://cqla5chlkl0wc" path="res://SFX/mange.wav" id="1_kmrni"]
+[ext_resource type="Script" path="res://Pellet/DeleteAfterSFX.cs" id="2_pg833"]
+
+[node name="MangeSFX" type="AudioStreamPlayer" node_paths=PackedStringArray("deleteTimer", "ToDelete")]
+stream = ExtResource("1_kmrni")
+bus = &"SFX"
+script = ExtResource("2_pg833")
+deleteTimer = NodePath("Timer")
+ToDelete = NodePath("")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5

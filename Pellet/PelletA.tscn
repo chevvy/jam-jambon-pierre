@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bthsjbhotwaer"]
+[gd_scene load_steps=5 format=3 uid="uid://bthsjbhotwaer"]
 
 [ext_resource type="Script" path="res://Pellet/Pellet.cs" id="1_ido84"]
 [ext_resource type="Texture2D" uid="uid://wdnv8wgu1s4r" path="res://Asset/Food_A.png" id="2_vt8hm"]
-[ext_resource type="AudioStream" uid="uid://cqla5chlkl0wc" path="res://SFX/mange.wav" id="3_oxi7r"]
-[ext_resource type="Script" path="res://Pellet/DeleteAfterSFX.cs" id="4_3idmn"]
+[ext_resource type="PackedScene" uid="uid://yqgbfwfc5wgq" path="res://SFX/SfxAndDelete.tscn" id="3_l26e8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_057ja"]
 radius = 51.51
@@ -25,12 +24,5 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_057ja")
 debug_color = Color(0.455227, 0.484883, 0.898078, 0.42)
 
-[node name="MangeSFX" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("deleteTimer", "ToDelete")]
-stream = ExtResource("3_oxi7r")
-bus = &"SFX"
-script = ExtResource("4_3idmn")
-deleteTimer = NodePath("Timer")
+[node name="MangeSFX" parent="." node_paths=PackedStringArray("ToDelete") instance=ExtResource("3_l26e8")]
 ToDelete = NodePath("..")
-
-[node name="Timer" type="Timer" parent="MangeSFX"]
-wait_time = 0.5
