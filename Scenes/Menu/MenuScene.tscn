@@ -1,8 +1,267 @@
-[gd_scene format=3 uid="uid://3e2k3i68nn0u"]
+[gd_scene load_steps=2 format=3 uid="uid://3e2k3i68nn0u"]
 
-[node name="MenuScene" type="Node2D"]
+[ext_resource type="Script" path="res://Scenes/Menu/MenuScene.cs" id="1_cochw"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "MenuScene"
+[node name="MenuScene" type="Node2D" node_paths=PackedStringArray("playerControl", "playerContro2", "playerContro3", "playerContro4", "playerContro5")]
+script = ExtResource("1_cochw")
+playerControl = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB1")
+playerContro2 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB2")
+playerContro3 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB3")
+playerContro4 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB4")
+playerContro5 = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HB5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Setup your party
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="HB1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="1" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB1"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.25098, 0.588235, 1, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB1/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB1"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2, 1, 0.356863, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB1/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="1" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.25098, 0.588235, 1, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB2/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2, 1, 0.356863, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB2/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="1" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB3"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.25098, 0.588235, 1, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB3/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB3"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2, 1, 0.356863, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB3/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="1" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB4"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.25098, 0.588235, 1, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB4/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB4"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2, 1, 0.356863, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB4/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="1" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB5"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.25098, 0.588235, 1, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB5/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="ColorRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HB5"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.2, 1, 0.356863, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HB5/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "TEAM 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "PRESS A TO START"
