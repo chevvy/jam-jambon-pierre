@@ -114,10 +114,7 @@ public partial class Character : CharacterBody2D
 					ReleaseShot(player);
 				}
 
-				Vector2 velocity = Velocity;
-				velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
-				velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
-				Velocity = velocity;
+				
 			}
 		}
 	}
@@ -181,6 +178,11 @@ public partial class Character : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		Vector2 velocity = Velocity;
+		velocity.X = Mathf.MoveToward(Velocity.X, 0, Desceleration);
+		velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Desceleration);
+		Velocity = velocity;
+		
 		MoveAndSlide();
 	}
 
