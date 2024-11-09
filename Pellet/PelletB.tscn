@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8x5yb1wkjghs"]
+[gd_scene load_steps=5 format=3 uid="uid://c8x5yb1wkjghs"]
 
 [ext_resource type="Script" path="res://Pellet/Pellet.cs" id="1_tx524"]
 [ext_resource type="Texture2D" uid="uid://ccytcgcmkdplm" path="res://Asset/Food_B.png" id="2_ne01k"]
+[ext_resource type="PackedScene" uid="uid://yqgbfwfc5wgq" path="res://SFX/SfxAndDelete.tscn" id="3_dv2pq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkkw0"]
 
@@ -19,3 +20,7 @@ debug_color = Color(0.455227, 0.484883, 0.898078, 0.42)
 position = Vector2(0, 3)
 scale = Vector2(0.0987394, 0.0987394)
 texture = ExtResource("2_ne01k")
+
+[node name="MangeSFX" parent="." node_paths=PackedStringArray("ToDelete") instance=ExtResource("3_dv2pq")]
+volume_db = 5.8
+ToDelete = NodePath("..")

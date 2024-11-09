@@ -36,6 +36,8 @@ public partial class Character : CharacterBody2D
 	private List<PlayerChargeState> _players = new List<PlayerChargeState>();
 
 	[Export] public int characterId;
+	[Export] public AudioStreamPlayer BuildUpSfx;
+	[Export] public AudioStreamPlayer ReleaseBuildUpSfx;
 
     public override void _Ready()
     {
@@ -155,6 +157,10 @@ public partial class Character : CharacterBody2D
 	private void DisplayCharging(PlayerChargeState player)
 	{
 		animator.Play("grow");
+		if (!BuildUpSfx.Playing)
+		{
+			BuildUpSfx.Play();
+		}
 	}
 
 	private void StopCharging(PlayerChargeState player)
@@ -162,6 +168,7 @@ public partial class Character : CharacterBody2D
 		
 		chargeball.ResetPosition((int)player.Input.Id);
 		animator.Play("RESET");
+		BuildUpSfx.Stop();
 	}
 
 	private void ReleaseShot(PlayerChargeState player)
@@ -169,6 +176,7 @@ public partial class Character : CharacterBody2D
 		float adjustedChargeRatio = Math.Clamp(ChargeInertiaRatio * player.ChargeStrength / MaxCharge, 0, 1);
 		Velocity = player.CurrentDirection * MoveSpeed * player.ChargeStrength * adjustedChargeRatio;
 		player.ChargeStrength = 1;
+		ReleaseBuildUpSfx.Play();
 	}
 
 	public override void _PhysicsProcess(double delta)
