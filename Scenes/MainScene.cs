@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public partial class MainScene : Node
 {
 	private Dictionary<int, PackedScene> SceneStore;
+	[Export]
 	private Node SceneAnchorNode;
 
 	public override void _Ready()
@@ -15,8 +16,6 @@ public partial class MainScene : Node
 			{ Scenes.Credit.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Credit.ScenePath) ?? throw new Exception($"{Scenes.Credit.ScenePath} not found") },
 			{ Scenes.Result.SceneId, ResourceLoader.Load<PackedScene>(Scenes.Result.ScenePath) ?? throw new Exception($"{Scenes.Result.ScenePath} not found") }
 		};
-
-		SceneAnchorNode = GetNode<Node>("SceneAnchor") ?? throw new Exception("SceneAnchor (Node) not found");
 
 		Signals.Instance.SceneRequested += OnSceneRequested;
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Menu.SceneId);

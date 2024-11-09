@@ -9,7 +9,7 @@ public static class Scenes
 	public static class Game
 	{
 		public static int SceneId = 1;
-		public static string ScenePath = "res://Scenes/Game/GameScene.tscn";
+		public static string ScenePath = "res://Scenes/Game/GameSceneWrapper.tscn";
 	}
 
 	public static class Credit
