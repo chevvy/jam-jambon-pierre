@@ -43,9 +43,28 @@ public partial class GameScene : Node2D
 		characterRoot.GlobalTransform = spawn.GlobalTransform;
 		character.SetupPlayer(members.Select(x => x.PlayerInput).ToList(), characterId);
 		character.CharacterPositionChanged += SlimeTrailsManager.UpdateCharacterSlimeTrail;
+		character.CharacterWasEaten += OnCharacterWasEaten;
 		character.Name = $"Character{characterId}";
 
 		AddChild(characterRoot);
+	}
+
+	public void OnCharacterWasEaten(int characterId)
+	{
+		var characters = GetTree().GetNodesInGroup("characters").Cast<Character>();
+
+		var eaten = characters.First(c => c.characterId == characterId);
+
+		var remaining = characters.Where(c => c.characterId != characterId).ToArray();
+		
+		if (remaining.Length == 1) {
+			Signals.Instance.EmitSignal(
+				Signals.SignalName.LastCharacterStandingInGame,
+				remaining[0].characterId
+			);
+		}
+
+		eaten.GetParent().QueueFree();
 	}
 
 	public void SpawnDefaultCharacter()
