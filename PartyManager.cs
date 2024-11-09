@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
-public struct PartyMember
+public class PartyMember
 {
 	public PlayerInput PlayerInput;
 	public PlayerID PlayerId;
@@ -16,7 +16,7 @@ public partial class PartyManager: Node
 {
 	public int MaxPartySize = 5;
 	public int MaxPlayerIdCount = 5;
-	private PartyMember?[] Party;
+	public PartyMember?[] Party;
 
     public override void _EnterTree()
     {

@@ -38,7 +38,7 @@ public partial class GameScene : Node2D
 	{
 		var characterRoot = CharacterBlueprint.Instantiate<CharacterRoot>();
 		var character = characterRoot.Character;
-		var spawn = PlayerSpawnPoint[new Random().Next(0, PlayerSpawnPoint.Length)];
+		var spawn = PlayerSpawnPoint[characterId - 1];
 
 		characterRoot.GlobalTransform = spawn.GlobalTransform;
 		character.SetupPlayer(members.Select(x => x.PlayerInput).ToList(), characterId);

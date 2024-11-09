@@ -7,7 +7,7 @@ public partial class MainScenePartyUi : Label
 
 	public override void _Ready()
 	{
-		PartyEntries = new string[4];
+		PartyEntries = new string[5];
 
 		Signals.Instance.PlayerJoinedParty += OnPlayerJoinedParty;
 	}

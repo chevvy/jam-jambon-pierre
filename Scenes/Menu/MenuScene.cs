@@ -44,6 +44,7 @@ public partial class MenuScene : Control
 		foreach (var player in PlayerInput.PlayerTagByID)
 		{
 			PlayerEntered((int)player.Key);
+			PartyManager.Instance.AddPlayerToParty(player.Key);
 		}
 	}
 
@@ -96,6 +97,16 @@ public partial class MenuScene : Control
 
 	private void StartGame()
 	{
+		for (int i = 0; i < PartyManager.Instance.GetParty().Count(); i++)
+		{
+			PartyMember each = PartyManager.Instance.GetParty()[i];
+			int playerId = (int)each.PlayerId;
+			int teamId = playerIdToTeam[playerId];
+			each.TeamNumber = teamId;
+			GD.Print(each.TeamNumber);
+		}
+
+
 		GD.Print("Game start requested");
 		Signals.Instance.EmitSignal(Signals.SignalName.SceneRequested, Scenes.Game.SceneId);
 	}
