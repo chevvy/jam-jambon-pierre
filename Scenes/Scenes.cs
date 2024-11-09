@@ -23,4 +23,10 @@ public static class Scenes
 		public static int SceneId = 3;
 		public static string ScenePath = "res://Scenes/Result/ResultScreen.tscn";
 	}
+
+	public static class Start
+	{
+		public static int SceneId = 4;
+		public static string ScenePath = "res://Scenes/StartScene.tscn";
+	}
 }
