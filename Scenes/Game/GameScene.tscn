@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://chee75rc3xkxq" path="res://Character/Character.tscn" id="2_cx38r"]
 [ext_resource type="PackedScene" uid="uid://bthsjbhotwaer" path="res://Pellet/Pellet.tscn" id="3_g4cok"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
-size = Vector2(45.7507, 715.906)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_1js0j"]
 radius = 52.1536
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no3xi"]
+size = Vector2(45.7507, 715.906)
 
 [node name="GameScene" type="Node2D" node_paths=PackedStringArray("PlayerSpawnPoint")]
 script = ExtResource("1_5j8y5")
@@ -19,21 +19,9 @@ PlayerSpawnPoint = [NodePath("SpawnPointP1"), NodePath("SpawnPointP2")]
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
 
-[node name="Rectangle Wall" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(467.047, 0.124642)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_no3xi")
-debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall"]
-position = Vector2(-80.3967, -469.423)
-rotation = -3.14159
-scale = Vector2(0.764386, 3.01711)
-color = Color(0.145098, 1, 0.227451, 0.768627)
-polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
-
 [node name="Circle Wall" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
 position = Vector2(357, 216)
+scale = Vector2(2.76086, 2.76086)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall"]
@@ -42,42 +30,9 @@ scale = Vector2(1.02299, 2.02847)
 color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D3"]
-polygon = PackedVector2Array(-366, 243, -195, 243, -197, 126, -271, 122, -356, 109)
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/CollisionPolygon2D"]
-position = Vector2(-237, 298)
-scale = Vector2(1.01143, 1.42424)
-color = Color(0.517647, 1, 0.0901961, 1)
-polygon = PackedVector2Array(-121.147, -132.277, -45.017, -128.064, 37.0452, -121.043, 38.0339, -39.5957, -130.045, -38.1915)
-
-[node name="Rectangle Wall3" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(381, -563)
-shape = SubResource("RectangleShape2D_no3xi")
-debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall3"]
-position = Vector2(-80.3967, -469.423)
-rotation = -3.14159
-scale = Vector2(0.764386, 3.01711)
-color = Color(0.145098, 1, 0.227451, 0.768627)
-polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
-
-[node name="Rectangle Wall4" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(642, -611)
-shape = SubResource("RectangleShape2D_no3xi")
-debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall4"]
-position = Vector2(-80.3967, -469.423)
-rotation = -3.14159
-scale = Vector2(0.764386, 3.01711)
-color = Color(0.145098, 1, 0.227451, 0.768627)
-polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
-
 [node name="Circle Wall2" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-229, -647)
-scale = Vector2(2, 2)
+position = Vector2(768, -806)
+scale = Vector2(4.22426, 4.22426)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall2"]
@@ -87,8 +42,8 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall3" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(22, -510)
-scale = Vector2(2, 2)
+position = Vector2(2118, -878)
+scale = Vector2(4.71446, 4.71446)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall3"]
@@ -98,8 +53,8 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall4" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-320, -477)
-scale = Vector2(2, 2)
+position = Vector2(2142, -190)
+scale = Vector2(4.59827, 4.59827)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall4"]
@@ -109,8 +64,8 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall5" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(30, -753)
-scale = Vector2(2, 2)
+position = Vector2(1427, -1063)
+scale = Vector2(3.23959, 3.23959)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall5"]
@@ -120,8 +75,8 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall6" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-191, -841)
-scale = Vector2(2, 2)
+position = Vector2(1530, -229)
+scale = Vector2(5.80723, 5.80723)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall6"]
@@ -184,35 +139,9 @@ scale = Vector2(0.764386, 3.01711)
 color = Color(0.145098, 1, 0.227451, 0.768627)
 polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
 
-[node name="Rectangle Wall8" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1458, 325)
-rotation = -1.38928
-shape = SubResource("RectangleShape2D_no3xi")
-debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall8"]
-position = Vector2(-80.3967, -469.423)
-rotation = -3.14159
-scale = Vector2(0.764386, 3.01711)
-color = Color(0.145098, 1, 0.227451, 0.768627)
-polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
-
-[node name="Rectangle Wall9" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1443, 113)
-rotation = -1.66155
-shape = SubResource("RectangleShape2D_no3xi")
-debug_color = Color(0.443876, 0.498632, 0.866336, 0.42)
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Rectangle Wall9"]
-position = Vector2(-80.3967, -469.423)
-rotation = -3.14159
-scale = Vector2(0.764386, 3.01711)
-color = Color(0.145098, 1, 0.227451, 0.768627)
-polygon = PackedVector2Array(-132.486, -272.426, -104.802, -271.021, -82.0622, -274.532, -80.0325, -153.098, -78.1073, -37.9149, -107.136, -37.9149, -128.531, -37.9149)
-
 [node name="Circle Wall7" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-698, -221)
-scale = Vector2(2, 2)
+position = Vector2(1024, 768)
+scale = Vector2(4.29526, 4.29526)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall7"]
@@ -222,7 +151,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall8" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1018, -218)
+position = Vector2(24, -497)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 metadata/_edit_group_ = true
@@ -234,7 +163,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall9" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1176, -584)
+position = Vector2(1686, -727)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -245,7 +174,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall10" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1063, -417)
+position = Vector2(-625, -485)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -256,7 +185,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall11" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-775, -565)
+position = Vector2(-299, -505)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -267,8 +196,8 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall12" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1377, -574)
-scale = Vector2(2, 2)
+position = Vector2(231, 936)
+scale = Vector2(4.50972, 4.50972)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall12"]
@@ -278,7 +207,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall13" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1305, -847)
+position = Vector2(-135, -764)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -289,7 +218,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall14" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-921, -842)
+position = Vector2(174, -759)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -300,7 +229,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall15" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1114, -871)
+position = Vector2(18, -1052)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -311,7 +240,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall16" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1577, -577)
+position = Vector2(-437, -773)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -322,7 +251,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall17" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1492, -855)
+position = Vector2(-291, -1036)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -333,7 +262,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall18" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1733, -973)
+position = Vector2(-751, -754)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -344,7 +273,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall19" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1807, -784)
+position = Vector2(1183, -746)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -355,7 +284,7 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall20" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1878, -587)
+position = Vector2(-602, -1033)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1js0j")
 
@@ -366,8 +295,8 @@ color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
 
 [node name="Circle Wall21" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
-position = Vector2(-1831, -385)
-scale = Vector2(2, 2)
+position = Vector2(1703, 438)
+scale = Vector2(4.66049, 4.66049)
 shape = SubResource("CircleShape2D_1js0j")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall21"]
@@ -375,6 +304,246 @@ position = Vector2(109, 128)
 scale = Vector2(1.02299, 2.02847)
 color = Color(0.384314, 1, 0.415686, 1)
 polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall22" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-905, 39)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall22"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall23" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1554, 51)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall23"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall24" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1228, 31)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall24"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall25" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1064, -228)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall25"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall26" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-755, -223)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall26"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall27" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-911, -516)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall27"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall28" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1366, -237)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall28"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall29" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1220, -500)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall29"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall30" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1680, -218)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall30"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall31" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1531, -497)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall31"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Pellet3" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
+position = Vector2(-1032, -152)
+
+[node name="Pellet7" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
+position = Vector2(-959, -407)
+
+[node name="Pellet8" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
+position = Vector2(-1096, 199)
+
+[node name="Circle Wall32" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1063, -746)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall32"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall33" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1712, -734)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall33"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall34" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1386, -754)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall34"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall35" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1222, -1013)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall35"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall36" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-913, -1008)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall36"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall37" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1069, -1301)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall37"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall38" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1524, -1022)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall38"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall39" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1378, -1285)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall39"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall40" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1838, -1003)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall40"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Circle Wall41" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(-1689, -1282)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_1js0j")
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/StaticBody2D3/Circle Wall41"]
+position = Vector2(109, 128)
+scale = Vector2(1.02299, 2.02847)
+color = Color(0.384314, 1, 0.415686, 1)
+polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
+
+[node name="Pellet4" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
+position = Vector2(-1190, -937)
+
+[node name="Pellet9" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
+position = Vector2(-1117, -1192)
+
+[node name="Pellet10" parent="Walls/StaticBody2D3" instance=ExtResource("3_g4cok")]
+position = Vector2(-1254, -586)
 
 [node name="SpawnPointP1" type="Marker2D" parent="."]
 position = Vector2(-440, 4)
@@ -389,44 +558,29 @@ position = Vector2(134, 2)
 position = Vector2(347, -1)
 
 [node name="Pellet" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(-18, 144)
+position = Vector2(-1211, -332)
 
 [node name="Pellet2" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(513, -361)
+position = Vector2(-1058, -565)
 
 [node name="Pellet3" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(-103, -688)
-_pelletType = 1
+position = Vector2(-1230, -827)
 
 [node name="Pellet4" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(651, -108)
+position = Vector2(-1541, -844)
 
 [node name="Pellet5" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(905, -146)
-_pelletType = 1
+position = Vector2(1405, -714)
 
 [node name="Pellet6" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(505, -1061)
-_pelletType = 1
+position = Vector2(1895, -536)
 
 [node name="Pellet7" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(-30, -943)
-_pelletType = 1
+position = Vector2(1855, 85)
 
 [node name="Pellet8" parent="." instance=ExtResource("3_g4cok")]
-position = Vector2(-167, -337)
+position = Vector2(579, 610)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
-[node name="Circle Wall7" type="CollisionShape2D" parent="."]
-position = Vector2(-731, -410)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_1js0j")
-
-[node name="Polygon2D" type="Polygon2D" parent="Circle Wall7"]
-position = Vector2(109, 128)
-scale = Vector2(1.02299, 2.02847)
-color = Color(0.384314, 1, 0.415686, 1)
-polygon = PackedVector2Array(-155.427, -72.4685, -137.832, -83.8072, -119.259, -87.751, -105.573, -88.737, -87.9776, -87.258, -69.4045, -81.3422, -57.6742, -72.4685, -55.7191, -61.6229, -63.5394, -48.8053, -79.1798, -41.4106, -102.641, -36.9738, -125.124, -38.9457, -141.742, -43.3825, -157.382, -57.1861)
