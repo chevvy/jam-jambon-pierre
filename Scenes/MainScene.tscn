@@ -61,6 +61,8 @@ layout_mode = 2
 script = ExtResource("2_a5rqi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false
 zoom = Vector2(0.2, 0.2)
 
 [node name="SceneAnchor" type="Node" parent="."]
