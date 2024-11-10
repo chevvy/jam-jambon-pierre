@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class ChargeBall : Node2D
@@ -32,29 +33,29 @@ public partial class ChargeBall : Node2D
 
         Vector2 inverseDirection = direction * -1;
 
-
-        if(Id == 0){
+        GD.Print("Charge set for ID ", Id);
+        if(Id == 1){
             ball1.Position = inverseDirection  * chargeStrength * 100;
             ball1.Visible = true;
             ball1.Rotation = direction.Angle(); // Angle in radians
 
 
         }
-        else if(Id == 1){
+        else if(Id == 2){
             ball2.Position = inverseDirection  * chargeStrength * 100;
             ball2.Visible = true;
             ball2.Rotation = direction.Angle(); // Angle in radians
 
 
             }
-        else if(Id == 2){
+        else if(Id == 3){
             ball3.Position = inverseDirection * chargeStrength * 100;
             ball3.Visible = true;    
             ball3.Rotation = direction.Angle(); // Angle in radians
 
   
             }
-        else if(Id == 3 || Id == 5){
+        else if(Id == 4 || Id == 5){
             ball4.Position = inverseDirection  * chargeStrength * 100;
             ball4.Visible = true;       
             ball4.Rotation = direction.Angle(); // Angle in radians
@@ -69,16 +70,16 @@ public partial class ChargeBall : Node2D
 
     public void ResetPosition(int Id)
     {
-        if(Id == 0){
+        if(Id == 1){
             ball1.Visible = false;
         }
-        else if(Id == 1){
+        else if(Id == 2){
             ball2.Visible = false;        
             }
-        else if(Id == 2){
+        else if(Id == 3){
             ball3.Visible = false;        
             }
-        else if(Id == 3 || Id == 5){
+        else if(Id == 4 || Id == 5){
             ball4.Visible = false;
             }
     }
